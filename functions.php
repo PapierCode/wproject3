@@ -13,9 +13,9 @@ add_action( 'wp_enqueue_scripts', 'pc_enqueue_project_dependencies' );
     function pc_enqueue_project_dependencies() {
 		
 		$css_front_path = '/css/front.css';
-		wp_enqueue_style( 'project-screen', get_stylesheet_directory_uri().$css_front_path, null, filemtime(get_stylesheet_directory().$css_front_path), 'screen' );
+		wp_enqueue_style( 'pc-screen', get_stylesheet_directory_uri().$css_front_path, null, filemtime(get_stylesheet_directory().$css_front_path), 'screen' );
 		$css_print_path = '/css/print.css';
-		wp_enqueue_style( 'project-print', get_stylesheet_directory_uri().$css_print_path, null, filemtime(get_stylesheet_directory().$css_print_path), 'print' );
+		wp_enqueue_style( 'pc-print', get_stylesheet_directory_uri().$css_print_path, null, filemtime(get_stylesheet_directory().$css_print_path), 'print' );
 
 	}
 
@@ -40,7 +40,7 @@ add_action( 'admin_enqueue_scripts', 'pc_enqueue_admin_project_dependencies' );
 
 	function pc_enqueue_admin_project_dependencies() {
 
-		wp_enqueue_style( 'pc-project-css-admin', get_stylesheet_directory_uri().'/css/admin.css', null, filemtime(get_stylesheet_directory().'/css/admin.css'), 'screen' );
+		wp_enqueue_style( 'pc-admin', get_stylesheet_directory_uri().'/css/admin.css', null, filemtime(get_stylesheet_directory().'/css/admin.css'), 'screen' );
 		
 	}	
 

@@ -63,15 +63,17 @@
 
 /*----------  Alignement  ----------*/
 
-[data-name="bloc_horizontal_align"],
-[data-name="bloc_inner_horizontal_align"],
-[data-name="bloc_text_horizontal_align"],
-[data-name="bloc_vertical_align"] {
+.acf-field-button-group .acf-button-group label { padding-inline: 8px; }
+
+[data-name="bloc_position_h"],
+[data-name="bloc_inner_position_v"],
+[data-name="bloc_inner_position_h"],
+[data-name="bloc_text_align"] {
 
 	.acf-button-group label {
 		display: flex;
-		align-items: center;
 		flex-direction: column;
+		align-items: center;
 
 		&:before {
 			content:"";
@@ -88,7 +90,7 @@ $icons_url : "../../../wpreform3/images/admin/";
 $icons_fill_default : #444;
 $icons_fill_selected : #fff;
 
-[data-name="bloc_horizontal_align"] .acf-button-group label {
+[data-name="bloc_position_h"] .acf-button-group label {
 
 	&:has([value="center"])::before {
 		background-image: svg-load( $icons_url + "align-center.svg", fill=$icons_fill_default );
@@ -116,7 +118,7 @@ $icons_fill_selected : #fff;
 	}
 }
 
-[data-name="bloc_vertical_align"] .acf-button-group label {
+[data-name="bloc_inner_position_v"] .acf-button-group label {
 
 	&:has([value="both"])::before {
 		background-image: svg-load( $icons_url + "align-v-both.svg", fill=$icons_fill_default );
@@ -144,7 +146,7 @@ $icons_fill_selected : #fff;
 	}
 }
 
-[data-name="bloc_inner_horizontal_align"] .acf-button-group label {
+[data-name="bloc_inner_position_h"] .acf-button-group label {
 
 	&:has([value="center"])::before {
 		background-image: svg-load( $icons_url + "align-inner-center.svg",fill=$icons_fill_default );
@@ -166,7 +168,7 @@ $icons_fill_selected : #fff;
 	}
 }
 
-[data-name="bloc_text_horizontal_align"] .acf-button-group label {
+[data-name="bloc_text_align"] .acf-button-group label {
 
 	&:has([value="center"])::before {
 		background-image: svg-load( $icons_url + "align-text-center.svg",fill=$icons_fill_default );
@@ -395,8 +397,6 @@ h3.wp-block-heading {
 /*==================================
 =            2 colonnes            =
 ==================================*/
-
-[data-name*="bloc_cols_proportions"] .acf-button-group label { padding-inline: 8px !important; }
 
 .bloc-columns > div {
 	display: grid;
