@@ -57,25 +57,9 @@
 @use "publications/pub-search-results";
 
 
-/*----------  Éditeur  ----------*/
-
-
 /*----------  Formulaires  ----------*/
 
 @use "forms/form-default";
 @use "forms/form-contact";
 @use "forms/form-search";
 @use "forms/form-page-password";
-
-
-/*----------  Woocommerce  ----------*/
-
-@use "woocommerce/woo";
-@use "woocommerce/woo-addtocart";
-@use "woocommerce/woo-product-card";
-@use "woocommerce/woo-product-single";
-@use "woocommerce/woo-messages";
-@use "woocommerce/woo-forms";
-@use "woocommerce/woo-account";
-@use "woocommerce/woo-cart";
-@use "woocommerce/woo-checkout";
