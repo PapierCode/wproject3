@@ -1,0 +1,31 @@
+/**
+*
+* Publications : page
+*
+**/
+
+
+@use "../var-sass" as *;
+@use "../mixins" as *;
+@use "../helpers" as *;
+
+/*=============================
+=            Aside            =
+=============================*/
+
+.page-aside {
+	margin-top:calc(2*var(--space));
+}
+.page-aside-title {
+	@include font(900);
+	color:$black;
+	font-size: rem($h1-font-size-s);
+	text-align: center;
+	
+	@media ( min-width : em($mq-layout-l) ) {
+		font-size: rem($h1-font-size-l);
+	}
+}
+
+
+/*=====  FIN Aside  =====*/

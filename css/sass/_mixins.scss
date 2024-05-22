@@ -1,0 +1,89 @@
+/**
+*
+* Fonctions & Mixins
+*
+**/
+
+
+@use "sass:math";
+@use "var-sass" as *;
+
+
+/*=================================
+=            Fonctions            =
+=================================*/
+
+/*----------  Px to em  ----------*/
+
+@function em($a, $b:null, $c:null, $d:null, $base: 16) {
+
+	// $a
+	@if $a != null and $b == null and $c == null and $d == null {
+
+		@return math.div($a,$base)+'em';
+
+	// $a et $b
+	} @else if $a != null and $b != null and $c == null and $d == null {
+
+		@return math.div($a,$base)+'em' math.div($b,$base)+'em';
+
+	// $a, $b, $c et $d
+	} @else if $a != null and $b != null and $c != null and $d != null {
+
+		@return math.div($a,$base)+'em' math.div($b,$base)+'em' math.div($c,$base)+'em' math.div($d,$base)+'em';
+
+	} @else {
+
+		@return "!";
+
+	}
+
+}
+
+
+/*----------  Px to rem  ----------*/
+
+@function rem($a, $b:null, $c:null, $d:null, $base: 16) {
+
+	// $a
+	@if $a != null and $b == null and $c == null and $d == null {
+
+		@return math.div($a,$base)+rem;
+
+	// $a et $b
+	} @else if $a != null and $b != null and $c == null and $d == null {
+
+		@return math.div($a,$base)+rem math.div($b,$base)+rem;
+
+	// $a, $b, $c et $d
+	} @else if $a != null and $b != null and $c != null and $d != null {
+
+		@return math.div($a,$base)+rem math.div($b,$base)+rem math.div($c,$base)+rem math.div($d,$base)+rem;
+
+	} @else {
+
+		@return "!";
+
+	}
+
+}
+
+
+/*=====  FIN Fonctions  =====*/
+
+/*==============================
+=            Mixins            =
+==============================*/
+
+
+/*----------  Font face  ----------*/
+
+@mixin font( $weight : 600, $line-height : 1.2, $letter-spacing : 0 ) {
+	font-family: $font-face;
+	font-weight: $weight;
+	letter-spacing: $letter-spacing + em;
+	line-height: $line-height;
+}
+
+
+/*=====  FIN Mixins  =====*/

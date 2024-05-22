@@ -51,7 +51,7 @@ var postCssPlugins = [
 	
 function cssScreen() {
     
-    return src( ['css/sass_front/use.scss'] )
+    return src( ['css/use.scss'] )
         .pipe(sass({ precision: 3 }))
         .pipe(postcss( postCssPlugins ))
 		.pipe(rename('front.css'))
@@ -61,7 +61,7 @@ function cssScreen() {
 	
 function cssAdmin() {
     
-    return src( ['css/sass_admin/use.scss'] )
+    return src( ['css/use-editor.scss'] )
         .pipe(sass({ precision: 3 }))
         .pipe(postcss( postCssPlugins ))
 		.pipe(rename('admin.css'))
