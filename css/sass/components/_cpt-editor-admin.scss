@@ -140,7 +140,7 @@
 	}
 }
 
-$icons_url : "../../../wpreform3/images/admin/";
+$icons_url : "../../wpreform3/images/admin/";
 $icons_fill_default : #444;
 $icons_fill_selected : #fff;
 
@@ -343,7 +343,7 @@ h3.wp-block-heading {
 			z-index: 0;
 			width: rem(26);
 			height: rem(20);
-			background-image: svg-load('../../images/icons/quote.svg');
+			background-image: svg-load('../images/icons/quote.svg');
 			opacity: .2;
 		}
 		&::before {

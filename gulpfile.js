@@ -54,18 +54,18 @@ function cssScreen() {
     return src( ['css/use.scss'] )
         .pipe(sass({ precision: 3 }))
         .pipe(postcss( postCssPlugins ))
-		.pipe(rename('front.css'))
-        .pipe(dest( './css/' ));
+		.pipe(rename( 'front.css' ))
+        .pipe(dest( 'css/' ));
 
 }
 	
 function cssAdmin() {
     
-    return src( ['css/use-editor.scss'] )
+    return src( ['css/use-admin.scss'] )
         .pipe(sass({ precision: 3 }))
         .pipe(postcss( postCssPlugins ))
-		.pipe(rename('admin.css'))
-        .pipe(dest( './css/' ));
+		.pipe(rename( 'admin.css' ))
+        .pipe(dest( 'css/' ));
 
 }
 
