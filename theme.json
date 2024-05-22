@@ -1,0 +1,37 @@
+{
+    "version": 2,
+    "settings": {
+		"color": {
+            "custom": false,
+            "background": false,
+            "text": false,
+			"defaultPalette": false,
+			"defaultGradients": false,
+			"customDuotone": false,
+			"customGradient": false,
+			"duotone": [],
+			"gradients": [],
+			"palette": []
+        },
+        "typography": {
+            "customFontSize": false,
+			"fontStyle": false,
+			"fontWeight": false,
+			"letterSpacing": false,
+			"textDecoration": false,
+			"textTransform": false,
+			"dropCap": false,
+			"fontFamilies": [],
+			"fontSizes": []
+		},
+		"layout": {
+			"contentSize": "1200px"
+		}
+    },
+	"styles": {
+        "typography": {
+            "fontFamily": "var(--wp--preset--font-family--base-fonts)",
+            "fontSize": "1rem"
+        }
+	}
+}

@@ -1,0 +1,22 @@
+/**
+*
+* Woocommerce : produit résumé
+*
+**/
+
+
+@use "../../sass/vars" as *;
+@use "../../sass/mixins" as *;
+@use "../helpers" as *;
+
+
+.st-desc {
+
+	.st--product & {
+		margin-bottom:rem($space--st);
+	}
+}
+
+.st-price {
+	margin-top:auto;
+}

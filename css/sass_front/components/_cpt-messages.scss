@@ -1,0 +1,83 @@
+/**
+*
+* Composant : messages
+*
+**/
+
+
+@use "../../sass/vars" as *;
+@use "../../sass/mixins" as *;
+@use "../helpers" as *;
+
+
+.msg {
+	display:flex;
+	line-height: 1.4;
+	align-items: center;
+	color:$black;
+
+	&.msg--block {
+		border: rem(2) solid $msg-default;
+		padding:rem(10,20);
+	}
+
+	.button {
+		height:rem($button-ico-size + $button-space)
+	}
+
+	@media ( min-width : em($mq-layout-m) ) {
+		margin: rem(30,0,30,0);
+	}
+}
+
+.msg-ico {
+	flex:0 0 auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: rem(30);
+	height: rem(30);
+	border-radius: 50%;
+	background-color: $msg-default;
+	margin-right:rem(20);
+
+	svg {
+		fill: $white;
+	}
+
+	.msg--error &,
+	.msg--success & {
+		svg {
+			fill:$msg-default;
+		}
+	}
+
+	.msg--block & {
+		svg {
+			fill: $white;
+		}
+	}
+}
+
+.msg--error {
+	
+	&:not(.msg--block) .msg-ico {
+		background-color: $msg-error;
+	}
+	&.msg--block {
+		border:none;
+		background-color:$msg-error;
+		color:$black;
+	}
+}
+
+.msg--success {
+
+	&:not(.msg--block) .msg-ico {
+		background-color: $msg-success;
+	}
+	&.msg--block {
+		border:none;
+		background-color:$msg-success;
+	}
+}

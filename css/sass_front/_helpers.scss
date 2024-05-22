@@ -1,0 +1,175 @@
+/**
+*
+* Classes utiles
+*
+**/
+
+
+@use "sass:math";
+@use "../sass/vars" as *;
+@use "../sass/mixins" as *;
+
+
+/*======================================
+=            Classes utiles            =
+======================================*/
+
+/*----------  Visually hidden  ----------*/
+
+.visually-hidden {
+	position: absolute;
+	overflow: hidden;
+	height: 1px;
+	width: 1px;
+	margin: 0;
+	padding: 0;
+	clip: rect(1px,1px,1px,1px);
+	border: 0;
+	clip-path: inset(50%);
+	white-space: nowrap;
+}
+
+
+/*----------  Reset list & button  ----------*/
+
+.reset-list {
+	list-style:none;
+	margin: 0;
+	padding: 0;
+	li { list-style-image:none; }
+}
+
+.reset-btn, .button {
+	border:none;
+	padding: 0;
+	border-radius:0;
+	background:none;
+}
+
+
+/*----------  Iframe  ----------*/
+
+.iframe {
+	position: relative;
+	height: 0;
+	background-repeat: no-repeat;
+	background-size: cover;
+
+	iframe {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+}
+
+.iframe-accept {
+	position: absolute;
+	inset: 0;
+	display:flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	@extend .layout-ptrbl;
+	background-color: rgba($orange,.95);
+	color:$black;
+	text-align: center;
+}
+
+
+/*----------  Layout padding  ----------*/
+
+.layout-ptrbl { @include layout(); }
+.layout-prbl { @include layout( p, 0, 1, 1, 1 ); }
+
+.layout-pt {
+	padding-top : $space;
+
+	@media ( min-width : em($mq-layout-l) ) {
+		padding-top : $space-v-coef*$space;
+	}
+	@media ( min-width : em($mq-layout-maw) ) {
+		padding-top : rem( $space-v-coef*$space-max );
+	}
+}
+.layout-pb {
+	padding-bottom : $space;
+
+	@media ( min-width : em($mq-layout-l) ) {
+		padding-bottom : $space-v-coef*$space;
+	}
+	@media ( min-width : em($mq-layout-maw) ) {
+		padding-bottom : rem( $space-v-coef*$space-max );
+	}
+}
+
+
+/*----------  Layout margin  ----------*/
+
+.layout-mt {
+	margin-top : $space;
+
+	@media ( min-width : em($mq-layout-l) ) {
+		margin-top : $space-v-coef*$space;
+	}
+	@media ( min-width : em($mq-layout-maw) ) {
+		margin-top : rem( $space-v-coef*$space-max );
+	}
+}
+.layout-mb {
+	margin-bottom : $space;
+
+	@media ( min-width : em($mq-layout-l) ) {
+		margin-bottom : $space-v-coef*$space;
+	}
+	@media ( min-width : em($mq-layout-maw) ) {
+		margin-bottom : rem( $space-v-coef*$space-max );
+	}
+}
+
+
+/*----------  Layout center  ----------*/
+
+.layout-center {
+	margin-right: auto;
+	margin-left: auto;
+}
+
+/*----------  Layout max-width  ----------*/
+
+.layout-maw {
+	max-width:rem($maw-layout);
+}
+.layout-maw-txt {
+	max-width:rem($maw-txt);
+}
+
+
+@mixin button() {
+	display: inline-flex;
+	align-items: center;
+
+	height: rem($button-size);
+	padding:rem(0,$button-space);
+
+	background-color: $black;
+
+	@include font(900);
+	font-size:rem(16);
+	text-decoration: none;
+	color:$white;
+	text-transform: uppercase;
+
+	transition:all .3s ease;
+	
+	&:hover, &:focus {
+		background-color: $blue;
+		color:$black;
+		transition:all .3s ease;
+	}
+	
+}
+
+
+/*=====  FIN Classes utiles  =====*/

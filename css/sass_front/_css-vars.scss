@@ -1,0 +1,57 @@
+
+@use "../sass/mixins" as *;
+@use "../sass/vars" as *;
+
+
+:root {
+
+	/*----------  Espaces  ----------*/
+	
+	--space : min(4vw,#{rem($space-max)});
+	--space-screen : var(--space); // distance horizontale contenu/écran
+	--space-half : var(--space); // réduit à partir de layout-l
+
+	/*----------  Grille  ----------*/
+	
+	--grid-col-count : 1;
+	--grid : repeat(var(--grid-col-count),1fr);
+
+
+	@media ( min-width : em($mq-layout-m) ) {
+	
+	}
+	
+	@media ( min-width : em($mq-layout-l) ) {
+		
+		/*----------  Espaces  ----------*/
+				
+		--space-screen : calc(2*var(--space));
+		--space-half : calc(.5*var(--space));
+
+		/*----------  Grille  ----------*/
+		
+		--grid-col-count : 6;
+
+    }
+
+	@media ( min-width : em($mq-layout-xl) ) {
+		
+		/*----------  Espaces  ----------*/
+				
+		--space-screen : var(--space);
+
+		/*----------  Grille  ----------*/
+		
+		--grid-col-count : 12;	
+
+	}
+
+	@media ( min-width : em($mq-layout-xxl) ) {
+
+	}
+
+	@media ( min-width : em($mq-layout-maw) ) {
+		
+	}
+
+}
