@@ -75,7 +75,6 @@
 =            Mixins            =
 ==============================*/
 
-
 /*----------  Font face  ----------*/
 
 @mixin font( $weight : 600, $line-height : 1.2, $letter-spacing : 0 ) {
@@ -84,6 +83,7 @@
 	letter-spacing: $letter-spacing + em;
 	line-height: $line-height;
 }
+
 
 
 /*=====  FIN Mixins  =====*/
