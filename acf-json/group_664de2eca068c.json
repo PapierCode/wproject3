@@ -7,9 +7,9 @@
             "label": "Introduction",
             "name": "home_intro",
             "aria-label": "",
-            "type": "wysiwyg",
+            "type": "textarea",
             "instructions": "",
-            "required": 1,
+            "required": 0,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
@@ -17,10 +17,10 @@
                 "id": ""
             },
             "default_value": "",
-            "tabs": "visual",
-            "toolbar": "light",
-            "media_upload": 0,
-            "delay": 0
+            "maxlength": "",
+            "rows": 4,
+            "placeholder": "",
+            "new_lines": ""
         }
     ],
     "location": [
@@ -46,5 +46,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1716380603
+    "modified": 1717401248
 }

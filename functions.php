@@ -40,7 +40,7 @@ add_action( 'admin_enqueue_scripts', 'pc_enqueue_admin_project_dependencies' );
 
 	function pc_enqueue_admin_project_dependencies() {
 
-		wp_enqueue_style( 'pc-admin', get_stylesheet_directory_uri().'/css/admin.css', null, filemtime(get_stylesheet_directory().'/css/admin.css'), 'screen' );
+		wp_enqueue_style( 'project-admin', get_stylesheet_directory_uri().'/css/project-admin.css', null, filemtime(get_stylesheet_directory().'/css/project-admin.css'), 'screen' );
 		
 	}	
 

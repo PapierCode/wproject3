@@ -64,7 +64,7 @@ function cssAdmin() {
     return src( ['css/use-admin.scss'] )
         .pipe(sass({ precision: 3 }))
         .pipe(postcss( postCssPlugins ))
-		.pipe(rename( 'admin.css' ))
+		.pipe(rename( 'project-admin.css' ))
         .pipe(dest( 'css/' ));
 
 }

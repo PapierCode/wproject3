@@ -1,18 +1,23 @@
 {
     "version": 2,
     "settings": {
+		"layout": {
+			"contentSize": "590px",
+			"wideSize": "900px"
+		},
 		"color": {
             "custom": false,
             "background": false,
             "text": false,
 			"defaultPalette": false,
 			"defaultGradients": false,
+			"defaultDuotone": false,
 			"customDuotone": false,
 			"customGradient": false,
 			"duotone": [],
 			"gradients": [],
 			"palette": []
-        },
+		},
         "typography": {
             "customFontSize": false,
 			"fontStyle": false,
@@ -24,8 +29,15 @@
 			"fontFamilies": [],
 			"fontSizes": []
 		},
-		"layout": {
-			"contentSize": "800px"
+		"shadow": {
+			"defaultPresets": false
+		},
+		"blocks": {
+			"core/button": {
+				"border": {
+					"radius": false
+				}
+			}
 		}
     },
 	"styles": {
@@ -33,5 +45,7 @@
             "fontFamily": "var(--wp--preset--font-family--base-fonts)",
             "fontSize": "1rem"
         }
-	}
+	},
+  	"customTemplates": {},
+  	"templateParts": {}
 }
