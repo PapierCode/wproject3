@@ -369,13 +369,13 @@
 
 }
 
-.bloc-inner-position-v--top {
+.bloc-inner-align-v--top {
 	> *:not(.bloc-column--cover) { align-self: start; }
 }
-.bloc-inner-position-v--center {
+.bloc-inner-align-v--center {
 	> *:not(.bloc-column--cover) { align-self: center; }
 }
-.bloc-inner-position-v--bottom {
+.bloc-inner-align-v--bottom {
 	> *:not(.bloc-column--cover) { align-self: end; }
 }
 
