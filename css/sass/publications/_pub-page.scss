@@ -13,18 +13,9 @@
 =            Aside            =
 =============================*/
 
-.page-aside {
-	margin-top:calc(2*var(--space));
-}
-.page-aside-title {
-	@include font(900);
-	color:$black;
-	font-size: rem($h1-font-size-s);
-	text-align: center;
-	
-	@media ( min-width : em($mq-layout-l) ) {
-		font-size: rem($h1-font-size-l);
-	}
+.aside--news .card-list--news {
+	margin-top: var(--space);
+	grid-column: 1/-1;
 }
 
 

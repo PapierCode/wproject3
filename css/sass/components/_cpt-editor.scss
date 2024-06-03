@@ -444,10 +444,16 @@
 	display: flex;
 	flex-wrap: wrap;
 	gap:rem($button-space);
-
-	&.bloc-text-align--center { justify-content: center; }
-	&.bloc-text-align--right { justify-content: flex-end; }
-
-	.wp-element-button { @extend .button; }
-	.wp-block-button:has(a:not([href])) { display: none; }
+}
+.wp-block-button {
+	&[class*="width-50"] { width: 50%; }
+	&:has(a:not([href])) { display: none; }
+}
+.wp-element-button { 
+	@extend .button;
+	width: 100%;
+	
+	&.has-text-align-center { justify-content: center; }
+	&.has-text-align-right { justify-content: flex-end; }
+	br { display: none; }
 }
