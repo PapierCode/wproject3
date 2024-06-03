@@ -21,19 +21,14 @@
 =            Bouton ouvrir/fermer            =
 ============================================*/
 
-.h-nav-btn-box {
+.h-nav-btn {
+	@extend .button;
+	
     position: relative;
 	z-index: 999;
 	order: 3;
-	color:$black;
-
-	@media ( min-width : em($mq-layout-xxl) ) {
-		display:none;
-	}
-}
-
-.h-nav-btn {
-	@extend .button;
+	justify-self: end;
+	align-self: end;
 
 	.txt {
 		position: absolute;
@@ -42,6 +37,8 @@
 	}
 
 	@media ( min-width : em($mq-header-nav-l) ) {
+		grid-column-end: -1;
+
 		.txt {
 			position: static;
 			overflow: hidden;
@@ -55,6 +52,9 @@
 				transition: all .5s ease;
 			}
 		}
+	}
+	@media ( min-width : em($mq-layout-xxl) ) {
+		display:none;
 	}
 }
 
@@ -170,8 +170,7 @@
 		transition: none;
 		background-color: transparent;
 
-		grid-column: 5/25;
-		grid-row: 2/3;
+		grid-column: span 9;
 		justify-self: end;
 		align-self: end;
 
