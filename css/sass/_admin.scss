@@ -33,16 +33,12 @@
 =            Défaut / Titres            =
 =======================================*/
 
-
 .editor-post-title, 
-.wp-block-heading {	@include font(900,1.4); }
+.wp-block-heading {	@include font(900,1.1); }
 
-.editor-post-title {
-	font-size: rem($h1-font-size-l);
-}
-
-h2.wp-block-heading { font-size: rem($editor-h2-font-size-l); }
-h3.wp-block-heading { font-size: rem($editor-h3-font-size-l); }
+.editor-post-title { font-size: rem(40); }
+h2.wp-block-heading { font-size: rem(30); }
+h3.wp-block-heading { font-size: rem(20); }
 
 
 /*=====  FIN Défaut / Titres  =====*/
@@ -54,10 +50,9 @@ h3.wp-block-heading { font-size: rem($editor-h3-font-size-l); }
 /*----------  Aperçu  ----------*/
 
 .wp-block-acf-pc-quote {
-	font-family: $font-face;
+	@include font(800);
 
 	p:nth-child(1) {
-		font-weight: 800;
 		font-size: rem(24);
 
 		&::before, &::after {
@@ -65,7 +60,7 @@ h3.wp-block-heading { font-size: rem($editor-h3-font-size-l); }
 			width: rem(26);
 			height: rem(20);
 			background-image: svg-load('../images/icons/quote.svg',fill=$yellow);
-			opacity: .2;
+			opacity: .5;
 		}
 		&::before {
 			transform: scale(-$quote-size,$quote-size);
@@ -79,9 +74,7 @@ h3.wp-block-heading { font-size: rem($editor-h3-font-size-l); }
 		}
 	}
 
-	p:nth-child(2) {
-		font-weight: 600;
-	}
+	p:nth-child(2) { font-weight: 600; }
 }
 
 
@@ -91,7 +84,7 @@ h3.wp-block-heading { font-size: rem($editor-h3-font-size-l); }
 =            Boutons            =
 ===============================*/
 
-.bloc-buttons {
+.wp-block-acf-pc-buttons {
 
 	.wp-element-button {
 		border:none;
@@ -102,7 +95,7 @@ h3.wp-block-heading { font-size: rem($editor-h3-font-size-l); }
 		height: rem($button-size);
 		padding: rem(0,$button-space);
 		background-color: $black;
-		@include font(800,1);
+		@include font(600,1);
 		font-size: rem(18);
 		color: $white;
 	}
@@ -110,15 +103,3 @@ h3.wp-block-heading { font-size: rem($editor-h3-font-size-l); }
 
 
 /*=====  FIN Boutons  =====*/
-
-/*==================================
-=            Sous-pages            =
-==================================*/
-
-.bloc-subpages {
-	@include font(600,1.2);
-	font-size: rem(20);
-}
-
-
-/*=====  FIN Sous-pages  =====*/
