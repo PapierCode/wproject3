@@ -27,7 +27,7 @@
 }
 
 .form-item--contact-cgu {
-	padding-top:$space;
+	padding-top:var(--space);
 	border-top:$border;
 
 	input[type="checkbox"] {

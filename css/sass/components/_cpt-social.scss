@@ -38,7 +38,7 @@
 
 .social-list--header {
 	justify-content: center;
-	margin-top: $space;
+	margin-top: var(--space);
 
 	.social-item {
 		margin-left:rem(10);
@@ -68,8 +68,8 @@
 
 	&:nth-child(n+2) {
 		border-top:$border;
-		margin-top: $space;
-		padding-top: $space;
+		margin-top: var(--space);
+		padding-top: var(--space);
 	}
 
 	@media ( min-width : em($mq-main-nav-l) ) {

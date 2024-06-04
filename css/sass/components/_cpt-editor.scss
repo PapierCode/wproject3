@@ -96,18 +96,19 @@
 	}
 	ul:not([class]) {
 		list-style: disc;
-		padding-left: rem(2*$editor-space-default-s);
+		padding-left: rem(20);
 	}
 	ol:not([class]) {
 		list-style: decimal;
-		padding-left: rem(3*$editor-space-default-s);
+		padding-left: rem(30);
 	}
 	
 
 	/*----------  Titres  ----------*/
 	
 	h2, h3  {
-		@include font($editor-heading-weight,$editor-heading-line-height);
+		@include font(800,1.2);
+		color: $black;
 		margin:0;
 
 		a {
@@ -123,23 +124,16 @@
 		}
 	}
 
-	h2 {
-		color: $editor-h2-color;
-		font-size: rem($editor-h2-font-size-s);
+	--h2-font-size : #{rem(28)};
+	--h3-font-size : #{rem(22)};
 
-		@media ( min-width : em($mq-layout-l) ) {
-			font-size: rem($editor-h2-font-size-l);
-		}
+	@media ( min-width : em($mq-layout-l) ) {
+		--h2-font-size : #{rem(32)};
+		--h3-font-size : #{rem(26)};
 	}
 
-	h3 {
-		color: $editor-h3-color;
-		font-size: rem($editor-h3-font-size-s);
-
-		@media ( min-width : em($mq-layout-l) ) {
-			font-size: rem($editor-h3-font-size-l);
-		}
-	}
+	h2 { font-size: var(--h2-font-size); }
+	h3 { font-size: var(--h3-font-size); }
 
 	> h2, h3 { margin-bottom: 0; }
 	> h2 { margin-top: calc(.75*var(--editor-space)); }

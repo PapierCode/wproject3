@@ -18,8 +18,8 @@
 	&:nth-child(2) {
 		order:-1;
 		border-bottom:$border;
-		margin-bottom: $space;
-		padding-bottom: $space;
+		margin-bottom: var(--space);
+		padding-bottom: var(--space);
 	}
 
 	@media ( min-width : em($mq-main-nav-l) ) {

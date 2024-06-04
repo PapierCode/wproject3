@@ -46,12 +46,6 @@ $msg-success		: $green;
 
 /*----------  Layout global  ----------*/
 
-$space					: 4vw;
-$space-max				: 40;
-$space-v-coef			: .75;
-
-$grid-col-maw           : 70;
-
 $maw-txt          		: 690; // 6 cols au max-layout
 $maw-layout				: 1500;
 
@@ -64,22 +58,17 @@ $mq-layout-maw			: $maw-layout;
 
 /*----------  Navigation  ----------*/
 
-$button-ico-size	 	: 16;
-$button-space 			: 10;
-$button-size 			: $button-ico-size + 2 * $button-space;
-
-$header-nav-w-s	 		: 80vw; // navigation masquée
-$header-nav-w-l			: 50vw; // navigation masquée
-
-$mq-header-nav-l		: 500;
-$mq-main-nav-l			: 600;
+$mq-header-nav-l		: 500; // todo
+$mq-main-nav-l			: 600; // todo
 
 
 /*----------  Divers  ----------*/
 
-$space--st 				: 20; // ???
+$space--st 				: 20;
 
-$mq-gallery-max			: 1200;
+$button-ico-size	 	: 16;
+$button-space 			: 10;
+$button-size 			: $button-ico-size + 2 * $button-space;
 
 
 /*=====  FIN Agencement  ======*/
@@ -91,14 +80,7 @@ $mq-gallery-max			: 1200;
 $font-default 			: Arial, sans-serif;
 $font-face				: 'Raleway', sans-serif; // 600,800,900
 
-$base-font-size-s		: 16;
-$base-font-size-l		: 18;
 $line-height-default	: 1.6;
-
-$mq-base-font-size		: $mq-layout-l;
-
-$h1-font-size-s			: 36;
-$h1-font-size-l			: 44;
 
 
 /*=====  FIN Typographie  ======*/
@@ -113,7 +95,7 @@ $t-nav-btn-ico			: .6s;
 $t-nav-link 			: .3s;
 
 // article résumé
-$t-card-hover				: .5s;
+$t-card-hover			: .5s;
 
 // accueil
 $t-home-shortcut-hover 	: .4s;
@@ -130,94 +112,3 @@ $quote-size 			: 5;
 
 
 /*=====  FIN Décoration  =====*/
-	
-/*===============================
-=            Wysiwyg            =
-===============================*/
-
-$editor-space-default-s		: 10;
-$editor-space-default-l		: 20;
-
-
-/*----------  Titres  ----------*/
-
-$editor-heading-font			: $font-face;
-$editor-heading-weight			: 900;
-$editor-heading-line-height		: 1.3;
-
-$editor-h2-color				: $black;
-$editor-h2-font-size-s			: 28;
-$editor-h2-font-size-l			: 32;
-$editor-h2-mtop-s				: 1.5 * $editor-space-default-l;
-$editor-h2-mtop-l				: 2.5 * $editor-space-default-l;
-
-$editor-h3-color				: $black;
-$editor-h3-font-size-s			: 22;
-$editor-h3-font-size-l			: 26;
-$editor-h3-mtop-s				: $editor-space-default-l;
-$editor-h3-mtop-l				: 1.5 * $editor-space-default-l ;
-
-
-/*----------  Lien  ----------*/
-
-$editor-link-color					: $black;
-
-$editor-link-color-hover			: $black;
-$editor-link-bg-color-hover			: $yellow;
-
-$editor-link-color-visited			: $black;
-$editor-link-border-color-visited	: $grey;
-
-
-/*----------  Blocs ACF  ----------*/
-
-$editor-cta-bg-color		        : $grey;
-
-
-
-/*=====  FIN Wysiwyg  =====*/
-
-/*===================================
-=            Woocommerce            =
-===================================*/
-
-$woo-space					: 10;
-
-$woo-cell-padding-v			: $woo-space;
-$woo-cell-padding-h			: $woo-space;
-$woo-border-spacing			: $woo-space;
-
-$woo-th-bg-color			: $yellow;
-$woo-coupon-bg-color		: $green;
-$woo-total-bg-color			: $red;
-
-$woo-space-form-row			: 15;
-
-
-/*----------  Ajout au panier  ----------*/
-
-$atc-space					: $woo-space;
-
-$atc-maw					: 500;
-$atc-label-miw-s			: 100;
-$atc-label-miw-l			: 120;
-$atc-ico-size				: 20;
-
-
-/*----------  Panier  ----------*/
-
-$cart-button-ico-size		: 14;
-
-
-/*----------  Validation commande  ----------*/
-
-$checkout-td-width			: 35vw;
-
-
-/*----------  Compte  ----------*/
-
-$account-space				: $woo-space;
-$account-border-spacing		: $woo-border-spacing;
-
-
-/*=====  FIN Woocommerce  =====*/

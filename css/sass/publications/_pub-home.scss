@@ -46,10 +46,8 @@
 /*==================================
 =            Raccourcis            =
 ==================================*/
-
-.home-shortcuts {
-	grid-column: var(--grid-col-max-layout);
-}
+/*
+.home-shortcuts {}
 
 .home-shortcuts-list {
 	display: flex;
@@ -113,9 +111,9 @@
 .home-shortcut-txt {
 	position: absolute;
 	min-height: 0;
-	left: .5*-$space;
-	bottom:.5*$space;
-	right:.5*$space;
+	left: calc(-.5*var(--space));
+	bottom:calc(.5*var(--space));
+	right:calc(.5*var(--space));
 	padding: rem(10);
 	background-color: rgba($red,.95);
 	color:$black;
@@ -128,10 +126,10 @@
 	.home-shortcut-link:hover &, .home-shortcut-link:focus & {
 		//color:$black;
 		background-color:rgba($blue,.95);
-		bottom:$space;
-		left:$space;
-		right:$space;
-		min-height:calc( 100% - #{2*$space} );
+		bottom:var(--space);
+		left:var(--space);
+		right:var(--space);
+		min-height:calc( 100% - 2*var(--space) );
 		transition:all $t-home-shortcut-hover ease;
 	}
 
@@ -139,31 +137,21 @@
 		font-size: rem(20);
 		
 		.home-shortcut-link:hover &, .home-shortcut-link:focus & {
-			bottom:$space;
-			left:$space;
-			right:$space;
+			bottom:var(--space);
+			left:var(--space);
+			right:var(--space);
 		}
 	}
 	@media ( min-width : em($mq-layout-l) ) {
-		left: .5*-$space;
-		bottom:.5*$space;
-		right:.5*$space;
+		left: calc(-.5*var(--space));
+		bottom:calc(.5*var(--space));
+		right:calc(.5*var(--space));
 
 		.home-shortcut-link:hover &, .home-shortcut-link:focus & {
 			min-height:100%;
-			left:-.5*$space;
-			right:.5*$space;
+			left:calc(-.5*var(--space));
+			right:calc(.5*var(--space));
 			bottom:0;
-		}		
-	}
-	@media ( min-width : em($mq-layout-maw) ) {
-		left: rem(.5*-$space-max);
-		bottom:rem(.5*$space-max);
-		right:rem(.5*$space-max);
-
-		.home-shortcut-link:hover &, .home-shortcut-link:focus & {
-			left:rem(-.5*$space-max);
-			right:rem(.5*$space-max);
 		}		
 	}
 }
@@ -204,6 +192,7 @@
 		}	
 	}
 }
+*/
 
 
 /*=====  FIN Raccourcis  =====*/

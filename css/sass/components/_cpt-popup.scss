@@ -31,8 +31,8 @@
 .map-controls {
 	position: absolute;
 	z-index: 666;
-	top:$space;
-	right:$space;
+	top:var(--space);
+	right:var(--space);
 
 	button {
 		vertical-align: middle;

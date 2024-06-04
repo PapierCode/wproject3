@@ -90,14 +90,14 @@
 .gl-header {
 	display: flex;
 	align-items: center;
-	padding: $space;
+	padding: var(--space);
 }
 .gl-main {
 	height: 0;
 	flex-grow: 1;
 }
 .gl-footer {
-	padding: $space;
+	padding: var(--space);
 	text-align: center;
 	background-color: rgba($black,.5);
 }
@@ -123,7 +123,7 @@
 	justify-content: center;
 	align-items: center;
 	height: 100%;
-	padding: 0 $space;
+	padding: 0 var(--space);
 
 	> img {
 		object-fit: scale-down;
@@ -132,7 +132,7 @@
 	}
 
 	@media ( min-width : em($mq-layout-l) ) {
-		padding: 0 calc( #{rem($button-size)} + #{2*$space} );
+		padding: 0 calc( #{rem($button-size)} + 2*var(--space) );
 	}
 }
 
@@ -181,7 +181,7 @@
 	@media ( min-width : em($mq-layout-l) ) {
 		transform: translateY(-50%);
 		right:auto;
-		left: $space;
+		left: var(--space);
 	}
 }
 .gl-btn-nav--next {
@@ -191,7 +191,7 @@
 	@media ( min-width : em($mq-layout-l) ) {
 		margin:0;
 		transform: rotate(180deg) translateY(50%);
-		right: $space;
+		right: var(--space);
 	}
 }
 

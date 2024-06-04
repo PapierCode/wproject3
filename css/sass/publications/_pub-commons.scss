@@ -22,12 +22,8 @@
 h1 {
 	@include font(900);
 	color:$black;
-	font-size: rem($h1-font-size-s);
+	font-size: var(--h1-font-size);
 	margin:0;
-	
-	@media ( min-width : em($mq-layout-l) ) {
-		font-size: rem($h1-font-size-l);
-	}
 }
 
 
@@ -232,7 +228,7 @@ a, a:visited {
 
 .card-label {
 	position: absolute;
-	top:2*$space;
+	top:calc(2*var(--space));
 	left:0;
 
 	@include font(800);
@@ -242,12 +238,8 @@ a, a:visited {
 	padding:rem(.5*$button-space,2*$button-space);
 
 	@media ( min-width : em($mq-layout-l) ) {
-		top:2*$space-v-coef*$space;
-		left:.5*$space;
-	}
-	@media ( min-width : em($mq-layout-maw) ) {
-		top:rem(2*$space-v-coef*$space-max);
-		left:rem(.5*$space-max);
+		top:var(--space);
+		left:calc(.5*var(--space));
 	}
 }
 
@@ -264,7 +256,7 @@ a, a:visited {
 	display: flex;
 	align-items: center;
 	@include font();
-	margin: 0 0 $space 0;
+	margin: 0 0 var(--space) 0;
 
 	.ico {
 		margin-right: rem($button-space);

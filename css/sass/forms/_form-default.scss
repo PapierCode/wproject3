@@ -24,7 +24,7 @@
 
 .form-item {
 	& + & {
-		margin-top:$space;
+		margin-top:var(--space);
 	}
 
 	@media ( min-width : em($mq-layout-l) ) {
@@ -49,8 +49,8 @@ label, .label-like {
 		transition:all .3s ease;
 
 		&:hover, &:focus {
-		   background-color: $editor-link-bg-color-hover;
-		   transition:all .3s ease;
+			// TODO
+			transition:all .3s ease;
 		}
 	}
 }
@@ -194,7 +194,7 @@ select:disabled {
 ===============================*/
 
 .form-item--captcha {
-	padding-top: $space;
+	padding-top: var(--space);
 	border-top:$border;
 	
 	.h-captcha {
@@ -242,7 +242,7 @@ select:disabled {
 .form-item--submit {
 	text-align: center;
 	justify-content: center;
-	padding: $space 0;
+	padding: var(--space) 0;
 	border:$border;
 
 	@media ( min-width : em($mq-layout-l) ) {

@@ -32,20 +32,15 @@ html {
 
 body {
 	position: relative;
+	background-color: $white;
 	
 	font-family: $font-default;
-	font-size: rem($base-font-size-s);
+	font-size: var(--base-font-size);
 	line-height: $line-height-default;
 	color: $black;
-	
-	background-color: $white;
-
-	@media ( min-width : em($mq-base-font-size) ) {
-		font-size: rem($base-font-size-l);
-	}
 }
 
-.body-inner {}
+// .body-inner {}
 
 
 /*=====  FIN Html & body  =====*/

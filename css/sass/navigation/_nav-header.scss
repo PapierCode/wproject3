@@ -37,7 +37,7 @@
 	}
 
 	@media ( min-width : em($mq-header-nav-l) ) {
-		grid-column-end: -1;
+		grid-column: span 2 / -1;
 
 		.txt {
 			position: static;
@@ -184,9 +184,9 @@
 }
 
 .h-nav-inner {
-	width: $header-nav-w-s;
+	width: 80vw;
 	height: 100%;
-	padding: calc( #{rem($button-size)} + #{2*$space} ) $space $space $space;
+	padding: calc( #{rem($button-size)} + 2*var(--space) ) var(--space) var(--space);
 	background-color: $yellow;
 	transform: translateX(100%);
 	transition: transform $t-nav ease;
@@ -199,7 +199,7 @@
 	}
 	
 	@media ( min-width : em($mq-header-nav-l) ) {
-		width:$header-nav-w-l;
+		width:50vw;
 	}
 	@media ( min-width : em($mq-layout-xxl) ) {
 		background-color: transparent;
@@ -276,7 +276,7 @@
 
 }
 .h-p-nav-list--l2 {
-	margin-left:$space;
+	margin-left:var(--space);
 
 	@media ( min-width : em($mq-layout-xxl) ) {
 		flex-direction: column;
