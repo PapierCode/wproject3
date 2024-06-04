@@ -7,7 +7,7 @@
 
 	/*----------  Espaces  ----------*/
 	
-	--space : min(4vw,#{rem($space-max)});
+	--space : min( 4vw, #{rem($space-max)} );
 	--space-screen : var(--space); // distance horizontale contenu/écran
 	--space-half : var(--space); // réduit à partir de layout-l
 
