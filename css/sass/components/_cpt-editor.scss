@@ -150,18 +150,119 @@
 
 } /* FIN .editor */
 
-/*==============================
-=            Spacer            =
-==============================*/
+/*===============================
+=            Communs            =
+===============================*/
 
-.bloc-spacer {
-	&:first-child, &:last-child { display: none; }
+[class*="bloc-style"] {
+	padding: var(--editor-space);
+
+	[class*="bloc-style"] {
+		background-color: transparent;
+		padding: 0;
+	}
 }
-.bloc-spacer--x3 { height: var(--editor-space); }
-.bloc-spacer--x4 { height: calc(2*var(--editor-space)); }
+.bloc-style--v1 { background-color: $orange; }
+.bloc-style--v2 { background-color: $green; }
+
+.bloc-column,
+.bloc-frame-inner {
+	> :nth-child(n+2) { margin: 1rem 0 0; }
+}
 
 
-/*=====  FIN Spacer  =====*/
+/*=====  FIN Communs  =====*/
+
+
+/*===============================
+=            Encadré            =
+===============================*/
+
+.bloc-frame {
+
+	&[class*="bloc-align-h"] {
+		display: grid;
+		grid-template-columns: subgrid;
+	}
+}
+
+.bloc-frame-inner {
+	grid-column: 1/-1;
+	
+	@media ( min-width : em($mq-layout-xl) ) {
+		.bloc-align-h--wide & {	grid-column: 3/-3; }
+		.bloc-align-h--left &,
+		.bloc-align-h--right & { grid-column: 2/-2; }
+	}
+}
+
+
+/*=====  FIN Encadré  =====*/
+
+/*=================================
+=            Colonnes             =
+=================================*/
+
+.bloc-columns {
+
+	@media ( min-width : em($mq-layout-l) ) {
+		display: grid;
+		grid-template-columns: subgrid;
+		gap:var(--editor-space);
+
+		--span-1-1 : span 3;
+		--span-1 : span 2;
+		--span-2 : span 4;
+
+		&.bloc-columns--1-1 > * { grid-column: var(--span-1-1); }
+
+		&.bloc-columns--1-2 > :nth-child(1) { grid-column: var(--span-1); }
+		&.bloc-columns--2-1 > :nth-child(2) { grid-column: var(--span-1); }
+
+		&.bloc-columns--1-2 > :nth-child(2) { grid-column: var(--span-2); }
+		&.bloc-columns--2-1 > :nth-child(1) { grid-column: var(--span-2); }
+	}
+	@media ( min-width : em($mq-layout-xl) ) {
+		--span-1-1 : span 4;
+		--span-1 : span 3;
+		--span-2 : span 5;
+	}
+	@media ( min-width : em($mq-layout-xxl) ) {
+		--span-1-1 : span 3;
+		--span-1 : span 2;
+		--span-2 : span 4;
+	}
+
+	&.bloc-align-h--left,
+	&.bloc-align-h--right {
+		@media ( min-width : em($mq-layout-xl) ) {
+			--span-1-1 : span 5;
+			--span-1 : span 4;
+			--span-2 : span 6;		
+		}
+		@media ( min-width : em($mq-layout-xxl) ) {
+			--span-1-1 : span 4;
+			--span-1 : span 3;
+			--span-2 : span 5;		
+		}
+	}
+
+	&.bloc-align-h--wide {
+		@media ( min-width : em($mq-layout-xl) ) {
+			--span-1-1 : span 6;
+			--span-1 : span 4;
+			--span-2 : span 8;		
+		}
+		@media ( min-width : em($mq-layout-xxl) ) {
+			--span-1-1 : span 5;
+			--span-1 : span 4;
+			--span-2 : span 6;
+		}
+	}
+}
+
+
+/*=====  FIN Colonnes   =====*/
 
 /*===============================
 =            Boutons            =
@@ -322,113 +423,18 @@
 
 /*=====  FIN Galerie  =====*/
 
+/*==============================
+=            Spacer            =
+==============================*/
 
-[class*="bloc-style"] {
-	padding: var(--editor-space);
-
-	[class*="bloc-style"] {
-		background-color: transparent;
-		padding: 0;
-	}
+.bloc-spacer {
+	&:first-child, &:last-child { display: none; }
 }
-.bloc-style--v1 { background-color: $orange; }
-.bloc-style--v2 { background-color: $green; }
-
-.bloc-column,
-.bloc-frame-inner {
-	> :nth-child(n+2) { margin: 1rem 0 0; }
-}
+.bloc-spacer--x3 { height: var(--editor-space); }
+.bloc-spacer--x4 { height: calc(2*var(--editor-space)); }
 
 
-/*===============================
-=            Encadré            =
-===============================*/
-
-.bloc-frame {
-
-	&[class*="bloc-align-h"] {
-		display: grid;
-		grid-template-columns: subgrid;
-	}
-}
-
-.bloc-frame-inner {
-	grid-column: 1/-1;
-	
-	@media ( min-width : em($mq-layout-xl) ) {
-		.bloc-align-h--wide & {	grid-column: 3/-3; }
-		.bloc-align-h--left &,
-		.bloc-align-h--right & { grid-column: 2/-2; }
-	}
-}
-
-
-/*=====  FIN Encadré  =====*/
-
-/*=================================
-=            Colonnes             =
-=================================*/
-
-.bloc-columns {
-
-	@media ( min-width : em($mq-layout-l) ) {
-		display: grid;
-		grid-template-columns: subgrid;
-		gap:var(--editor-space);
-
-		--span-1-1 : span 3;
-		--span-1 : span 2;
-		--span-2 : span 4;
-
-		&.bloc-columns--1-1 > * { grid-column: var(--span-1-1); }
-
-		&.bloc-columns--1-2 > :nth-child(1) { grid-column: var(--span-1); }
-		&.bloc-columns--2-1 > :nth-child(2) { grid-column: var(--span-1); }
-
-		&.bloc-columns--1-2 > :nth-child(2) { grid-column: var(--span-2); }
-		&.bloc-columns--2-1 > :nth-child(1) { grid-column: var(--span-2); }
-	}
-	@media ( min-width : em($mq-layout-xl) ) {
-		--span-1-1 : span 4;
-		--span-1 : span 3;
-		--span-2 : span 5;
-	}
-	@media ( min-width : em($mq-layout-xxl) ) {
-		--span-1-1 : span 3;
-		--span-1 : span 2;
-		--span-2 : span 4;
-	}
-
-	&.bloc-align-h--left,
-	&.bloc-align-h--right {
-		@media ( min-width : em($mq-layout-xl) ) {
-			--span-1-1 : span 5;
-			--span-1 : span 4;
-			--span-2 : span 6;		
-		}
-		@media ( min-width : em($mq-layout-xxl) ) {
-			--span-1-1 : span 4;
-			--span-1 : span 3;
-			--span-2 : span 5;		
-		}
-	}
-
-	&.bloc-align-h--wide {
-		@media ( min-width : em($mq-layout-xl) ) {
-			--span-1-1 : span 6;
-			--span-1 : span 4;
-			--span-2 : span 8;		
-		}
-		@media ( min-width : em($mq-layout-xxl) ) {
-			--span-1-1 : span 5;
-			--span-1 : span 4;
-			--span-2 : span 6;
-		}
-	}
-}
-
-
-/*=====  FIN Colonnes   =====*/
+/*=====  FIN Spacer  =====*/
 
 /*======================================
 =            Liste de posts            =
