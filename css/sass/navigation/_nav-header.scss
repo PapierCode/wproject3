@@ -318,6 +318,18 @@
 		background-color: $green;
 		color: $black;
 	}
+
+	@media ( min-width : em($mq-layout-xl) ) {
+
+		.is-active > & {
+			background-color: $blue;
+			color: $black;
+		}
+		&:hover, &:focus {
+			background-color: $green;
+			color: $black;
+		}
+	}
 }
 
 .h-nav-link-inner {}
