@@ -89,7 +89,7 @@ h3.wp-block-heading { font-size: rem(20); }
 	.wp-element-button {
 		border:none;
 		border-radius: 0;
-		display:inline-flex;
+		display:flex;
 		align-items: center;
 		gap:rem($button-space);
 		height: rem($button-size);

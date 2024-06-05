@@ -31,7 +31,7 @@
 }
 .home-intro {
 	grid-column: 4/5;
-	max-width: rem($maw-txt);
+	max-width: rem($mw-txt);
 	display: grid;
 	row-gap: 1em;
 
@@ -46,7 +46,10 @@
 /*==================================
 =            Raccourcis            =
 ==================================*/
+
+$t-home-shortcut-hover 	: .4s;
 /*
+
 .home-shortcuts {}
 
 .home-shortcuts-list {
@@ -67,7 +70,7 @@
 	@media ( min-width : em($mq-layout-xxl) ) {
 		width: calc( ( 100% - 3*var(--space) ) / 4 );
 	}
-	@media ( min-width : em($mq-layout-maw) ) {
+	@media ( min-width : em($mq-layout-mw) ) {
 		width: calc( ( 100% - 3*var(--space) ) / 4 );
 	}
 }
@@ -98,7 +101,7 @@
 			}
 		}			
 	}
-	@media ( min-width : em($mq-layout-maw) ) {
+	@media ( min-width : em($mq-layout-mw) ) {
 		.home-shortcut-link:hover &, .home-shortcut-link:focus & {
 			img {
 				transform:translateY(rem(-.5*$space-max));
@@ -184,7 +187,7 @@
 			transform:translate(0,.5*$space);	
 		}	
 	}
-	@media ( min-width : em($mq-layout-maw) ) {
+	@media ( min-width : em($mq-layout-mw) ) {
 		transform:translate(rem(.5*$space-max),rem(.5*$space-max));
 
 		.home-shortcut-link:hover &, .home-shortcut-link:focus & {

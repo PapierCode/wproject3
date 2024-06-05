@@ -22,7 +22,7 @@
 		padding-bottom: var(--space);
 	}
 
-	@media ( min-width : em($mq-main-nav-l) ) {
+	@media ( min-width : em($mq-main-footer) ) {
 		grid-column:1/2;
 		justify-content: flex-start;
 
@@ -45,7 +45,7 @@
 .pager-item {
 	margin: rem(0,5);
 
-	@media ( min-width : em($mq-main-nav-l) ) {
+	@media ( min-width : em($mq-main-footer) ) {
 		margin: rem(0,10,0,0);
 
 		.pager-list:nth-child(2) & {

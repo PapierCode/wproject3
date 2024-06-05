@@ -28,7 +28,6 @@
 	z-index: 999;
 	order: 3;
 	justify-self: end;
-	align-self: end;
 
 	.txt {
 		position: absolute;
@@ -36,7 +35,7 @@
 		white-space: nowrap;
 	}
 
-	@media ( min-width : em($mq-header-nav-l) ) {
+	@media ( min-width : em($mq-layout-l) ) {
 		grid-column: span 2 / -1;
 
 		.txt {
@@ -63,6 +62,7 @@
 	$line-w : 16;
 	$line-h : 2;
 	$arrow-translate : 7;
+	$t-ico : .6s;
 
 	width: rem($line-w);
 	height: rem($button-size);
@@ -80,14 +80,14 @@
 		margin: rem(-.5*$line-h,0,0,-.5*$line-w);
 		background-color: $white;
 		transform-origin:center center 0;
-		transition:all $t-nav-btn-ico ease;
+		transition:all $t-ico ease;
 	}
 	&::before { transform:translateY(rem(-$arrow-translate)); }
 	&::after { transform:translateY(rem($arrow-translate)); }
 
 	.h-nav-is-open & {
 
-		&::before, &::after { transition:all $t-nav-btn-ico ease; }
+		&::before, &::after { transition:all $t-ico ease; }
 		&::before { transform: translateY(0) rotate(-45deg); }
 		&::after { transform: translateY(0) rotate(45deg); }
 	}
@@ -96,7 +96,7 @@
 
 		&::before, &::after {
 			background-color: $black;
-			transition:all $t-nav-btn-ico ease;
+			transition:all $t-ico ease;
 			width: rem(.75*$line-w);
 		}
 		&::before {
@@ -153,13 +153,13 @@
 	display: flex;
 	justify-content: flex-end;
 	overflow: hidden;
-	transition:left 0s ease $t-nav, background-color $t-nav ease;
+	transition:left 0s ease $t-toggle-nav, background-color $t-toggle-nav ease;
 
 	.h-nav-is-open & {
 		left:0;
 		background-color: rgba($black,.6);
 		cursor: pointer;
-		transition:background-color $t-nav ease;
+		transition:background-color $t-toggle-nav ease;
 	}
 
 	@media ( min-width : em($mq-layout-xxl) ) {
@@ -184,22 +184,25 @@
 }
 
 .h-nav-inner {
-	width: 80vw;
+	width: 100vw;
 	height: 100%;
 	padding: calc( #{rem($button-size)} + 2*var(--space) ) var(--space) var(--space);
 	background-color: $yellow;
 	transform: translateX(100%);
-	transition: transform $t-nav ease;
+	transition: transform $t-toggle-nav ease;
 	overflow-y: scroll;
 
 	.h-nav-is-open & {
 		transform: translateX(0);
 		cursor: default;
-		transition: transform $t-nav ease;
+		transition: transform $t-toggle-nav ease;
 	}
 	
-	@media ( min-width : em($mq-header-nav-l) ) {
-		width:50vw;
+	@media ( min-width : em($mq-layout-m) ) {
+		width:80vw;
+	}
+	@media ( min-width : em($mq-layout-l) ) {
+		width:60vw;
 	}
 	@media ( min-width : em($mq-layout-xxl) ) {
 		background-color: transparent;
@@ -305,31 +308,15 @@
 	display: inline-flex;
 	text-transform: none;
 	@include font();
+	color:$white;
 
 	.is-active > & {
-		background-color: $red;
-		color:$black;
+		background-color: $white;
+		color: $black;
 	}
-		
-	@media ( min-width : em($mq-header-nav-l) ) {
-
-		.is-active > & {
-			color:$black;
-		}
-		&:hover, &:focus {
-			background-color:$blue;
-			color:$black;
-		}
-	}
-	@media ( min-width : em($mq-layout-xxl) ) {
-
-		.is-active > & {
-			background-color: $green;
-		}
-		&:hover, &:focus {
-			background-color:$blue;
-			color:$black;
-		}
+	&:hover, &:focus {
+		background-color: $green;
+		color: $black;
 	}
 }
 

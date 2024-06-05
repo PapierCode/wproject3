@@ -21,7 +21,7 @@
 .s-results-list {
 	border-bottom: $border;
 	margin-top:var(--space);
-	max-width: rem($maw-txt);
+	max-width: rem($mw-txt);
 }
 .s-results-item {
 	border-top:$border;
@@ -122,7 +122,7 @@
 
 .is-search {
 	.form-search {
-		max-width: rem($maw-txt);
+		max-width: rem($mw-txt);
 		margin-top:var(--space);
 	}
 	.main-footer {

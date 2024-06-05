@@ -72,7 +72,7 @@
 		padding-top: var(--space);
 	}
 
-	@media ( min-width : em($mq-main-nav-l) ) {
+	@media ( min-width : em($mq-main-footer) ) {
 		grid-column: 2/3;
 				
 		&:nth-child(n+2) {

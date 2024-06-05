@@ -5,9 +5,7 @@
 **/
 
 
-/*================================
-=            Couleurs            =
-================================*/
+/*----------  Couleurs  ----------*/
 
 $black				: #290f0f;
 $grey				: #e3dcd3;
@@ -19,96 +17,42 @@ $yellow				: #ffcb00;
 $blue				: #bee8ea;
 $green				: #aad262;
 
-// formulaires
-$placeholder 		: $black;
-
-// Messages 
 $msg-default		: $blue;
 $msg-error			: $red;
 $msg-success		: $green;
 
 
-/*=====  FIN Couleurs  =====*/	
+/*----------  Media queries  ----------*/
 
-/*==================================
-=            Agencement            =
-==================================*/
+$mw-txt          	: 690; // 6 cols au max-layout
+$mw-layout			: 1500;
 
-/**
-*
-* mq 	: media query
-* h 	: header
-* w 	: width
-* maw 	: max width
-*
-*/
+$mq-layout-m		: 400;
+$mq-layout-l		: 700;
+$mq-layout-xl		: 900;
+$mq-layout-xxl		: 1200;
+$mq-layout-mw		: $mw-layout;
+
+$mq-main-footer		: 600; // todo
 
 
-/*----------  Layout global  ----------*/
+/*----------  Typographie  ----------*/
 
-$maw-txt          		: 690; // 6 cols au max-layout
-$maw-layout				: 1500;
-
-$mq-layout-m			: 400;
-$mq-layout-l			: 700;
-$mq-layout-xl			: 900;
-$mq-layout-xxl			: 1200;
-$mq-layout-maw			: $maw-layout;
+$font-default 		: Arial, sans-serif;
+$font-face			: 'Raleway', sans-serif; // 600,800,900
 
 
-/*----------  Navigation  ----------*/
+/*----------  Animations  ----------*/
 
-$mq-header-nav-l		: 500; // todo
-$mq-main-nav-l			: 600; // todo
+$t-toggle-nav		: .5s;
+$t-card-hover		: .4s;
 
 
 /*----------  Divers  ----------*/
 
-$space--st 				: 20;
+$border				: 1px solid $grey;
+$quote-size 		: 5;
 
-$button-ico-size	 	: 16;
-$button-space 			: 10;
-$button-size 			: $button-ico-size + 2 * $button-space;
-
-
-/*=====  FIN Agencement  ======*/
-
-/*===================================
-=            Typographie            =
-===================================*/
-
-$font-default 			: Arial, sans-serif;
-$font-face				: 'Raleway', sans-serif; // 600,800,900
-
-$line-height-default	: 1.6;
-
-
-/*=====  FIN Typographie  ======*/
-
-/*==========================================
-=            Durées d'animation            =
-==========================================*/
-
-// navigation
-$t-nav					: .5s;
-$t-nav-btn-ico			: .6s;
-$t-nav-link 			: .3s;
-
-// article résumé
-$t-card-hover			: .5s;
-
-// accueil
-$t-home-shortcut-hover 	: .4s;
-
-
-/*=====  FIN Durées d'animation  =====*/
-
-/*==================================
-=            Décoration            =
-==================================*/
-
-$border					: 1px solid $grey;
-$quote-size 			: 5;
-
-
-/*=====  FIN Décoration  =====*/
+$button-ico-size	: 16;
+$button-space 		: 10;
+$button-size 		: $button-ico-size + 2 * $button-space;

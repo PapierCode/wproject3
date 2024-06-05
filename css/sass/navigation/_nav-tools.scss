@@ -56,7 +56,7 @@
 		left:-666vw;
 	}	
 
-	@media ( min-width : em($mq-header-nav-l) ) {
+	@media ( min-width : em($mq-layout-l) ) {
 
 		.txt {
 			position:static;
