@@ -55,6 +55,10 @@ h3.wp-block-heading { font-size: rem(20); }
 	p:nth-child(1) {
 		font-size: rem(24);
 
+		// strong {}
+		// em {}
+		// a {}
+
 		&::before, &::after {
 			top:rem(-10);
 			width: rem(26);
@@ -74,7 +78,13 @@ h3.wp-block-heading { font-size: rem(20); }
 		}
 	}
 
-	p:nth-child(2) { font-weight: 600; }
+	p:nth-child(2) {
+		font-weight: 600;
+
+		// strong {}
+		// em {}
+		// a {}
+	}
 }
 
 

@@ -15,6 +15,9 @@
 	
 	--grid-col-count : 2;
 	--grid : repeat(var(--grid-col-count),1fr);
+		
+	--editor-col-start : 1;
+	--editor-col-end : -1;
 
 	/*----------  Typo  ----------*/
 	
@@ -52,11 +55,23 @@
 
 		/*----------  Grille  ----------*/
 		
-		--grid-col-count : 12;	
+		--grid-col-count : 12;
+
+		--editor-col-start : 3;
+		--editor-col-end : -3;
+		--editor-wide-col-start : 1;
+		--editor-wide-col-end : -1;
 
 	}
 
 	@media ( min-width : em($mq-layout-xxl) ) {
+		
+		/*----------  Grille  ----------*/
+		
+		--editor-col-start : 4;
+		--editor-col-end : -4;
+		--editor-wide-col-start : 2;
+		--editor-wide-col-end : -2;
 
 	}
 

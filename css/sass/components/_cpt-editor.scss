@@ -24,31 +24,13 @@
 	/*===========================================
 	=            Grille & alignement            =
 	===========================================*/
-	
-	/*----------  Grille  ----------*/
-		
-	--col-start : 1;
-	--col-end : -1;
 
-	@media ( min-width : em($mq-layout-xl) ) {
-		--col-start : 3;
-		--col-end : -3;
-		--wide-col-start : 1;
-		--wide-col-end : -1;
-	}
-	@media ( min-width : em($mq-layout-xxl) ) {
-		--col-start : 4;
-		--col-end : -4;
-		--wide-col-start : 2;
-		--wide-col-end : -2;
-	}
-
-	> * { grid-column: var(--col-start)/var(--col-end); }
+	> * { grid-column: var(--editor-col-start)/var(--editor-col-end); }
 	
 	@media ( min-width : em($mq-layout-xl) ) {
-		.bloc-align-h--wide { grid-column: var(--wide-col-start)/var(--wide-col-end); }
-		.bloc-align-h--left { grid-column-end: var(--wide-col-end); }
-		.bloc-align-h--right { grid-column-start: var(--wide-col-start); }	
+		.bloc-align-h--wide { grid-column: var(--editor-wide-col-start)/var(--editor-wide-col-end); }
+		.bloc-align-h--left { grid-column-end: var(--editor-wide-col-end); }
+		.bloc-align-h--right { grid-column-start: var(--editor-wide-col-start); }	
 	}
 
 
@@ -82,13 +64,17 @@
 	.bloc-frame-inner > *, {
 		&:empty { display: none; }
 	}
-
-
-	/*----------  Exposant & indice  ----------*/
 		
 	sup, sub {
 		font-size: rem(12);
 		margin-left: .1em;
+	}
+
+	p, li, 
+	.bloc-column p, .bloc-column li,
+	.bloc-frame p, .bloc-frame li {
+		strong { font-weight: 700; }
+		em { font-style: italic; }
 	}
 
 	
@@ -309,6 +295,10 @@
 		position: relative;
 		z-index: 1;
 
+		// strong {}
+		// em {}
+		// a {}
+
 		&::before, &::after {
 			content:"";
 			position: absolute;
@@ -335,7 +325,11 @@
 		display: block;
 		font-style: normal;
 		font-weight: 600;
-		margin-top:rem(10)
+		margin-top:rem(10);
+
+		// strong {}
+		// em {}
+		// a {}
 	}
 
 	&.bloc-quote--left { align-items: flex-start;}
@@ -433,13 +427,4 @@
 
 
 /*=====  FIN Spacer  =====*/
-
-/*======================================
-=            Liste de posts            =
-======================================*/
-
-.bloc-posts { grid-column: 1/-1; }
-
-
-/*=====  FIN Liste de posts  =====*/
 
