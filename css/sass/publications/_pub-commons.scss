@@ -39,7 +39,8 @@ a:not([class]), a:not([class]):visited {
 
 .archive {
 
-	.editor {
+	.editor, .term-current {
+		grid-column: var(--editor-col-start) / var(--editor-col-end);
 
 		@media ( min-width : em($mq-layout-xl) ) {
 			--editor-col-start : 1;
@@ -49,6 +50,26 @@ a:not([class]), a:not([class]):visited {
 			--editor-col-start : 1;
 			--editor-col-end : 7;
 		}
+	}
+}
+
+.term-current-remove {
+	display:inline-block;
+	background-color: $red;
+	border-radius: 50%;
+	padding: rem(5);
+	transform: translateY(rem(5));
+	transition: background-color .3s ease;
+
+	svg {
+		display: block;
+		width: rem(14);
+		height: rem(14);
+	}
+
+	&:hover, &:focus-visible {
+		background-color: $green;
+		transition: background-color .3s ease;
 	}
 }
 
@@ -200,10 +221,13 @@ a:not([class]), a:not([class]):visited {
 .card-date {
 	display: block;
 
-	svg { vertical-align: text-bottom; }
+	svg {
+		transform: translateY(rem(3));
+		margin-right: .5rem;
+	}
 }
 
-.card-tax {
+.card-terms {
 	position: relative;
 	z-index: 1;
 	margin-top: auto;
@@ -211,11 +235,8 @@ a:not([class]), a:not([class]):visited {
 	border-top:$border;
 
 	svg {
-		display: inline-block;
-		vertical-align: text-top;
-		width: rem(16);
-		height: rem(16);
-		margin-right: .5em;
+		transform: translateY(rem(3));
+		margin-right: .5rem;
 	}
 	a, a:visited {
 		color:$black;
@@ -255,54 +276,28 @@ a:not([class]), a:not([class]):visited {
 /*----------  Date  ----------*/
 
 .single-date {
-	display: flex;
-	align-items: center;
-	@include font();
-	margin: 0 0 var(--space) 0;
+	grid-column: 1/-1;
 
-	.ico {
-		margin-right: rem($button-space);
-		flex-shrink: 0;
-		padding:rem($button-space - 2,$button-space,$button-space,$button-space); // -4 ajustement icône
-		border: $border;
-	}
 	svg {
-		display: block;
-		width: rem(30);
-		height: rem(30);
-	}
-	time, .custom-time {
-		@include font(800);
+		transform: translateY(rem(3));
+		margin-right: .5rem;
 	}
 
-	@media ( min-width : em($mq-layout-l) ) {
-		font-size: rem(20);
-	}
-	@media ( min-width : em($mq-layout-mw) ) {
-		margin-bottom:0;
-	}
+	@media ( min-width : em($mq-layout-l) ) { grid-column: 1/3; }
+	@media ( min-width : em($mq-layout-xl) ) { grid-column: 3/6; }
+	@media ( min-width : em($mq-layout-xl) ) { grid-column: 4/7; }
 }
 
 
 /*----------  Taxonomie  ----------*/
 
 
-.single-tax {
-	display: flex;
-	align-items: center;
-	margin-top:var(--space);
-	margin-bottom: 0;
+.single-terms {
+	grid-column: 1/-1;
 
-	.ico {
-		margin-right: rem($button-space);
-		border: $border;
-		padding: rem($button-space);
-	}
 	svg {
-		display: block;
-	}
-	.label {
-		font-weight: 700;
+		transform: translateY(rem(3));
+		margin-right: .5rem;
 	}
 	a, a:visited {
 		color:$black;
@@ -312,6 +307,13 @@ a:not([class]), a:not([class]):visited {
 		   text-decoration: underline;
 		}
 	}
+
+	@media ( min-width : em($mq-layout-l) ) {
+		grid-column: 3/7;
+		text-align: right;
+	}
+	@media ( min-width : em($mq-layout-l) ) { grid-column: 6/11; }
+	@media ( min-width : em($mq-layout-l) ) { grid-column: 7/10; }
 }
 
 
