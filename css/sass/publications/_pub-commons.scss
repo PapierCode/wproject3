@@ -62,7 +62,6 @@ a:not([class]), a:not([class]):visited {
 	transition: background-color .3s ease;
 
 	svg {
-		display: block;
 		width: rem(14);
 		height: rem(14);
 	}
@@ -142,10 +141,7 @@ a:not([class]), a:not([class]):visited {
 .card-figure {
 	overflow: hidden;
 
-	img {
-		display: block;
-		width: 100%;
-	}
+	img { width: 100%; }
 }
 
 .card-title {
@@ -188,7 +184,6 @@ a:not([class]), a:not([class]):visited {
 	border-radius: 50%;
 
 	svg {
-		display:block;
 		width: rem($button-ico-size);
 		height: rem($button-ico-size);
 		fill:$white;

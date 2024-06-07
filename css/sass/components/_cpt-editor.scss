@@ -362,7 +362,6 @@
 
 .bloc-image, .bloc-column-image {
 	img {
-		display: block;
 		width: 100%;
 	}
 }
@@ -374,43 +373,62 @@
 =            Galerie            =
 ===============================*/
 
-// $gallery-space-s : 10;
-// $gallery-space-l : 20;
+.gallery-list {
+	display:flex;
+	flex-wrap:wrap;
+	justify-content:center;
+	gap: var(--space);
+}
+.gallery-item {
+	width: calc( (100% - var(--space)) / 2 );
 
-// $mq-gallery-3cols : em( 2*200 + $gallery-space-s );
-// $mq-gallery-4cols : em( 3*200 + 2*$gallery-space-s );
-// $mq-gallery-5cols : em( 4*200 + 3*$gallery-space-l );
-// $mq-gallery-6cols : em( 5*200 + 4*$gallery-space-l );
+	@media ( min-width : em(500) ) {
+		width: calc( (100% - 2*var(--space)) / 3 );
+	}
+	@media ( min-width : em($mq-layout-xl) ) {
+		width: calc( (100% - 3*var(--space)) / 4 );
+	}
+	@media ( min-width : em($mq-layout-xxl) ) {
+		width: calc( (100% - 4*var(--space)) / 5 );
+	}
+}
+.gallery-link {
+	transition: transform .3s ease;
 
-// .gallery-list {
-// 	display:flex;
-// 	flex-wrap:wrap;
-// 	justify-content:center;
-// 	gap: rem($gallery-space-s);
-
-// 	@media ( min-width : $mq-gallery-4cols ) {
-// 		gap: rem($gallery-space-l);
-// 	}
-// }
-// .gallery-item {
-// 	width: calc( (100% - #{rem($gallery-space-s)}) / 2 );
-
-// 	@media ( min-width: $mq-gallery-3cols ) {
-// 		width: calc( (100% - #{rem(2*$gallery-space-s)}) / 3 );
-// 	}
-// 	@media ( min-width : $mq-gallery-4cols ) {
-// 		width: calc( (100% - #{rem(3*$gallery-space-l)}) / 4 );
-// 	}
-// }
-
-// .bloc-wide .gallery-item {
-// 	@media ( min-width : $mq-gallery-5cols ) {
-// 		width: calc( (100% - #{rem(4*$gallery-space-l)}) / 5 );
-// 	}
-// 	@media ( min-width : $mq-gallery-6cols ) {
-// 		width: calc( (100% - #{rem(5*$gallery-space-l)}) / 6 );
-// 	}
-// }
+	&:hover, &:focus-visible {
+		transform: scale(1.05);
+		transition: transform .3s ease;
+	}
+}
+.gallery-item--play {
+	button {
+		width: 100%;
+		height: 100%;
+		display: flex;
+		justify-content: center;
+		gap:rem($button-space);
+		align-items: center;
+		padding: rem($button-space);
+		background-color: $black;
+		color: #fff;
+		transition: all .3s ease;
+		
+		svg { 
+			fill:$white;
+			transition: fill .3s ease;
+		}
+	}
+	button:hover {
+		background-color: $green;
+		color: $black;
+		transition: all .3s ease;
+		
+		svg { 
+			fill:$black;
+			transition: fill .3s ease;
+		}
+	}
+}
 
 
 /*=====  FIN Galerie  =====*/
