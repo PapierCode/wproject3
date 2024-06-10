@@ -97,7 +97,7 @@
 	/*----------  Titres  ----------*/
 	
 	h2.wp-block-heading, h3.wp-block-heading  {
-		@include font(900,1.2);
+		@include font(800,1.2);
 		color: $black;
 		margin:0;
 
@@ -107,11 +107,8 @@
 			background: none;
 			text-decoration: none;
 		}
-
-		em, strong {
-			font-style: inherit;
-			font-weight: inherit;
-		}
+		em { font-style: inherit; }
+		strong { font-weight: 900; }
 	}
 
 	--h2-font-size : #{rem(28)};

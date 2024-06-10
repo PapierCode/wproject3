@@ -34,7 +34,12 @@
 =======================================*/
 
 .editor-post-title, 
-.wp-block-heading {	@include font(900,1.1); }
+.wp-block-heading {
+	@include font(800,1.1);
+
+	strong { font-weight: 900; }
+	em { font-style: inherit; }
+}
 
 .editor-post-title { font-size: rem(40); }
 h2.wp-block-heading { font-size: rem(30); }
