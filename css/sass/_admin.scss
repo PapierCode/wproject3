@@ -55,16 +55,27 @@ h3.wp-block-heading { font-size: rem(20); }
 /*----------  Aperçu  ----------*/
 
 .wp-block-acf-pc-quote {
-	@include font(800);
+	@include font(600);
+
+	.acf-innerblocks-container {
+		display: flex;
+		flex-direction: column;
+		gap: rem(10);
+	}
+	p { margin: 0; }
+	strong { font-weight: 900; }
+	em { font-style: inherit; }
+	// a {}
 
 	p:nth-child(1) {
-		font-size: rem(24);
-
-		// strong {}
-		// em {}
-		// a {}
+		font-size: rem(24);	
+		position: relative;
+		z-index: 1;
 
 		&::before, &::after {
+			content:"";
+			position: absolute;
+			z-index: -1;
 			top:rem(-10);
 			width: rem(26);
 			height: rem(20);
@@ -82,14 +93,7 @@ h3.wp-block-heading { font-size: rem(20); }
 			right:rem(-10);
 		}
 	}
-
-	p:nth-child(2) {
-		font-weight: 600;
-
-		// strong {}
-		// em {}
-		// a {}
-	}
+	p:nth-child(2) {font-size: rem(20); }
 }
 
 
