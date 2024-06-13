@@ -38,6 +38,8 @@ body {
 	font-size: var(--base-font-size);
 	line-height: 1.6;
 	color: $black;
+
+	&.h-nav-is-open { overflow: hidden; }
 }
 
 // .body-inner {}
@@ -59,7 +61,7 @@ body {
 	display: grid;
 	grid-template-columns: var(--grid);
 	gap:var(--space);
-	padding: var(--space-half) var(--space-screen);
+	padding: var(--space) var(--space-screen);
 	max-width: rem($mw-layout);
 	margin: 0 auto;
 }

@@ -307,12 +307,14 @@
 	position: relative;
 	display: flex;
 	flex-direction: column;
-	font-family: $font-face;
+	@include font(600);
+
+	strong { font-weight: 900; }
+	em { font-style: inherit; }
+	// a {}
 
 	p {
-		font-weight: 800;
 		font-size: rem(24);
-		min-width: 50%;
 		margin:0;
 		
 		position: relative;
@@ -347,12 +349,7 @@
 	cite {
 		display: block;
 		font-style: normal;
-		font-weight: 600;
 		margin-top:rem(10);
-
-		// strong {}
-		// em {}
-		// a {}
 	}
 
 	&.bloc-quote--left { align-items: flex-start;}

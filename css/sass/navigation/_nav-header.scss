@@ -42,13 +42,13 @@
 			position: static;
 			overflow: hidden;
 			max-width: rem(100);
-			transition: all .5s ease;
+			transition: all $t-toggle-nav ease;
 		}	
 		.h-nav-is-open & {
 			.txt {
 				max-width: 0;
 				margin:0;
-				transition: all .5s ease;
+				transition: all $t-toggle-nav ease;
 			}
 		}
 	}
@@ -62,7 +62,6 @@
 	$line-w : 16;
 	$line-h : 2;
 	$arrow-translate : 7;
-	$t-ico : .6s;
 
 	width: rem($line-w);
 	height: rem($button-size);
@@ -80,14 +79,14 @@
 		margin: rem(-.5*$line-h,0,0,-.5*$line-w);
 		background-color: $white;
 		transform-origin:center center 0;
-		transition:all $t-ico ease;
+		transition:all $t-toggle-nav ease;
 	}
 	&::before { transform:translateY(rem(-$arrow-translate)); }
 	&::after { transform:translateY(rem($arrow-translate)); }
 
 	.h-nav-is-open & {
 
-		&::before, &::after { transition:all $t-ico ease; }
+		&::before, &::after { transition:all $t-toggle-nav ease; }
 		&::before { transform: translateY(0) rotate(-45deg); }
 		&::after { transform: translateY(0) rotate(45deg); }
 	}
@@ -96,7 +95,7 @@
 
 		&::before, &::after {
 			background-color: $black;
-			transition:all $t-ico ease;
+			transition:all $t-toggle-nav ease;
 			width: rem(.75*$line-w);
 		}
 		&::before {
@@ -133,6 +132,23 @@
 	.h-nav-is-open .h-nav-btn:hover &, .h-nav-is-open .h-nav-btn:focus &,
 	.h-nav-btn:hover &, .h-nav-btn:focus & {
 		&::after { transform: translateX(rem(100)); }
+	}
+}
+
+.h-p-nav-sub-back {
+	position: absolute;
+	z-index: 999;
+	top:var(--space);
+	transform: translateY( calc(-2*var(--space) - #{rem($button-size)} ) );
+	transition: transform $t-toggle-nav ease;
+
+	.h-nav:has(.is-open) & {
+		transform: translateY(0);
+		transition: transform $t-toggle-nav ease;
+	}
+
+	@media ( min-width : em($mq-layout-xxl) ) {
+		display: none;
 	}
 }
 
@@ -190,7 +206,7 @@
 	background-color: $yellow;
 	transform: translateX(100%);
 	transition: transform $t-toggle-nav ease;
-	overflow-y: scroll;
+	overflow: hidden;
 
 	.h-nav-is-open & {
 		transform: translateX(0);
@@ -210,7 +226,7 @@
 		padding: 0;
 		transform: none;
 		transition: none;
-		overflow-y: visible;
+		overflow: visible;
 		display: flex;
 
 		.h-nav-is-open & {
@@ -244,7 +260,28 @@
 
 /*----------  Level 1  ----------*/
 
-.h-p-nav-list--l1 {}
+.h-p-nav-list--l1 {
+	height: 100%;
+	position: relative;
+	transition: transform $t-toggle-nav ease;
+
+	&:has(.is-open) {
+		transform:translateX(-100%);
+		transition: transform $t-toggle-nav ease;
+	}
+
+	@media ( min-width : em($mq-layout-xxl) ) {
+		position: static;
+		padding:0;
+		flex-direction: row;
+		align-items: center;
+		
+		&:has(.is-open) {
+			transform:none;
+			transition: none;
+		}
+	}
+}
 
 .h-p-nav-item--l1 {
 
@@ -254,6 +291,7 @@
 
 	@media ( min-width : em($mq-layout-xxl) ) {
 		margin-top:0;
+		position: relative;
 
 		&:nth-child(n+2) {
 			margin-left:rem($button-space);
@@ -265,21 +303,35 @@
 /*----------  Level 2  ----------*/
 
 .h-p-nav-box--l2 {
-	visibility: hidden;
-	overflow-y: hidden;
-	transition: max-height .5s ease;
+	position: absolute;
+	z-index: 666;
+	inset: 0;
+	overflow-y: auto;
+	transform: translateX(200%);
+	transition: all $t-toggle-nav ease;
 
 	.is-open & {
-		transition: max-height 1s ease;
+		transform: translateX(100%);
+		transition: all $t-toggle-nav ease;
 	}
 
 	@media ( min-width : em($mq-layout-xxl) ) {
-		position: absolute;
+		visibility: hidden; // modifier en js ??
+		inset: 100% auto auto 0;
+		transform: translateY(var(--space));
+		opacity: 0;
+		transition: all $t-toggle-nav ease;
+
+		.is-open & {
+			transform: translateY(0);
+			opacity: 1;
+			transition: all $t-toggle-nav ease;
+		}
 	}
 
 }
+
 .h-p-nav-list--l2 {
-	margin-left:var(--space);
 
 	@media ( min-width : em($mq-layout-xxl) ) {
 		flex-direction: column;
@@ -290,10 +342,6 @@
 
 .h-p-nav-item--l2 {
 	position: relative;
-}
-
-.h-p-nav-title--l2 {
-	margin:0;
 }
 
 
@@ -331,8 +379,6 @@
 		}
 	}
 }
-
-.h-nav-link-inner {}
 
 
 /*=====  FIN Lien  =====*/
