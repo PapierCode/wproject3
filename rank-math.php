@@ -10,4 +10,4 @@ add_filter( 'rank_math/researches/tests', function( $tests, $type ) {
 		$tests['contentHasAssets']
 	);
 	return $tests;
-   }, 10, 2 );
+}, 10, 2 );

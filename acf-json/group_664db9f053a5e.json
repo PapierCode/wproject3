@@ -1,9 +1,27 @@
 {
     "key": "group_664db9f053a5e",
-    "title": "Coordonnées",
+    "title": "[Paramètres] Thème",
     "fields": [
         {
-            "key": "field_664db9f0364a8",
+            "key": "field_66753dd8c2056",
+            "label": "Coordonnées",
+            "name": "",
+            "aria-label": "",
+            "type": "accordion",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "open": 1,
+            "multi_expand": 1,
+            "endpoint": 0
+        },
+        {
+            "key": "field_66784739f4242",
             "label": "Nom",
             "name": "coord_name",
             "aria-label": "",
@@ -142,6 +160,96 @@
             "center_lng": "2.4293935625",
             "zoom": 5,
             "height": 300
+        },
+        {
+            "key": "field_6675404a6f74a",
+            "label": "Réseaux sociaux",
+            "name": "",
+            "aria-label": "",
+            "type": "accordion",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "open": 1,
+            "multi_expand": 1,
+            "endpoint": 0
+        },
+        {
+            "key": "field_66753ef76f747",
+            "label": "Réseaux sociaux",
+            "name": "coord_social",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "table",
+            "pagination": 0,
+            "min": 0,
+            "max": 0,
+            "collapsed": "",
+            "button_label": "Ajouter un réseau",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_66753f886f748",
+                    "label": "Icône",
+                    "name": "ico",
+                    "aria-label": "",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "30",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "facebook": "Facebook",
+                        "youtube": "Youtube",
+                        "instagram": "Instagram",
+                        "x": "X",
+                        "linkedin": "Linkedin"
+                    },
+                    "default_value": false,
+                    "return_format": "array",
+                    "multiple": 0,
+                    "allow_null": 1,
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": "",
+                    "parent_repeater": "field_66753ef76f747"
+                },
+                {
+                    "key": "field_6675400d6f749",
+                    "label": "Adresse (URL)",
+                    "name": "url",
+                    "aria-label": "",
+                    "type": "url",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "parent_repeater": "field_66753ef76f747"
+                }
+            ]
         }
     ],
     "location": [
@@ -155,12 +263,12 @@
     ],
     "menu_order": 0,
     "position": "normal",
-    "style": "default",
+    "style": "seamless",
     "label_placement": "left",
     "instruction_placement": "field",
     "hide_on_screen": "",
     "active": true,
-    "description": "[Paramètres] Site",
+    "description": "",
     "show_in_rest": 0,
-    "modified": 1716383619
+    "modified": 1720268609
 }

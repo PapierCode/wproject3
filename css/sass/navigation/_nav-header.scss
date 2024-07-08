@@ -318,11 +318,13 @@
 	@media ( min-width : em($mq-layout-xxl) ) {
 		visibility: hidden; // modifier en js ??
 		inset: 100% auto auto 0;
+		z-index: 0;
 		transform: translateY(var(--space));
 		opacity: 0;
 		transition: all $t-toggle-nav ease;
 
 		.is-open & {
+			z-index: 666;
 			transform: translateY(0);
 			opacity: 1;
 			transition: all $t-toggle-nav ease;
