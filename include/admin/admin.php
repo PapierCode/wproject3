@@ -1,8 +1,10 @@
 <?php
 
-/*===========================================
-=            ACF, filtres valeurs            =
-===========================================*/
+/*===========================
+=            ACF            =
+===========================*/
+
+/*----------  Valeurs  ----------*/
 
 add_filter('acf/load_field/name=bloc_style', 'my_acf_load_field');
 
@@ -13,4 +15,10 @@ add_filter('acf/load_field/name=bloc_style', 'my_acf_load_field');
 	}
 
 
-/*=====  FIN ACF, filtres valeurs  =====*/
+/*----------  Validation  ----------*/
+
+// paramètres, téléphone
+add_filter( 'acf/validate_value/key=field_664dbd21f3632', 'pc_admin_acf_validate_phone', 10, 4 );
+
+
+/*=====  FIN ACF  =====*/

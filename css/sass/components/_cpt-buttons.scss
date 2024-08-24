@@ -25,7 +25,7 @@
 	color:$white;
 	text-transform: uppercase;
 
-	transition:all .3s ease;
+	transition:all $t-btn ease;
 	
 	.txt {}
 	.txt:nth-child(2) {
@@ -40,17 +40,17 @@
 		width: rem($button-ico-size);
 		height: rem($button-ico-size);
 		fill:$white;
-		transition:fill .3s ease;
+		transition:fill $t-btn ease;
 	}
 
 	&:hover, &:focus {
 		background-color: $green;
 		color:$black;
-		transition:all .3s ease;
+		transition:all $t-btn ease;
 
 		svg {
 			fill:$black;
-			transition:fill .3s ease;
+			transition:fill $t-btn ease;
 		}
 	}	
 	

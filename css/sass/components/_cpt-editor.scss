@@ -14,12 +14,12 @@
 
 .editor {
 
-	--editor-space : var(--space);
+	--editor-row-gap : var(--space);
 
 	grid-column: 1/-1;
 	display: grid;
 	grid-template-columns: subgrid;
-	row-gap: var(--editor-space);
+	row-gap: var(--editor-row-gap);
 
 	/*===========================================
 	=            Grille & alignement            =
@@ -123,8 +123,8 @@
 	h3.wp-block-heading { font-size: var(--h3-font-size); }
 
 	> h2.wp-block-heading, h3.wp-block-heading { margin-bottom: 0; }
-	> h2.wp-block-heading { margin-top: calc(.75*var(--editor-space)); }
-	> h3.wp-block-heading { margin-top: calc(.25*var(--editor-space)); }
+	> h2.wp-block-heading { margin-top: calc(.75*var(--editor-row-gap)); }
+	> h3.wp-block-heading { margin-top: calc(.25*var(--editor-row-gap)); }
 
 	
 	/*=====  FIN Titres  =====*/
@@ -136,7 +136,7 @@
 ===============================*/
 
 [class*="bloc-style"] {
-	padding: var(--editor-space);
+	padding: var(--editor-row-gap);
 
 	[class*="bloc-style"] {
 		background-color: transparent;
@@ -194,7 +194,7 @@
 	@media ( min-width : em($mq-layout-l) ) { // 6 colonnes
 		display: grid;
 		grid-template-columns: subgrid;
-		gap:var(--editor-space);
+		gap:var(--editor-row-gap);
 
 		&.bloc-inner--reverse { display: grid; }
 
@@ -337,12 +337,12 @@
 		&::before {
 			transform-origin: right top;
 			transform: scale(-$quote-size,$quote-size);
-			right:calc( 100% - var(--editor-space) );
+			right:calc( 100% - var(--editor-row-gap) );
 		}
 		&::after {
 			transform-origin: right top;
 			transform: scale($quote-size);
-			right:var(--editor-space);
+			right:var(--editor-row-gap);
 		}
 	}
 
@@ -510,8 +510,8 @@
 .bloc-spacer {
 	&:first-child, &:last-child { display: none; }
 }
-.bloc-spacer--x3 { height: var(--editor-space); }
-.bloc-spacer--x4 { height: calc(2*var(--editor-space)); }
+.bloc-spacer--x3 { height: var(--editor-row-gap); }
+.bloc-spacer--x4 { height: calc(2*var(--editor-row-gap)); }
 
 
 /*=====  FIN Spacer  =====*/

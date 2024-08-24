@@ -21,11 +21,13 @@
 
 .social-list {
 	display:flex;
+	gap: rem($button-space);
 }
 .social-item {}
 
 .social-link {
 	@extend .button;
+	border-radius: 50%;
 	text-transform: none;
 }
 
@@ -39,10 +41,6 @@
 .social-list--header {
 	justify-content: center;
 	margin-top: var(--space);
-
-	.social-item {
-		margin-left:rem(10);
-	}
 
 	@media ( min-width : em($mq-layout-xxl) ) {
 		margin:0;
@@ -60,29 +58,23 @@
 	display: flex;
 	align-items: center;
 	justify-content: flex-end;
+	gap:rem($button-space);
 	
-	.social-item {
-		margin-left:rem(10);
-		flex-shrink: 0;
-	}
+	.social-item { flex-shrink: 0; }
 
 	&:nth-child(n+2) {
-		border-top:$border;
-		margin-top: var(--space);
+		border-top:1px solid darken($grey,5%);
 		padding-top: var(--space);
 	}
 
 	@media ( min-width : em($mq-main-footer) ) {
-		grid-column: 2/3;
 				
+		&:only-child { grid-column: 1/-1; }
 		&:nth-child(n+2) {
 			border-top:none;
 			margin-top: 0;
 			padding-top: 0;
 		}
-	}
-	@media ( min-width : em($mq-layout-xl) ) {
-		grid-column: 3/4;
 	}
 }
 

@@ -39,8 +39,33 @@
 		text-decoration: none;
 		color:$black;
 
-		&:hover, &:focus {
-		   text-decoration: underline;
+		&:hover, &:focus-visible { text-decoration: underline; }
+	}
+
+	// home
+	&:nth-child(1) {
+		a, a:visited {
+			background-color: $black;
+			color: $white;
+			padding: rem(5);
+			border-radius: 50%;
+			transition: background-color $t-btn ease;
+
+			svg { 
+				fill: currentColor;
+				transition: fill $t-btn ease;
+				transform: translateY(-.03em);
+			}
+
+			&:hover, &:focus-visible {
+				background-color: $green;
+				transition: background-color $t-btn ease;
+	
+				svg {
+					fill: $black;
+					transition: fill $t-btn ease;
+				}
+			}
 		}
 	}
 

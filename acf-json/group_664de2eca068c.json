@@ -3,11 +3,11 @@
     "title": "Accueil",
     "fields": [
         {
-            "key": "field_664de2ec55fbd",
-            "label": "Introduction",
-            "name": "home_intro",
+            "key": "field_66a4b9fec826b",
+            "label": "Image à la une",
+            "name": "_thumbnail_id",
             "aria-label": "",
-            "type": "textarea",
+            "type": "image",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -16,11 +16,16 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
-            "maxlength": "",
-            "rows": 4,
-            "placeholder": "",
-            "new_lines": ""
+            "return_format": "array",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "jpg,jpeg,png,webp",
+            "preview_size": "thumbnail_s"
         }
     ],
     "location": [
@@ -33,12 +38,11 @@
         ]
     ],
     "menu_order": 0,
-    "position": "normal",
+    "position": "acf_after_title",
     "style": "default",
     "label_placement": "left",
     "instruction_placement": "field",
     "hide_on_screen": [
-        "permalink",
         "the_content",
         "slug",
         "page_attributes"
@@ -46,5 +50,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1717401248
+    "modified": 1722840461
 }

@@ -65,15 +65,31 @@
 
 .iframe-accept {
 	position: absolute;
-	inset: 0;
+	inset: auto 0 0 0;
 	display:flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	padding:var(--space);
-	background-color: rgba($orange,.95);
+	padding: var(--space);
+	background-color: rgba($blue,.9);
 	color:$black;
 	text-align: center;
+
+	p  {
+		margin:0 0 var(--space) 0;
+		color: inherit;
+	}
+	a {
+		color:inherit;
+	}
+
+	@media ( min-width : em($mq-layout-xl) ) {
+		padding:calc(.5*var(--space));
+
+		p  {
+			margin:0 0 calc(.5*var(--space)) 0;
+		}
+	}
 }
 
 

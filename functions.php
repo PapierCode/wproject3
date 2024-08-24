@@ -6,30 +6,37 @@
  */
 
 
-/*----------  Styles  ----------*/
+/*----------  CSS & JS  ----------*/
 
 add_action( 'wp_enqueue_scripts', 'pc_enqueue_project_dependencies' );
 
     function pc_enqueue_project_dependencies() {
 		
 		$css_front_path = '/css/front.css';
-		wp_enqueue_style( 'pc-screen', get_stylesheet_directory_uri().$css_front_path, null, filemtime(get_stylesheet_directory().$css_front_path), 'screen' );
+		wp_enqueue_style( 
+			'wproject-screen', 
+			get_stylesheet_directory_uri().$css_front_path, 
+			null, 
+			filemtime(get_stylesheet_directory().$css_front_path), 
+			'screen'
+		);
 		$css_print_path = '/css/print.css';
-		wp_enqueue_style( 'pc-print', get_stylesheet_directory_uri().$css_print_path, null, filemtime(get_stylesheet_directory().$css_print_path), 'print' );
+		wp_enqueue_style( 
+			'wproject-print', 
+			get_stylesheet_directory_uri().$css_print_path, 
+			null, 
+			filemtime(get_stylesheet_directory().$css_print_path), 
+			'print'
+		);
 
-	}
-
-
-/*----------  JS  ----------*/
-
-add_filter( 'pc_filter_js_files', 'pc_enqueue_child_theme_js' );
-
-	function pc_enqueue_child_theme_js( $js_files ) {
-
-		$js_project_path = '/scripts/pc-project.min.js';
-		$js_files['project'] = get_stylesheet_directory_uri().$js_project_path.'?ver='.filemtime(get_stylesheet_directory().$js_project_path);
-
-		return $js_files;
+		// $js_path = '/scripts/pc-project.min.js';
+		// wp_enqueue_script( 
+		// 	'wproject',
+		// 	get_stylesheet_directory_uri().$js_path,
+		// 	array( 'wpreform' ),
+		// 	filemtime(get_stylesheet_directory().$js_path),
+		// 	array( 'strategy' => 'defer', 'in_footer' => true )
+		// );
 
 	}
 
@@ -40,7 +47,14 @@ add_action( 'admin_enqueue_scripts', 'pc_enqueue_admin_project_dependencies' );
 
 	function pc_enqueue_admin_project_dependencies() {
 
-		wp_enqueue_style( 'project-admin', get_stylesheet_directory_uri().'/css/project-admin.css', null, filemtime(get_stylesheet_directory().'/css/project-admin.css'), 'screen' );
+		$path = '/css/project-admin.css';
+		wp_enqueue_style( 
+			'wproject',
+			get_stylesheet_directory_uri().$path,
+			array( 'wpreform' ),
+			filemtime(get_stylesheet_directory().$path),
+			'screen'
+		);
 		
 	}	
 

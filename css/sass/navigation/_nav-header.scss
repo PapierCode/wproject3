@@ -228,6 +228,7 @@
 		transition: none;
 		overflow: visible;
 		display: flex;
+		gap: rem($button-space);
 
 		.h-nav-is-open & {
 			transform: none;
