@@ -15,9 +15,11 @@
 @use "../helpers" as *;
 
 
-/*============================
-=            Lien            =
-============================*/
+/*===============================
+=            Communs            =
+===============================*/
+
+/*----------  Lien par défaut  ----------*/
 
 a:not([class]), a:not([class]):visited {	
 	color:$black;
@@ -30,8 +32,32 @@ a:not([class]), a:not([class]):visited {
 	}
 }
 
+/*----------  Date  ----------*/
 
-/*=====  FIN Lien  =====*/
+.date {
+	display: flex;
+	align-items: center;
+	gap:.5em;
+
+	svg { transform: translateY(rem(-1)); }
+}
+
+
+/*=====  FIN Communs  =====*/
+
+/*===================================
+=            Tiny editor            =
+===================================*/
+
+.tiny-editor {
+	@include editor_default();
+	display: grid;
+	gap: rem(10);
+	font-family: $font-default;
+}
+
+
+/*=====  FIN Tiny editor  =====*/
 
 /*===============================
 =            Archive            =
@@ -39,7 +65,7 @@ a:not([class]), a:not([class]):visited {
 
 .archive {
 
-	.editor, .term-current {
+	.tiny-editor, .archive-filters {
 		grid-column: var(--editor-col-start) / var(--editor-col-end);
 
 		@media ( min-width : em($mq-layout-xl) ) {
@@ -53,24 +79,51 @@ a:not([class]), a:not([class]):visited {
 	}
 }
 
-.term-current-remove {
-	display:inline-block;
-	background-color: $red;
-	border-radius: 50%;
-	padding: rem(5);
-	transform: translateY(rem(5));
-	transition: background-color .3s ease;
+.archive-filters {}
+.archive-filters-list {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap:rem($button-space);
+}
+.archive-filters-title {
+	@include font();
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap:rem($button-space);
+}
+.archive-filters-link {
+	.ico {
+		background-color: $red;
+		border-radius: 50%;
+		padding: rem(4);
 
-	svg {
-		width: rem(14);
-		height: rem(14);
-	}
-
-	&:hover, &:focus-visible {
-		background-color: $green;
-		transition: background-color .3s ease;
+		svg {
+			width: rem(10);
+			height: rem(10);
+		}
 	}
 }
+
+// .term-current-remove {
+// 	display:inline-block;
+// 	background-color: $red;
+// 	border-radius: 50%;
+// 	padding: rem(5);
+// 	transform: translateY(rem(5));
+// 	transition: background-color .3s ease;
+
+// 	svg {
+// 		width: rem(14);
+// 		height: rem(14);
+// 	}
+
+// 	&:hover, &:focus-visible {
+// 		background-color: $green;
+// 		transition: background-color .3s ease;
+// 	}
+// }
 
 
 /*=====  FIN Archive  =====*/
@@ -154,6 +207,8 @@ a:not([class]), a:not([class]):visited {
 	font-size: rem(20);
 }
 
+.date--card {}
+
 .card-link {
 	color:$black;
 	text-decoration: none;
@@ -221,15 +276,6 @@ a:not([class]), a:not([class]):visited {
 	color:$white;
 }
 
-.card-date {
-	display: flex;
-	gap:.5em;
-
-	svg {
-		transform: translateY(rem(3));
-	}
-}
-
 .card-terms {
 	position: relative;
 	z-index: 1;
@@ -279,12 +325,16 @@ a:not([class]), a:not([class]):visited {
 
 /*----------  Date  ----------*/
 
-.single-date {
-	grid-column: var(--editor-col-start)/var(--editor-col-end);
-	display: flex;
-	gap:.5em;
-
-	svg { transform: translateY(rem(3)); }
+.date--single {
+	@media ( min-width : em($mq-layout-l) ) {
+		grid-column: span 2;
+	}
+	@media ( min-width : em($mq-layout-xl) ) {
+		grid-column: 3/6;
+	}
+	@media ( min-width : em($mq-layout-xl) ) {
+		grid-column: 4/7;
+	}
 }
 
 
@@ -292,7 +342,6 @@ a:not([class]), a:not([class]):visited {
 
 
 .single-terms {
-	grid-column: var(--editor-col-start)/var(--editor-col-end);
 
 	svg {
 		display: inline-block;
@@ -306,6 +355,16 @@ a:not([class]), a:not([class]):visited {
 		&:hover, &:focus {
 		   text-decoration: underline;
 		}
+	}
+
+	@media ( min-width : em($mq-layout-l) ) {
+		grid-column: span 4;
+	}
+	@media ( min-width : em($mq-layout-xl) ) {
+		grid-column: 6/11;
+	}
+	@media ( min-width : em($mq-layout-xl) ) {
+		grid-column: 7/10;
 	}
 }
 

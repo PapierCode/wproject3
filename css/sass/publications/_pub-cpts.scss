@@ -1,0 +1,27 @@
+/**
+*
+* Publications : custom posts
+*
+* Événements
+*
+**/
+
+
+@use "../var-sass" as *;
+@use "../mixins" as *;
+@use "../helpers" as *;
+
+/*==================================
+=            Événements            =
+==================================*/
+
+.past-events-link {
+    justify-self: start;
+
+    @media ( min-width : em($mq-footer) ) {
+        &:not(:first-child) { grid-row: 2/3; }
+    }
+}
+
+
+/*=====  FIN Événements  =====*/

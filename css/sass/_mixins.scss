@@ -85,5 +85,29 @@
 }
 
 
+/*----------  Éditeurs  ----------*/
+
+@mixin editor_default() {
+	sup, sub {
+		font-size: rem(12);
+		margin-left: .1em;
+	}
+
+	p, li {
+		max-width: rem($mw-txt);
+		strong { font-weight: 700; }
+		em { font-style: italic; }
+	}
+	
+	ul:not([class]) {
+		list-style: disc;
+		padding-left: rem(20);
+	}
+	ol:not([class]) {
+		list-style: decimal;
+		padding-left: rem(30);
+	}
+}
+
 
 /*=====  FIN Mixins  =====*/

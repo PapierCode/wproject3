@@ -96,6 +96,9 @@
 		height: rem(1.2*$button-size);
 	}
 }
+.button--previous {
+	justify-self: start;
+}
 
 .button--red {
 	background-color: $red;

@@ -10,9 +10,7 @@
 @use "../helpers" as *;
 
 
-.coord {
-	grid-column: 2/3;
-}
+.coord {}
 
 .coord-list {
 	margin:0;
@@ -22,6 +20,9 @@
 .coord-item {
 	margin:0;
 	display: flex;
+	align-items: flex-start;
+
+	.coord-txt { align-self: center; }
 }
 
 .coord-item--logo {
@@ -56,26 +57,15 @@
 		}
 	}
 
-	@media ( min-width : em($mq-layout-m) ) {
+	@media ( min-width : em($mq-layout-l) ) {
 		margin-top:rem(30);
 		
-		br:nth-of-type(1) {
-			display:none;
-		}
+		br:nth-of-type(1) { display:none; }
 	}
 
 }
 .coord-item--phone {
 	margin-top:rem(10);
-	
-	a {
-		text-decoration: none;
-		color:$white;
-
-		&:hover, &:focus {
-		   text-decoration: underline;
-		}
-	}
 	.coord-sep {
 		display: none;
 	}
@@ -88,6 +78,15 @@
 		.coord-sep {
 			display: inline;
 		}
+	}
+}
+	
+.coord-phone {
+	text-decoration: none;
+	color:$white;
+
+	&:hover, &:focus {
+	   text-decoration: underline;
 	}
 }
 

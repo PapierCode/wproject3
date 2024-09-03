@@ -137,7 +137,7 @@ h1 {
 .main-footer {
 	grid-column: 1/-1;
 	display: grid;
-	gap: var(--space);
+	gap: var(--space-half) var(--space);
 	padding: var(--space-half) var(--space);
 	background-color: $grey;
 	
@@ -164,24 +164,29 @@ h1 {
 	max-width: rem($mw-layout);
 	margin: 0 auto;
 	padding: var(--space-screen);
+
+	&:empty { display: none; }
+
+	@media ( min-width : em($mq-layout-xxl) ) {
+		.button { align-self: end; }	
+	}
 }
 
 .aside-card-title {
 	grid-column: 1/-1;
 	border:$border;
 	padding: var(--space);
-	display: flex;
-	flex-direction: column;
+	display: grid;
 	align-items: center;
-	justify-content: center;
+	justify-items: center;
 	gap:var(--space);
 
 	@media ( min-width : em($mq-layout-xxl) ) {
+		gap:0;
 		grid-column: span 4;
 	}
 }
 .aside-title {
-	grid-column: var(--editor-col-start)/var(--editor-col-end);
 	text-align: center;
 	@include font(900);
 	font-size: rem(40);
@@ -198,14 +203,20 @@ h1 {
 
 .footer {
 	background-color:$black;
-	color:$white;	
-	display: grid;
-	grid-template-columns: var(--grid);
-	row-gap: var(--space-half);
-	padding: calc(2*var(--space)) 0 var(--space);
+	color:$white;
 }
 
-// .footer-inner {}
+.footer-inner {
+	display: grid;
+	gap:calc(2*var(--space));
+	padding: calc(2*var(--space)) var(--space-screen) var(--space);
+	max-width: rem($mw-layout);
+	margin: 0 auto;
+
+	@media ( min-width : em($mq-footer) ) {
+		grid-template-columns: 1fr 1fr;
+	}
+}
 
 
 /*=====  FIN Footer  =====*/
