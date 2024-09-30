@@ -8,14 +8,3 @@
 @use "../var-sass" as *;
 @use "../mixins" as *;
 @use "../helpers" as *;
-
-/*=============================
-=            Aside            =
-=============================*/
-
-.aside--news .card-list--news {
-	grid-column: 1/-1;
-}
-
-
-/*=====  FIN Aside  =====*/

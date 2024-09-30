@@ -187,16 +187,17 @@
 .bloc-columns {
 	display: flex;
 	flex-direction: column;
-	gap: var(--space);
+	row-gap: var(--space);
 
+	&.bloc-inner--nogap { row-gap: 0; }
 	&.bloc-inner--reverse { flex-direction: column-reverse;	}
 
 	@media ( min-width : em($mq-layout-l) ) { // 6 colonnes
 		display: grid;
 		grid-template-columns: subgrid;
-		gap:var(--editor-row-gap);
+		row-gap:var(--editor-row-gap);
 
-		&.bloc-inner--reverse { display: grid; }
+		&.bloc-inner--nogap { column-gap: 0; }
 
 		--span-1-1 : span 3;
 		--span-1-2 : var(--span-1-1);
@@ -265,12 +266,12 @@
 	}
 }
 
-.bloc-column {
+// .bloc-column {
 
-	&:has(.bloc-image--cover:only-child) {
-		align-self: auto;
-	}
-}
+// 	&:has(.bloc-image--cover:only-child) {
+// 		align-self: auto;
+// 	}
+// }
 
 
 /*=====  FIN Colonnes   =====*/
@@ -375,8 +376,8 @@
 
 	.ico {
 		position: absolute;
-		bottom: var(--space);
-		right: var(--space);
+		bottom: 0;
+		right: 0;
 		padding: rem($button-space);
 		background-color: $white;
 		transition: background-color .3s ease;

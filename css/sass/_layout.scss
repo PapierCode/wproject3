@@ -158,6 +158,7 @@ h1 {
 =============================*/
 
 .aside {
+	grid-column: 1/-1;
 	display: grid;
 	grid-template-columns: var(--grid);
 	gap:var(--space);
