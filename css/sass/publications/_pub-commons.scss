@@ -80,11 +80,29 @@ a:not([class]), a:not([class]):visited {
 }
 
 .archive-filters {}
-.archive-filters-list {
+#archive-filters {
+	display: grid;
+	grid-template-rows: 0fr;
+	transition: grid-template-rows .5s ease;
+
+	&[aria-hidden="false"] {
+		grid-template-rows: 1fr;
+		transition: grid-template-rows .5s ease;
+	}
+}
+.archive-filters-list {	
+	overflow: hidden;
 	display: flex;
 	flex-wrap: wrap;
-	align-items: center;
-	gap:rem($button-space);
+	align-items: flex-end;
+	gap: rem($button-space);
+	margin-top: 0;
+	transition: margin-top .5s ease;
+
+	[aria-hidden="false"] > & {
+		margin-top: rem($button-space);
+		transition: margin-top .5s ease;
+	}
 }
 .archive-filters-title {
 	@include font();

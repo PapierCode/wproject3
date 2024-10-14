@@ -1,5 +1,10 @@
 document.addEventListener( 'DOMContentLoaded', () => {
 
+const rem = function( size, base ) {
+	if ( base == undefined ) { base = 16; }
+	return size / base + 'rem';
+};
+
 const html = document.querySelector( 'html' );
 
 /*=======================================
@@ -69,5 +74,5 @@ if ( html.classList.contains( 'has-map' ) ) {
 
 /*=====  FIN Content Map  =====*/
 
-});
+}); // FIN addEventListener DOMContentLoaded
 
