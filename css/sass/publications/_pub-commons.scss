@@ -65,7 +65,7 @@ a:not([class]), a:not([class]):visited {
 
 .archive {
 
-	.tiny-editor, .archive-filters {
+	.tiny-editor, .filters {
 		grid-column: var(--editor-col-start) / var(--editor-col-end);
 
 		@media ( min-width : em($mq-layout-xl) ) {
@@ -79,69 +79,11 @@ a:not([class]), a:not([class]):visited {
 	}
 }
 
-.archive-filters {}
-#archive-filters {
-	display: grid;
-	grid-template-rows: 0fr;
-	transition: grid-template-rows .5s ease;
-
-	&[aria-hidden="false"] {
-		grid-template-rows: 1fr;
-		transition: grid-template-rows .5s ease;
-	}
-}
-.archive-filters-list {	
-	overflow: hidden;
+.filters {
 	display: flex;
 	flex-wrap: wrap;
-	align-items: flex-end;
-	gap: rem($button-space);
-	margin-top: 0;
-	transition: margin-top .5s ease;
-
-	[aria-hidden="false"] > & {
-		margin-top: rem($button-space);
-		transition: margin-top .5s ease;
-	}
-}
-.archive-filters-title {
-	@include font();
-	display: flex;
-	flex-wrap: wrap;
-	align-items: center;
 	gap:rem($button-space);
 }
-.archive-filters-link {
-	.ico {
-		background-color: $red;
-		border-radius: 50%;
-		padding: rem(4);
-
-		svg {
-			width: rem(10);
-			height: rem(10);
-		}
-	}
-}
-
-// .term-current-remove {
-// 	display:inline-block;
-// 	background-color: $red;
-// 	border-radius: 50%;
-// 	padding: rem(5);
-// 	transform: translateY(rem(5));
-// 	transition: background-color .3s ease;
-
-// 	svg {
-// 		width: rem(14);
-// 		height: rem(14);
-// 	}
-
-// 	&:hover, &:focus-visible {
-// 		background-color: $green;
-// 		transition: background-color .3s ease;
-// 	}
-// }
 
 
 /*=====  FIN Archive  =====*/

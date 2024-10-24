@@ -122,9 +122,10 @@ textarea {
 
 input[type="radio"],
 input[type="checkbox"] {
-	+ * {
+	+ label {
 		display:flex;
 		align-items: center;
+		cursor: pointer;
 
 		&::before {
 			content:"";
@@ -137,8 +138,11 @@ input[type="checkbox"] {
 			background-color: #fff;
 			margin-right: rem(10);
 		}
+		&:hover, &:focus-visible {
+			text-decoration: underline;
+		}
 	}
-	&:focus + * {
+	&:focus-visible + * {
 		&::before {
 			outline-color: $black;
 		}
@@ -148,14 +152,14 @@ input[type="checkbox"] {
 			background-color: $red;
 		}
 	}
-	.form-item--error & + * {
+	.form-item--error & + label {
 		&::before {
 			outline-color: $msg-error;
 		}
 	}
 }
 input[type="radio"] {
-	+ * {
+	+ label {
 		&::before {
 			border-radius:50%;
 		}
@@ -167,7 +171,7 @@ textarea:read-only,
 select:disabled {
 	background-color: $grey;
 
-	&:focus {
+	&:focus-visible {
 		border-color:$grey;
 	}
 }

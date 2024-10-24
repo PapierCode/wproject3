@@ -1,0 +1,56 @@
+/**
+*
+* Composants : modale
+*
+**/
+
+
+@use "../var-sass" as *;
+@use "../mixins" as *;
+@use "../helpers" as *;
+
+
+.modal {
+	position: fixed;
+	inset: 0;
+	border: none;
+	padding: 0;
+	background-color: transparent;
+	color: $black;
+	cursor: pointer;
+
+	&:focus { outline: none; }
+	&::backdrop { background-color: rgba($black,.75); }
+
+	&[open] { animation: dialogopen .3s ease forwards; }	  
+}
+.modal-inner {
+	max-width: calc( #{rem($mw-txt)} + 2*var(--space) );
+	margin: calc( var(--space) + #{rem(40)} ) var(--space) var(--space);
+	padding: var(--space);
+	background-color: $white;
+	cursor: default;
+    position: relative;
+	display: grid;
+	gap:var(--space-half);
+}
+.modal-btn-close {
+	position: absolute;
+	top:0;
+	right: 0;
+}
+.modal-title {
+	@include font(700);
+	font-size: rem(26);
+	padding-right: rem($button-size);
+}
+@keyframes dialogopen {
+	0% { 
+		transform: translateY(var(--space));
+		opacity:0;
+	}
+	100% { 
+		transform: translateY(0);
+		opacity:1;
+	}
+}

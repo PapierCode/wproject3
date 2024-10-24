@@ -517,3 +517,19 @@
 
 /*=====  FIN Spacer  =====*/
 
+/*=============================
+=            Carte            =
+=============================*/
+
+.bloc-map {
+	.map {
+		height: rem(300);
+	}
+	.leaflet-div-icon {
+		.circle { fill: $black; }
+		.pointer { fill: $orange; }
+	}
+}
+
+
+/*=====  FIN Carte  =====*/

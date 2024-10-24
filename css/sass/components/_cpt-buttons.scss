@@ -113,3 +113,18 @@
 		transform: rotate(180deg);
 	}
 }
+.button--cancel {
+	.ico {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: rem(20);
+		height: rem(20);
+		background-color: $red;
+		border-radius: 50%;
+	}
+	svg {
+		width: rem(12);
+		height: rem(12);
+	}
+}

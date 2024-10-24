@@ -10,6 +10,20 @@
 @use "../var-sass" as *;
 @use "../mixins" as *;
 @use "../helpers" as *;
+@use "../components/cpt-buttons" as *;
+
+/*==================================
+=            Actualités            =
+==================================*/
+
+.news-filter-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: rem($button-space);
+}
+
+
+/*=====  FIN Actualités  =====*/
 
 /*==================================
 =            Événements            =
