@@ -86,6 +86,9 @@ input[type="email"],
 input[type="password"],
 input[type="tel"],
 input[type="number"],
+input[type="date"],
+input[type="time"],
+input[type="url"],
 select,
 textarea {		
 	width:100%;
@@ -120,51 +123,51 @@ textarea {
 // 	}
 // }
 
-input[type="radio"],
-input[type="checkbox"] {
-	+ label {
-		display:flex;
-		align-items: center;
-		cursor: pointer;
+// input[type="radio"],
+// input[type="checkbox"] {
+// 	+ label {
+// 		display:flex;
+// 		align-items: center;
+// 		cursor: pointer;
 
-		&::before {
-			content:"";
-			display: inline-block;
-			flex-shrink: 0;
-			width: rem(20);
-			height: rem(20);
-			border:rem(4) solid #fff;
-			outline:$border;
-			background-color: #fff;
-			margin-right: rem(10);
-		}
-		&:hover, &:focus-visible {
-			text-decoration: underline;
-		}
-	}
-	&:focus-visible + * {
-		&::before {
-			outline-color: $black;
-		}
-	}
-	&:checked + * {	
-		&::before {
-			background-color: $red;
-		}
-	}
-	.form-item--error & + label {
-		&::before {
-			outline-color: $msg-error;
-		}
-	}
-}
-input[type="radio"] {
-	+ label {
-		&::before {
-			border-radius:50%;
-		}
-	}
-}
+// 		&::before {
+// 			content:"";
+// 			display: inline-block;
+// 			flex-shrink: 0;
+// 			width: rem(20);
+// 			height: rem(20);
+// 			border:rem(4) solid #fff;
+// 			outline:$border;
+// 			background-color: #fff;
+// 			margin-right: rem(10);
+// 		}
+// 		&:hover, &:focus-visible {
+// 			text-decoration: underline;
+// 		}
+// 	}
+// 	&:focus-visible + * {
+// 		&::before {
+// 			outline-color: $black;
+// 		}
+// 	}
+// 	&:checked + * {	
+// 		&::before {
+// 			background-color: $red;
+// 		}
+// 	}
+// 	.form-item--error & + label {
+// 		&::before {
+// 			outline-color: $msg-error;
+// 		}
+// 	}
+// }
+// input[type="radio"] {
+// 	+ label {
+// 		&::before {
+// 			border-radius:50%;
+// 		}
+// 	}
+// }
 
 input:read-only,
 textarea:read-only,

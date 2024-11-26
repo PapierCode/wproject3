@@ -59,7 +59,7 @@
 	
 	/*----------  Communs  ----------*/
 
-	> :not(.bloc-spacer), 
+	p, h2, h3, ul, ol, li, // gravity forms
 	.bloc-column > *,
 	.bloc-frame-inner > *, {
 		&:empty { display: none; }
