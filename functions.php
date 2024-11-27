@@ -29,6 +29,9 @@ add_action( 'wp_enqueue_scripts', 'pc_enqueue_project_dependencies' );
 			'print'
 		);
 
+		// gravity forms
+		if ( is_plugin_active( 'gravityforms/gravityforms.php' ) && !is_user_logged_in() ) { wp_deregister_style( 'dashicons' ); }
+
 		// $js_path = '/scripts/pc-project.min.js';
 		// wp_enqueue_script( 
 		// 	'wproject',
@@ -39,6 +42,9 @@ add_action( 'wp_enqueue_scripts', 'pc_enqueue_project_dependencies' );
 		// );
 
 	}
+
+// gravity forms
+if ( is_plugin_active( 'gravityforms/gravityforms.php' ) ) { add_filter( 'gform_disable_css', '__return_true' ); }
 
 
 /*----------  Admin  ----------*/

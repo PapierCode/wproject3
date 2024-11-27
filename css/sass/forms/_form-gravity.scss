@@ -1,0 +1,188 @@
+/**
+*
+* Formulaires : défaut
+*
+**/
+
+@use "../var-sass" as *;
+@use "../mixins" as *;
+@use "../helpers" as *;
+
+
+$form-gap : 10;
+$field-bg : #fff;
+$field-space : 10;
+
+
+.gform_fields {
+    display: grid;
+    gap:var(--space-half) rem($form-gap);
+    
+    @media ( min-width : em($mq-layout-l) ) {
+        grid-template-columns: repeat(12,1fr);
+    }
+}
+
+.gfield_label {
+    @include font(800,1.5);
+    cursor: pointer;
+}
+
+.gfield {
+    grid-column: 1/-1;
+    
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="tel"],
+    input[type="number"],
+    input[type="date"],
+    input[type="time"],
+    input[type="url"],
+    select,
+    textarea {		
+        width:100%;
+        padding:rem($field-space);
+        background-color: $field-bg;
+        border: $border;
+        font-size: rem(18);
+            
+        &:focus {
+            outline: none;
+            border-color: $black;
+        }
+    }
+
+    + .spacer { display: none; }
+
+    @media ( min-width : em($mq-layout-l) ) {
+
+        + .spacer { display: block; }
+
+        &.gfield--width-eleven-twelfths { grid-column: span 11; }
+        &.gfield--width-five-sixths { grid-column: span 10; }
+        &.gfield--width-three-quarter { grid-column: span 9; }
+        &.gfield--width-two-thirds { grid-column: span 8; }
+        &.gfield--width-seven-twelfths { grid-column: span 7; }
+        &.gfield--width-half { grid-column: span 6; }
+        &.gfield--width-five-twelfths { grid-column: span 5; }
+        &.gfield--width-third { grid-column: span 4; }
+        &.gfield--width-quarter { grid-column: span 3; }
+    }
+
+}
+
+/*----------  Textarea  ----------*/
+
+.gfield--type-textarea {
+    textarea { font-family: $font-default; }
+    .small { height: rem(90); }
+    .medium { height: rem(130); }
+    .large { height: rem(170); }
+}
+
+/*----------  Input file  ----------*/
+
+.gfield--type-fileupload {
+    input[type="file"] { @extend .visually-hidden; }
+}
+.input-file {
+    position: relative;
+    display: flex;
+    background-color: $field-bg;
+    border: $border;
+}
+.input-file-btn {
+    padding: 0 rem($field-space);
+    border-right: $border;
+    transition: background-color $t-btn ease;
+
+    svg { fill: $black; }
+
+    &::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+    }
+
+    &:hover, &:focus-visible {
+        background-color: $green;
+        transition: background-color $t-btn ease;
+    }
+}
+.input-file-msg {
+    padding: rem($field-space);
+    line-height: normal;
+}
+
+
+/*----------  Input Repeater  ----------*/
+
+.gfield_list_groups {
+    display: grid;
+    row-gap: rem(.5*$field-space);
+}
+.gfield_list_group {
+    display: flex;
+}
+.gfield_list_group_item {
+    flex-grow: 1;
+}
+.gfield_list_icons {
+    display: flex;
+}
+.add_list_item, .delete_list_item {
+    text-indent: -666vw;
+    font-size: rem(10);
+    overflow: hidden;
+    width:rem(40);
+    padding: rem($field-space);
+    background-color: $field-bg;
+    border:$border;
+    border-left: none;
+    position: relative;
+    transition: background-color $t-btn ease;
+
+    &::before, &::after {
+        content: "";
+        position: absolute;
+        left:50%;
+        top: 50%;
+        transform-origin: center;
+        transform: translate(-50%,-50%);
+        width: rem(16);
+        height: rem(3);
+        background-color: $black;
+    }
+
+    &:hover, &:focus-visible {
+        background-color: $green;
+        transition: background-color $t-btn ease;
+    }
+}
+.add_list_item {
+    &::after {
+        transform: translate(-50%,-50%) rotate(90deg);
+    }
+}
+.delete_list_item {}
+
+
+/*----------  Description  ----------*/
+
+.gfield_description,
+.gform_fileupload_rules {
+    display: block;
+    font-size: rem(16);
+    font-style: italic;
+}
+
+/*----------  Footer  ----------*/
+
+.gform-footer {
+    display: flex;
+    gap: rem($field-space);
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: var(--space) var(--space) 0;
+}
