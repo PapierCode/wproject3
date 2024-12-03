@@ -24,6 +24,11 @@
 	--base-font-size : #{rem(16)};
 	--h1-font-size : #{rem(36)};
 
+	/*----------  Block Editor  ----------*/
+	
+	--editor-row-gap : var(--space);
+	--editor-h2-font-size : #{rem(28)};
+	--editor-h3-font-size : #{rem(22)};
 
 	@media ( min-width : em($mq-layout-m) ) {
 	
@@ -44,6 +49,11 @@
 		
 		--base-font-size : #{rem(18)};
 		--h1-font-size	: #{rem(44)};
+
+		/*----------  Block Editor  ----------*/
+		
+		--editor-h2-font-size : #{rem(32)};
+		--editor-h3-font-size : #{rem(26)};
 
     }
 

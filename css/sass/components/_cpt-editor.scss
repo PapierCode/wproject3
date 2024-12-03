@@ -14,8 +14,6 @@
 
 .editor {
 
-	--editor-row-gap : var(--space);
-
 	grid-column: 1/-1;
 	display: grid;
 	grid-template-columns: subgrid;
@@ -111,20 +109,15 @@
 		strong { font-weight: 900; }
 	}
 
-	--h2-font-size : #{rem(28)};
-	--h3-font-size : #{rem(22)};
-
-	@media ( min-width : em($mq-layout-l) ) {
-		--h2-font-size : #{rem(32)};
-		--h3-font-size : #{rem(26)};
-	}
-
-	h2.wp-block-heading { font-size: var(--h2-font-size); }
-	h3.wp-block-heading { font-size: var(--h3-font-size); }
-
 	> h2.wp-block-heading, h3.wp-block-heading { margin-bottom: 0; }
-	> h2.wp-block-heading { margin-top: calc(.75*var(--editor-row-gap)); }
-	> h3.wp-block-heading { margin-top: calc(.25*var(--editor-row-gap)); }
+	> h2.wp-block-heading { 
+		font-size: var(--editor-h2-font-size);
+		margin-top: calc(.75*var(--editor-row-gap));
+	}
+	> h3.wp-block-heading { 
+		font-size: var(--editor-h3-font-size);
+		margin-top: calc(.25*var(--editor-row-gap));
+	}
 
 	
 	/*=====  FIN Titres  =====*/

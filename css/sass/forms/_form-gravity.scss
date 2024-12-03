@@ -13,6 +13,113 @@ $form-gap : 10;
 $field-bg : #fff;
 $field-space : 10;
 
+.gform_anchor { @extend .visually-hidden; }
+
+// barre de progression
+.gf_progressbar_wrapper {
+    margin-bottom: var(--space);
+}
+.gf_progressbar_title {
+    @include font(800,1.2);
+    font-size: rem(20);
+}
+.gf_progressbar {
+    margin-top: rem($field-space);
+    background-color: $grey;
+}
+.gf_progressbar_percentage {
+    background-color: $green;
+    text-align: center;
+
+    span { padding: 0 rem($field-space); }
+}
+
+// étapes
+.gf_page_steps {
+    display: flex;
+    justify-content: center;
+    gap:var(--space);
+    flex-wrap: wrap;
+    @include font();
+    margin-bottom: var(--space);
+    padding-block: var(--space-half);
+    border-top: $border;
+    border-bottom: $border;
+}
+.gf_step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:rem($field-space);
+}
+.gf_step_number {
+    width: rem(40);
+    aspect-ratio: 1;
+    background-color: $grey;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .gf_step_active & {
+        background-color: $green;
+    }
+}
+
+
+.gform_validation_errors {
+    margin-bottom: var(--space);
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: rem($field-space);
+
+    p {
+        @include font(800,1.2);
+        font-size: rem(20);
+        color: $red;
+        align-self: center;
+    }
+    .ico {
+        width: rem(34);
+        aspect-ratio: 1;
+        background-color: $red;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        svg { fill: $white; }
+    }
+    .ico ~ * {
+        grid-column: 2/3;
+    }
+}
+
+.gform_confirmation_message {
+
+    p, ul, ol {
+        margin: calc(.5*var(--editor-row-gap)) 0;
+    }
+    strong { font-weight: 700; }
+    em { font-style: italic; }
+
+    h2, h3 {
+		@include font(800,1.2);
+		color: $black;
+        margin-bottom: 0;
+        strong { font-weight: 900; }
+    }
+    h2 {
+        font-size: var(--editor-h2-font-size);
+        margin: var(--editor-row-gap) 0 calc(.5*var(--editor-row-gap));
+    }
+	h3 {
+        font-size: var(--editor-h3-font-size);
+        margin: calc(.75*var(--editor-row-gap)) 0 calc(.5*var(--editor-row-gap));
+    }
+}
+
+/*----------  Liste de champs  ----------*/
 
 .gform_fields {
     display: grid;
@@ -25,7 +132,32 @@ $field-space : 10;
 
 .gfield_label {
     @include font(800,1.5);
+    display: flex;
+    column-gap: rem(5);
+    align-items: center;
+    margin-bottom: rem(5);
+
+    .gfield_error & {
+
+        &::before {
+            content:"";
+            width: rem(20);
+            height: rem(20);
+            border-radius: 50%;
+            background-color: $red;
+            background-image: svg-load("../../wpreform3/images/icons/msg-s.svg",fill=$white);
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+    }
+}
+.gfield_label, .gchoice label {
     cursor: pointer;
+}
+.gfield_required {
+    color: $red;
+    font-weight: 600;
+    font-size: rem(16);
 }
 
 .gfield {
@@ -70,6 +202,11 @@ $field-space : 10;
         &.gfield--width-quarter { grid-column: span 3; }
     }
 
+}
+
+.gfield_validation_message {
+    color: $red;
+    font-weight: 700;
 }
 
 /*----------  Textarea  ----------*/
@@ -167,6 +304,11 @@ $field-space : 10;
 }
 .delete_list_item {}
 
+/*----------  Honeypot  ----------*/
+
+.gfield--type-honeypot {
+    display: none;
+}
 
 /*----------  Description  ----------*/
 
@@ -179,7 +321,7 @@ $field-space : 10;
 
 /*----------  Footer  ----------*/
 
-.gform-footer {
+.gform-footer, .gform-page-footer {
     display: flex;
     gap: rem($field-space);
     flex-wrap: wrap;
