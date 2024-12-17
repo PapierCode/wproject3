@@ -43,12 +43,11 @@
     "label_placement": "left",
     "instruction_placement": "field",
     "hide_on_screen": [
-        "the_content",
         "slug",
         "page_attributes"
     ],
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1722840461
+    "modified": 1733248960
 }

@@ -52,7 +52,7 @@ var postCssPlugins = [
 function cssScreen() {
     
     return src( ['css/use.scss'] )
-        .pipe(sass({ precision: 3 }))
+        .pipe(sass({ silenceDeprecations: ['legacy-js-api'], precision: 3 }))
         .pipe(postcss( postCssPlugins ))
 		.pipe(rename( 'front.css' ))
         .pipe(dest( 'css/' ));
@@ -62,7 +62,7 @@ function cssScreen() {
 function cssAdmin() {
     
     return src( ['css/use-admin.scss'] )
-        .pipe(sass({ precision: 3 }))
+        .pipe(sass({ silenceDeprecations: ['legacy-js-api'], precision: 3 }))
         .pipe(postcss( postCssPlugins ))
 		.pipe(rename( 'project-admin.css' ))
         .pipe(dest( 'css/' ));
