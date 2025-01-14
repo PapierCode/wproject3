@@ -11,28 +11,156 @@
 @use "../helpers" as *;
 @use "cpt-buttons" as *;
 
+:root {		
+
+	--editor-space : var(--space);
+
+	// grille horizontale
+	--editor-col-start : 1;
+	--editor-col-end : -1;
+
+	// espaces & grille verticale
+	--editor-margin-top-default-coef : .5;
+	--editor-margin-top-h2-coef : 1.5;
+
+	// texte courant
+	--editor-font-weight : 400;
+	--editor-font-weight-strong : 700;
+
+	// font face
+	--editor-font-face-weight : 400;
+	--editor-font-face-weight-strong : 700;
+	--editor-font-face-line-height : 1.3;
+	--editor-font-face-italic : italic; // ou inherit
+
+	// titres
+	--editor-h2-font-size : #{rem(30)};
+	--editor-h3-font-size : #{rem(24)};
+
+	// galerie
+	--editor-gallery-gap : calc(var(--editor-margin-top-default-coef) * var(--editor-space));
+
+	// citation
+	--editor-quote-line-height : 1.4;
+	--editor-quote-font-size : #{rem(22)};
+
+
+	@media ( min-width : em($mq-layout-l) ) {
+
+		// titres
+		--editor-h2-font-size : #{rem(34)};
+		--editor-h3-font-size : #{rem(28)};
+
+		// citation
+		--editor-quote-font-size : #{rem(26)};
+
+	}
+
+	@media ( min-width : em($mq-layout-xl) ) {
+
+		// grille
+		--editor-col-start : 3;
+		--editor-col-end : -3;
+		--editor-wide-col-start : 1;
+		--editor-wide-col-end : -1;
+		
+	}
+
+	@media ( min-width : em($mq-layout-xxl) ) {
+		
+		// grille
+		--editor-col-start : 4;
+		--editor-col-end : -4;
+		--editor-wide-col-start : 2;
+		--editor-wide-col-end : -2;
+
+	}
+
+}
+
 
 .editor {
 
 	grid-column: 1/-1;
 	display: grid;
 	grid-template-columns: subgrid;
-	row-gap: var(--editor-row-gap);
 
-	/*===========================================
-	=            Grille & alignement            =
-	===========================================*/
 
-	> * { grid-column: var(--editor-col-start)/var(--editor-col-end); }
+	/*----------  Éléments vides  ----------*/
+	
+	p, 
+	h2, 
+	h3, 
+	ul, 
+	ol, 
+	li, 
+	a, 
+	figure, 
+	figcaption, 
+	blockquote, 
+	cite, 
+	div:not(.bloc-spacer) {
+		&:empty { display: none; }
+	}	
+	
+
+	/*----------  Grille horizontale  ----------*/
+	
+	> * { grid-column: var(--editor-col-start) / var(--editor-col-end); }
 	
 	@media ( min-width : em($mq-layout-xl) ) {
-		.bloc-align-h--wide { grid-column: var(--editor-wide-col-start)/var(--editor-wide-col-end); }
+		.bloc-align-h--wide { grid-column: var(--editor-wide-col-start) / var(--editor-wide-col-end); }
 		.bloc-align-h--left { grid-column-end: var(--editor-wide-col-end); }
 		.bloc-align-h--right { grid-column-start: var(--editor-wide-col-start); }	
 	}
 
+	
+	/*----------  Grille vertical  ----------*/	
 
-	/*----------  Alignement horizontal  ----------*/
+	// blocs partagés
+	> p, 
+	> ul, 
+	> ol, 
+	> .bloc-buttons, 
+	.bloc-column > *, 
+	.bloc-frame-inner > * {
+		&:not(.wp-block-heading) { margin-top: calc( var(--editor-margin-top-default-coef) * var(--editor-space) ); }
+	}
+	h2.wp-block-heading { margin-top: calc( var(--editor-margin-top-h2-coef) * var(--editor-space) ); }
+	h3.wp-block-heading { margin-top: var(--editor-space); }
+
+	// autres blocs
+	blockquote, > [class*="bloc-"]:not(.bloc-spacer) { margin-top: var(--editor-space); }
+
+	// 2 colonnes sans fond (parent ou enfant) et sans image en première position
+	.bloc-columns:not([class*="bloc-style"]):not(:has([class*="bloc-style"])):not(:has(.bloc-image:first-child)) {
+		// si un paragraphe/titre en première position
+		&:has(p:first-child) { margin-top:calc( var(--editor-margin-top-default-coef) * var(--editor-space) ); }
+		&:has(h2.wp-block-heading:first-child) { margin-top: calc( var(--editor-margin-top-h2-coef) * var(--editor-space) ); }
+		&:has(h3.wp-block-heading:first-child) { margin-top:var(--editor-space); } // utile ? (= defaut)
+	}
+
+	// contenu colonne & encadré
+	.bloc-column, 
+	.bloc-frame-inner {
+		.bloc-image { margin: var(--editor-space) 0; }
+		:first-child { margin-top: 0; }
+		:last-child { margin-bottom: 0; }
+	}
+
+	// espace
+	.bloc-spacer {
+		grid-column: 1/-1;
+		height: calc( 2 * var(--editor-space) );
+
+		&:first-child, &:last-child { display: none; }
+		& + * { margin-top: 0 !important; } // bof !
+	}
+	.bloc-spacer--x3 { height: calc( 3 * var(--editor-space) ); }
+	.bloc-spacer--x4 { height: calc( 4 * var(--editor-space) ); }
+
+
+	/*----------  Texte ou sous-bloc, alignement horizontal  ----------*/
 	
 	.has-text-align-center { text-align: center; }
 	.has-text-align-right { text-align: right; }
@@ -42,62 +170,27 @@
 	.bloc-inner-align-h--right { justify-content: flex-end; }
 
 
-	/*----------  Alignement vertical  ----------*/
+	/*----------  Sous-bloc, alignement vertical  ----------*/
 		
 	.bloc-inner-align-v--top > * { align-self: start; }
 	.bloc-inner-align-v--center > * { align-self: center; }
 	.bloc-inner-align-v--bottom > * { align-self: end; }
-
 	
-	/*=====  FIN Grille & alignement  =====*/
 
-	/*==========================================
-	=            Éléments standards            =
-	==========================================*/
+	/*----------  Éléments communs  ----------*/
 	
-	/*----------  Communs  ----------*/
-
-	p, h2, h3, ul, ol, li, // gravity forms
-	.bloc-column > *,
-	.bloc-frame-inner > *, {
-		&:empty { display: none; }
-	}
-		
-	sup, sub {
-		font-size: rem(12);
-		margin-left: .1em;
-	}
-
-	p, li, 
-	.bloc-column p, .bloc-column li,
-	.bloc-frame p, .bloc-frame li {
-		strong { font-weight: 700; }
-		em { font-style: italic; }
-	}
-
-	
-	/*----------  Listes  ----------*/
-	
-	ul:not([class]),
-	ol:not([class]) {
-		margin:0;
-	}
-	ul:not([class]) {
+	ul.wp-block-list {
 		list-style: disc;
-		padding-left: rem(20);
+		padding-left: .9em;
 	}
-	ol:not([class]) {
+	ol.wp-block-list {
 		list-style: decimal;
-		padding-left: rem(30);
+		padding-left: 1.6em;
 	}
-	
 
-	/*----------  Titres  ----------*/
-	
-	h2.wp-block-heading, h3.wp-block-heading  {
-		@include font(800,1.2);
-		color: $black;
-		margin:0;
+	h2.wp-block-heading, 
+	h3.wp-block-heading  {
+		@include font( var(--editor-font-face-weight), var(--editor-font-face-line-height) );
 
 		a {
 			color: inherit;
@@ -105,424 +198,332 @@
 			background: none;
 			text-decoration: none;
 		}
-		em { font-style: inherit; }
-		strong { font-weight: 900; }
+		em { font-style: var(--editor-font-face-italic); }
+		strong { font-weight: var(--editor-font-face-weight-strong); }
 	}
-
-	> h2.wp-block-heading, h3.wp-block-heading { margin-bottom: 0; }
-	> h2.wp-block-heading { 
+	h2.wp-block-heading {
 		font-size: var(--editor-h2-font-size);
-		margin-top: calc(.75*var(--editor-row-gap));
+
+		@media ( min-width : em($mq-layout-xl) ) {
+			grid-column-start: calc( var(--editor-col-start) - 1 );
+			grid-column-end: calc( var(--editor-col-end) + 1 );
+		}
 	}
-	> h3.wp-block-heading { 
-		font-size: var(--editor-h3-font-size);
-		margin-top: calc(.25*var(--editor-row-gap));
+	h3.wp-block-heading { font-size: var(--editor-h3-font-size); }
+
+	> p, 
+	> ul li, 
+	> ol li, 
+	.bloc-column > p, 
+	.bloc-column > ul li, 
+	.bloc-column > ol li, 
+	.bloc-frame-inner > p, 
+	.bloc-frame-inner > ul li,
+	.bloc-frame-inner > ol li {
+		strong { font-weight: 700; }
+		em { font-style: italic; }
 	}
 
-	
-	/*=====  FIN Titres  =====*/
+	.bloc-buttons { 
+		display: flex;
+		flex-wrap: wrap;
+		gap: calc( var(--editor-margin-top-default-coef) * var(--editor-space) );
 
-} /* FIN .editor */
+		strong { font-weight: var(--editor-font-face-weight-strong); }
+		em { font-style: var(--editor-font-face-italic); }
+		br { display: none; }
+	}
+			
+	sup, 
+	sub {
+		font-size: small;
+		margin-left: .2em;
+	}
+	sup { vertical-align: top; }
+	sub { vertical-align: bottom; }
 
-/*===============================
-=            Communs            =
-===============================*/
-
-[class*="bloc-style"] {
-	padding: var(--editor-row-gap);
-
+	// Fond encadré, colonnes & colonne
 	[class*="bloc-style"] {
-		background-color: transparent;
-		padding: 0;
+		padding: var(--editor-space);
+
+		[class*="bloc-style"] { // colonnes > colonne
+			background-color: transparent;
+			padding: 0;
+		}
 	}
-}
-.bloc-style--v1 { background-color: $orange; }
-.bloc-style--v2 { background-color: $blue; }
-
-.bloc-column,
-.bloc-frame-inner {
-	> :nth-child(n+2) { margin: 1rem 0 0; }
-}
-
-
-/*=====  FIN Communs  =====*/
-
-
-/*===============================
-=            Encadré            =
-===============================*/
-
-.bloc-frame {
-
-	&[class*="bloc-align-h"] {
-		display: grid;
-		grid-template-columns: subgrid;
-	}
-}
-
-.bloc-frame-inner {
-	grid-column: 1/-1;
+	.bloc-style--v1 { background-color: $orange; }
+	.bloc-style--v2 { background-color: $blue; }
 	
-	@media ( min-width : em($mq-layout-xl) ) {
-		.bloc-align-h--wide & {	grid-column: 3/-3; }
-		.bloc-align-h--left &,
-		.bloc-align-h--right & { grid-column: 2/-2; }
-	}
-}
 
+	/*==============================
+	=            Images            =
+	==============================*/
+	
+	.bloc-image {
+		display: flex;
 
-/*=====  FIN Encadré  =====*/
+		img { width: 100%; }
 
-/*=================================
-=            Colonnes             =
-=================================*/
-
-.bloc-columns {
-	display: flex;
-	flex-direction: column;
-	row-gap: var(--space);
-
-	&.bloc-inner--nogap { row-gap: 0; }
-	&.bloc-inner--reverse { flex-direction: column-reverse;	}
-
-	@media ( min-width : em($mq-layout-l) ) { // 6 colonnes
-		display: grid;
-		grid-template-columns: subgrid;
-		row-gap:var(--editor-row-gap);
-
-		&.bloc-inner--nogap { column-gap: 0; }
-
-		--span-1-1 : span 3;
-		--span-1-2 : var(--span-1-1);
-		--span-2-1 : var(--span-1-1);
-		--span-1-3 : var(--span-1-1);
-		--span-3-1 : var(--span-1-1);
-
-		&.bloc-columns--1-1 > * { grid-column: var(--span-1-1); }
-
-		&.bloc-columns--1-2 > :nth-child(1) { grid-column: var(--span-1-2); }
-		&.bloc-columns--2-1 > :nth-child(2) { grid-column: var(--span-1-2); }
-		&.bloc-columns--1-2 > :nth-child(2) { grid-column: var(--span-2-1); }
-		&.bloc-columns--2-1 > :nth-child(1) { grid-column: var(--span-2-1); }
-
-		&.bloc-columns--1-3 > :nth-child(1) { grid-column: var(--span-1-3); }
-		&.bloc-columns--3-1 > :nth-child(2) { grid-column: var(--span-1-3); }
-		&.bloc-columns--1-3 > :nth-child(2) { grid-column: var(--span-3-1); }
-		&.bloc-columns--3-1 > :nth-child(1) { grid-column: var(--span-3-1); }
-	}
-
-	@media ( min-width : em($mq-layout-xl) ) { // 8 colonnes
-		--span-1-1 : span 4;
-		--span-1-2 : span 3;
-		--span-2-1 : span 5;
-	}
-	@media ( min-width : em($mq-layout-xxl) ) { // 6 colonnes
-		--span-1-1 : span 3;
-		--span-1-2 : span 2;
-		--span-2-1 : span 4;
-	}
-
-	// 12 colonnes
-	&.bloc-align-h--left,
-	&.bloc-align-h--right {
-		@media ( min-width : em($mq-layout-xl) ) { // 10 colonnes
-			--span-1-1 : span 5;
-			--span-1-2 : span 4;
-			--span-2-1 : span 6;	
-			--span-1-3 : span 3;
-			--span-3-1 : span 7;	
-		}
-		@media ( min-width : em($mq-layout-xxl) ) { // 8 colonnes
-			--span-1-1 : span 4;
-			--span-1-2 : span 3;
-			--span-2-1 : span 5;	
-			--span-1-3 : span 2;
-			--span-3-1 : span 6;	
-		}
-	}
-
-	&.bloc-align-h--wide {
-		@media ( min-width : em($mq-layout-xl) ) { // 12 colonnes
-			--span-1-1 : span 6;
-			--span-1-2 : span 5;
-			--span-2-1 : span 7;	
-			--span-1-3 : span 4;
-			--span-3-1 : span 8;	
-		}
-		@media ( min-width : em($mq-layout-xxl) ) { // 10 colonnes
-			--span-1-1 : span 5;
-			--span-1-2 : span 4;
-			--span-2-1 : span 6;
-			--span-1-3 : span 3;
-			--span-3-1 : span 7;
-		}
-	}
-}
-
-// .bloc-column {
-
-// 	&:has(.bloc-image--cover:only-child) {
-// 		align-self: auto;
-// 	}
-// }
-
-
-/*=====  FIN Colonnes   =====*/
-
-/*===============================
-=            Boutons            =
-===============================*/
-
-.bloc-buttons { 
-	display: flex;
-	flex-wrap: wrap;
-	gap:rem($button-space);
-}
-.wp-block-button {
-	&:has(a:not([href])) { display: none; }
-}
-.wp-element-button { 
-
-	em, strong {
-		font-style: inherit;
-		font-weight: inherit;
-	}
-	br { display: none; }
-}
-
-
-/*=====  FIN Boutons  =====*/
-
-/*================================
-=            Citation            =
-================================*/
-
-.bloc-quote {
-	position: relative;
-	display: flex;
-	flex-direction: column;
-	@include font(600);
-
-	strong { font-weight: 900; }
-	em { font-style: inherit; }
-	// a {}
-
-	p {
-		font-size: rem(24);
-		margin:0;
-		
-		position: relative;
-		z-index: 1;
-
-		// strong {}
-		// em {}
-		// a {}
-
-		&::before, &::after {
-			content:"";
+		.ico {
 			position: absolute;
-			top:rem(-10);
-			z-index: -1;
-			width: rem(26);
-			height: rem(20);
-			background-image: svg-load('../images/icons/quote.svg',fill=$yellow);
-			opacity: .5;
+			top: 0;
+			right: 0;
+			padding: rem($button-space);
+			background-color: $white;
+			transition: background-color $t-button ease;
+
+			svg {
+				fill: $black;
+				transition: fill $t-button ease;
+			}
 		}
-		&::before {
-			transform-origin: right top;
-			transform: scale(-$quote-size,$quote-size);
-			right:calc( 100% - var(--editor-row-gap) );
-		}
-		&::after {
-			transform-origin: right top;
-			transform: scale($quote-size);
-			right:var(--editor-row-gap);
-		}
-	}
-
-	cite {
-		display: block;
-		font-style: normal;
-		margin-top:rem(10);
-	}
-
-	&.bloc-quote--left { align-items: flex-start;}
-	&.bloc-quote--center { 
-		align-items: center;
-		text-align: center;
-	}
-	&.bloc-quote--right { 
-		align-items: flex-end;
-		text-align: right;
-	}
-}
-
-
-/*=====  FIN Citation  =====*/
-
-/*=============================
-=            Image            =
-=============================*/
-
-.bloc-image {
-	display: flex;
-
-	.ico {
-		position: absolute;
-		bottom: 0;
-		right: 0;
-		padding: rem($button-space);
-		background-color: $white;
-		transition: background-color .3s ease;
-
-		svg {
-			fill: $black;
-			transition: fill .3s ease;
+		.diaporama-link:hover, 
+		.diaporama-link:focus-visible {
+			.ico {
+				background-color: $green;
+				transition: background-color $t-button ease;
+			}
 		}
 	}
-	&.bloc-image--circle {
-		.ico {
-			right: auto;
-			bottom: var(--space);
-			left: 50%;
-			transform: translateX(-50%);
+
+	.bloc-image--cover {
+		height: 100%;
+
+		.bloc-image-inner { 
+			display: flex;
+			flex-direction: column;
+			height: 100%;
+		}
+		.bloc-image-container { flex: 1; }
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
 		}
 	}
-	.diaporama-link:hover, .diaporama-link:focus-visible {
-		.ico {
-			background-color: $green;
-			transition: background-color .3s ease;
-		}
-	}
+
 	figcaption {
-		font-size: rem(16);
-		margin-top:.5rem;
+		font-size: medium;
+		margin-top: .25em;
 		font-style: italic;
 	}
-}
+	
+	
+	/*=====  FIN Images  =====*/
 
-.bloc-image, .bloc-column-image {
-	img { width: 100%; }
-}
-.bloc-image--circle,
-.bloc-image--cover {
-	img {
+	/*===============================
+	=            Galerie            =
+	===============================*/
+	
+	.gallery-list {
+		display:flex;
+		flex-wrap:wrap;
+		justify-content:center;
+		gap: var(--editor-gallery-gap);
+		
+		.diaporama-link {
+			transition: transform $t-button ease;
+	
+			&:hover, &:focus-visible {
+				transform: scale(1.05);
+				transition: transform $t-button ease;
+			}
+		}
+	}
+	.gallery-item {
+		width: calc( (100% - var(--editor-gallery-gap)) / 2 );
+	
+		@media ( min-width : em(500) ) {
+			width: calc( (100% - 2*var(--editor-gallery-gap)) / 3 );
+		}
+		@media ( min-width : em($mq-layout-xl) ) {
+			width: calc( (100% - 3*var(--editor-gallery-gap)) / 4 );
+		}
+		@media ( min-width : em($mq-layout-xxl) ) {
+			width: calc( (100% - 4*var(--editor-gallery-gap)) / 5 );
+		}
+	}
+	.gallery-play {
 		width: 100%;
 		height: 100%;
-		object-fit: cover;
-	}
-}
-.bloc-image--cover {
-	height: 100%;
-
-	.bloc-image-inner { 
 		display: flex;
-		flex-direction: column;
-		height: 100%;
-	}
-	.bloc-image-container { flex: 1; }
-}
-.bloc-image--circle {
-	.bloc-image-container {
-		aspect-ratio: 1;
-		overflow: hidden;
-		border-radius: 50%;
-	}
-}
-
-
-/*=====  FIN Image  =====*/
-
-/*===============================
-=            Galerie            =
-===============================*/
-
-.gallery-list {
-	display:flex;
-	flex-wrap:wrap;
-	justify-content:center;
-	gap: var(--space);
-	
-	.diaporama-link {
-		transition: transform .3s ease;
-
-		&:hover, &:focus-visible {
-			transform: scale(1.05);
-			transition: transform .3s ease;
-		}
-	}
-}
-.gallery-item {
-	width: calc( (100% - var(--space)) / 2 );
-
-	@media ( min-width : em(500) ) {
-		width: calc( (100% - 2*var(--space)) / 3 );
-	}
-	@media ( min-width : em($mq-layout-xl) ) {
-		width: calc( (100% - 3*var(--space)) / 4 );
-	}
-	@media ( min-width : em($mq-layout-xxl) ) {
-		width: calc( (100% - 4*var(--space)) / 5 );
-	}
-}
-.gallery-play {
-	width: 100%;
-	height: 100%;
-	display: flex;
-	justify-content: center;
-	gap:rem($button-space);
-	align-items: center;
-	padding: rem($button-space);
-	background-color: $black;
-	color: #fff;
-	transition: all .3s ease;
-	
-	svg { 
-		fill:$white;
-		transition: fill .3s ease;
-	}
-	
-	&:hover {
-		background-color: $green;
-		color: $black;
-		transition: all .3s ease;
+		justify-content: center;
+		gap: rem($button-space);
+		align-items: center;
+		padding: rem($button-space);
+		background-color: $black;
+		color: #fff;
+		transition: all $t-button ease;
 		
 		svg { 
-			fill:$black;
-			transition: fill .3s ease;
+			fill:$white;
+			transition: fill $t-button ease;
+		}
+		
+		&:hover {
+			background-color: $green;
+			color: $black;
+			transition: all $t-button ease;
+			
+			svg { 
+				fill:$black;
+				transition: fill $t-button ease;
+			}
 		}
 	}
-}
+	
+	
+	/*=====  FIN Galerie  =====*/
 
+	/*================================
+	=            Colonnes            =
+	================================*/
+		
+	.bloc-columns {
+		display: flex;
+		flex-direction: column;
+		row-gap: var(--editor-space);
 
-/*=====  FIN Galerie  =====*/
+		&.bloc-inner--nogap { row-gap: 0; }
+		&.bloc-inner--reverse { flex-direction: column-reverse;	}
 
-/*==============================
-=            Spacer            =
-==============================*/
+		@media ( min-width : em($mq-layout-l) ) { // 6/6 colonnes
+			display: grid;
+			grid-template-columns: subgrid;
 
-.bloc-spacer {
-	&:first-child, &:last-child { display: none; }
-}
-.bloc-spacer--x3 { height: var(--editor-row-gap); }
-.bloc-spacer--x4 { height: calc(2*var(--editor-row-gap)); }
+			&.bloc-inner--nogap { column-gap: 0; }
 
+			--span-1-1 : span 3;
+			--span-1-2 : var(--span-1-1);
+			--span-2-1 : var(--span-1-1);
+			--span-1-3 : var(--span-1-1);
+			--span-3-1 : var(--span-1-1);
 
-/*=====  FIN Spacer  =====*/
+			&.bloc-columns--1-1 > * { grid-column: var(--span-1-1); }
 
-/*=============================
-=            Carte            =
-=============================*/
+			&.bloc-columns--1-2 > :nth-child(1) { grid-column: var(--span-1-2); }
+			&.bloc-columns--2-1 > :nth-child(2) { grid-column: var(--span-1-2); }
+			&.bloc-columns--1-2 > :nth-child(2) { grid-column: var(--span-2-1); }
+			&.bloc-columns--2-1 > :nth-child(1) { grid-column: var(--span-2-1); }
 
-.bloc-map {
-	.map {
-		height: rem(300);
+			&.bloc-columns--1-3 > :nth-child(1) { grid-column: var(--span-1-3); }
+			&.bloc-columns--3-1 > :nth-child(2) { grid-column: var(--span-1-3); }
+			&.bloc-columns--1-3 > :nth-child(2) { grid-column: var(--span-3-1); }
+			&.bloc-columns--3-1 > :nth-child(1) { grid-column: var(--span-3-1); }
+		}
+
+		@media ( min-width : em($mq-layout-xl) ) { // 8/12 colonnes
+			--span-1-1 : span 4;
+			--span-1-2 : span 3;
+			--span-2-1 : span 5;
+		}
+		@media ( min-width : em($mq-layout-xxl) ) { // 6/12 colonnes
+			--span-1-1 : span 3;
+			--span-1-2 : span 2;
+			--span-2-1 : span 4;
+		}
+
+		&.bloc-align-h--left,
+		&.bloc-align-h--right {
+			@media ( min-width : em($mq-layout-xl) ) { // 10/12 colonnes
+				--span-1-1 : span 5;
+				--span-1-2 : span 4;
+				--span-2-1 : span 6;	
+				--span-1-3 : span 3;
+				--span-3-1 : span 7;	
+			}
+			@media ( min-width : em($mq-layout-xxl) ) { // 8/12 colonnes
+				--span-1-1 : span 4;
+				--span-1-2 : span 3;
+				--span-2-1 : span 5;	
+				--span-1-3 : span 2;
+				--span-3-1 : span 6;	
+			}
+		}
+		&.bloc-align-h--wide {
+			@media ( min-width : em($mq-layout-xl) ) { // 12/12 colonnes
+				--span-1-1 : span 6;
+				--span-1-2 : span 5;
+				--span-2-1 : span 7;	
+				--span-1-3 : span 4;
+				--span-3-1 : span 8;	
+			}
+			@media ( min-width : em($mq-layout-xxl) ) { // 10/12 colonnes
+				--span-1-1 : span 5;
+				--span-1-2 : span 4;
+				--span-2-1 : span 6;
+				--span-1-3 : span 3;
+				--span-3-1 : span 7;
+			}
+		}
 	}
-	.leaflet-div-icon {
-		.circle { fill: $black; }
-		.pointer { fill: $orange; }
+
+	.bloc-column {
+		&:has(.bloc-image--cover:only-child) { align-self: auto; }
 	}
-}
+	
+	
+	/*=====  FIN Colonnes  =====*/
+
+	/*===============================
+	=            Encadré            =
+	===============================*/
+
+	.bloc-frame {
+		
+		@media ( min-width : em($mq-layout-xl) ) {
+			display: grid;
+			grid-template-columns: subgrid;
+
+			> * { grid-column: 1/-1; }
+			&.bloc-align-h--wide > * {	grid-column: 3/-3; }
+			&.bloc-align-h--left > *, 
+			&.bloc-align-h--right > * { grid-column: 2/-2; }
+		}
+	}	
+	
+	
+	/*=====  FIN Encadré  =====*/
+	
+	/*================================
+	=            Citation            =
+	================================*/
+
+	.bloc-quote {
+		display: flex;
+		flex-direction: column;
+		padding: var(--editor-space);
+		@include font( var(--editor-font-face-weight), var(--editor-quote-line-height) );
+
+		border-top: rem(5) solid $yellow;
+		border-bottom: rem(5) solid $yellow;
+
+		p { font-size: var(--editor-quote-font-size); }
+		cite {
+			font-style: normal;
+			margin-top:.5em;
+		}
+		strong { font-weight: var(--editor-font-face-weight-strong); }
+		em { font-style: var(--editor-font-face-italic); }
+	}
 
 
-/*=====  FIN Carte  =====*/
+	/*=====  FIN Citation  =====*/
+
+	/*=============================
+	=            Carte            =
+	=============================*/
+	
+	.bloc-map {
+		.map { height: rem(300); }
+		.leaflet-div-icon {
+			.circle { fill: $black; }
+			.pointer { fill: $orange; }
+		}
+	}
+	
+	
+	/*=====  FIN Carte  =====*/
+	
+
+} /* FIN .editor */

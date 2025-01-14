@@ -33,27 +33,26 @@ $mq-layout-xl		: 900;
 $mq-layout-xxl		: 1200;
 $mq-layout-mw		: $mw-layout;
 
-$mq-footer		    : 600;
 $mq-main-footer		: 600;
+$mq-footer		    : 600;
 
 
 /*----------  Typographie  ----------*/
 
 $font-default 		: Arial, sans-serif;
-$font-face			: 'Raleway', sans-serif; // 600,800,900
+$font-face			: 'Raleway', sans-serif; // 400,700
 
 
 /*----------  Animations  ----------*/
 
 $t-toggle-nav		: .5s;
-$t-card-hover		: .4s;
-$t-btn		        : .3s;
+$t-card		        : .4s;
+$t-button		    : .3s;
 
 
 /*----------  Divers  ----------*/
 
 $border				: 1px solid $grey;
-$quote-size 		: 5;
 
 $button-ico-size	: 16;
 $button-space 		: 10;

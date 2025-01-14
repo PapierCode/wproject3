@@ -49,21 +49,21 @@
 			color: $white;
 			padding: rem(5);
 			border-radius: 50%;
-			transition: background-color $t-btn ease;
+			transition: background-color $t-button ease;
 
 			svg { 
 				fill: currentColor;
-				transition: fill $t-btn ease;
+				transition: fill $t-button ease;
 				transform: translateY(-.03em);
 			}
 
 			&:hover, &:focus-visible {
 				background-color: $green;
-				transition: background-color $t-btn ease;
+				transition: background-color $t-button ease;
 	
 				svg {
 					fill: $black;
-					transition: fill $t-btn ease;
+					transition: fill $t-button ease;
 				}
 			}
 		}

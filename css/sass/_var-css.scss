@@ -14,32 +14,21 @@
 	/*----------  Grille  ----------*/
 	
 	--grid-col-count : 2;
-	--grid : repeat(var(--grid-col-count),1fr);
-		
-	--editor-col-start : 1;
-	--editor-col-end : -1;
+	--grid : repeat( var(--grid-col-count), 1fr );
 
 	/*----------  Typo  ----------*/
 	
 	--base-font-size : #{rem(16)};
-	--h1-font-size : #{rem(36)};
+	--h1-font-size : #{rem(36)};	
 
-	/*----------  Block Editor  ----------*/
-	
-	--editor-row-gap : var(--space);
-	--editor-h2-font-size : #{rem(28)};
-	--editor-h3-font-size : #{rem(22)};
-
-	@media ( min-width : em($mq-layout-m) ) {
-	
-	}
+	@media ( min-width : em($mq-layout-m) ) {}
 	
 	@media ( min-width : em($mq-layout-l) ) {
 		
 		/*----------  Espaces  ----------*/
 				
-		--space-screen : calc(2*var(--space));
-		--space-half : calc(.5*var(--space));
+		--space-screen : calc( 2*var(--space) );
+		--space-half : calc( .5*var(--space) );
 
 		/*----------  Grille  ----------*/
 		
@@ -49,11 +38,6 @@
 		
 		--base-font-size : #{rem(18)};
 		--h1-font-size	: #{rem(44)};
-
-		/*----------  Block Editor  ----------*/
-		
-		--editor-h2-font-size : #{rem(32)};
-		--editor-h3-font-size : #{rem(26)};
 
     }
 
@@ -67,26 +51,10 @@
 		
 		--grid-col-count : 12;
 
-		--editor-col-start : 3;
-		--editor-col-end : -3;
-		--editor-wide-col-start : 1;
-		--editor-wide-col-end : -1;
-
 	}
 
-	@media ( min-width : em($mq-layout-xxl) ) {
-		
-		/*----------  Grille  ----------*/
-		
-		--editor-col-start : 4;
-		--editor-col-end : -4;
-		--editor-wide-col-start : 2;
-		--editor-wide-col-end : -2;
+	@media ( min-width : em($mq-layout-xxl) ) {}
 
-	}
-
-	@media ( min-width : em($mq-layout-mw) ) {
-		
-	}
+	@media ( min-width : em($mq-layout-mw) ) {}
 
 }

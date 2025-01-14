@@ -24,7 +24,7 @@
 /*----------  Encadré  ----------*/
 
 .bloc-style--v1 { background-color: $orange; }
-.bloc-style--v2 { background-color: $green; }
+.bloc-style--v2 { background-color: $blue; }
 
 
 /*=====  FIN Communs  =====*/
@@ -35,9 +35,9 @@
 
 .editor-post-title, 
 .wp-block-heading {
-	@include font(800,1.1);
+	@include font(700,1.1);
 
-	strong { font-weight: 900; }
+	strong { font-weight: 700; }
 	em { font-style: inherit; }
 }
 
@@ -55,7 +55,7 @@ h3.wp-block-heading { font-size: rem(20); }
 /*----------  Aperçu  ----------*/
 
 .wp-block-acf-pc-quote {
-	@include font(600);
+	@include font(400);
 
 	.acf-innerblocks-container {
 		display: flex;
@@ -63,7 +63,7 @@ h3.wp-block-heading { font-size: rem(20); }
 		gap: rem(10);
 	}
 	p { margin: 0; }
-	strong { font-weight: 900; }
+	strong { font-weight: 700; }
 	em { font-style: inherit; }
 	// a {}
 
@@ -83,13 +83,13 @@ h3.wp-block-heading { font-size: rem(20); }
 			opacity: .5;
 		}
 		&::before {
-			transform: scale(-$quote-size,$quote-size);
+			transform: scale(-4,4);
 			right:calc( 100% + #{rem(10)} );
 		}
 		&::after {
 			transform-origin: right top;
 			transform-origin: right top;
-			transform: scale($quote-size);
+			transform: scale(4);
 			right:rem(-10);
 		}
 	}
@@ -114,7 +114,7 @@ h3.wp-block-heading { font-size: rem(20); }
 		height: rem($button-size);
 		padding: rem(0,$button-space);
 		background-color: $black;
-		@include font(600,1);
+		@include font(400,1);
 		font-size: rem(18);
 		color: $white;
 	}

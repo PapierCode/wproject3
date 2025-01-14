@@ -10,7 +10,7 @@ add_filter('acf/load_field/name=bloc_style', 'my_acf_load_field');
 
 	function my_acf_load_field( $field ) {
 		$field['choices']['v1'] = 'Orange';
-		$field['choices']['v2'] = 'Vert';
+		$field['choices']['v2'] = 'Bleu';
 		return $field;
 	}
 

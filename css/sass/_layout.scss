@@ -114,7 +114,7 @@ body {
 
 h1 {
 	grid-column: 1/-1;
-	@include font(900);
+	@include font(700);
 	color:$black;
 	font-size: var(--h1-font-size);
 	margin:0;
@@ -164,7 +164,6 @@ h1 {
 	gap:var(--space);
 	max-width: rem($mw-layout);
 	margin: 0 auto;
-	padding: var(--space-screen);
 
 	&:empty { display: none; }
 
@@ -189,7 +188,7 @@ h1 {
 }
 .aside-title {
 	text-align: center;
-	@include font(900);
+	@include font(700);
 	font-size: rem(40);
 }
 

@@ -19,13 +19,13 @@
 
 	background-color: $black;
 
-	@include font(900);
+	@include font(700);
 	font-size:rem(16);
 	text-decoration: none;
 	color:$white;
 	text-transform: uppercase;
 
-	transition:all $t-btn ease;
+	transition:all $t-button ease;
 	
 	.txt {}
 	.txt:nth-child(2) {
@@ -40,17 +40,17 @@
 		width: rem($button-ico-size);
 		height: rem($button-ico-size);
 		fill:$white;
-		transition:fill $t-btn ease;
+		transition:fill $t-button ease;
 	}
 
 	&:hover, &:focus-visible {
 		background-color: $green;
 		color:$black;
-		transition:all $t-btn ease;
+		transition:all $t-button ease;
 
 		svg {
 			fill:$black;
-			transition:fill $t-btn ease;
+			transition:fill $t-button ease;
 		}
 	}	
 	

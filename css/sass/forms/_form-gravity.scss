@@ -20,7 +20,7 @@ $field-space : 10;
     margin-bottom: var(--space);
 }
 .gf_progressbar_title {
-    @include font(800,1.2);
+    @include font(700,1.2);
     font-size: rem(20);
 }
 .gf_progressbar {
@@ -74,7 +74,7 @@ $field-space : 10;
     column-gap: rem($field-space);
 
     p {
-        @include font(800,1.2);
+        @include font(700,1.2);
         font-size: rem(20);
         color: $red;
         align-self: center;
@@ -104,10 +104,10 @@ $field-space : 10;
     em { font-style: italic; }
 
     h2, h3 {
-		@include font(800,1.2);
+		@include font(700,1.2);
 		color: $black;
         margin-bottom: 0;
-        strong { font-weight: 900; }
+        strong { font-weight: 700; }
     }
     h2 {
         font-size: var(--editor-h2-font-size);
@@ -131,7 +131,7 @@ $field-space : 10;
 }
 
 .gfield_label {
-    @include font(800,1.5);
+    @include font(700,1.5);
     display: flex;
     column-gap: rem(5);
     align-items: center;
@@ -156,7 +156,7 @@ $field-space : 10;
 }
 .gfield_required {
     color: $red;
-    font-weight: 600;
+    font-weight: 400;
     font-size: rem(16);
 }
 
@@ -232,7 +232,7 @@ $field-space : 10;
 .input-file-btn {
     padding: 0 rem($field-space);
     border-right: $border;
-    transition: background-color $t-btn ease;
+    transition: background-color $t-button ease;
 
     svg { fill: $black; }
 
@@ -244,7 +244,7 @@ $field-space : 10;
 
     &:hover, &:focus-visible {
         background-color: $green;
-        transition: background-color $t-btn ease;
+        transition: background-color $t-button ease;
     }
 }
 .input-file-msg {
@@ -278,7 +278,7 @@ $field-space : 10;
     border:$border;
     border-left: none;
     position: relative;
-    transition: background-color $t-btn ease;
+    transition: background-color $t-button ease;
 
     &::before, &::after {
         content: "";
@@ -294,7 +294,7 @@ $field-space : 10;
 
     &:hover, &:focus-visible {
         background-color: $green;
-        transition: background-color $t-btn ease;
+        transition: background-color $t-button ease;
     }
 }
 .add_list_item {

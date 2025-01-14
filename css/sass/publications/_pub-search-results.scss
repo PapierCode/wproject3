@@ -46,7 +46,7 @@
 		bottom:0;
 		left:0;
 		transform: scale(.5);
-		transition:all $t-card-hover ease;
+		transition:all $t-card ease;
 	}
 	
 	&:hover, &:focus-within {
@@ -54,14 +54,14 @@
 		&:before {
 			transform: scale(1);
 			background-color: $blue;
-			transition:all $t-card-hover ease;
+			transition:all $t-card ease;
 		}
 	}
 }
 
 .s-results-item-title {
 	margin:0;
-	@include font(800,1.4);
+	@include font(700,1.4);
 	font-size:rem(18);
 
 	.has-image & {
