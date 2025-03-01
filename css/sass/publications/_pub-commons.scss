@@ -26,7 +26,7 @@ a:not([class]), a:not([class]):visited {
 	text-decoration: underline;
 	transition:text-decoration-thickness 0.3s ease;
 
-	&:hover, &:focus {
+	&:hover, &:focus-visible {
 		text-decoration-thickness: 2px;
 		transition:text-decoration-thickness 0.3s ease;
 	}

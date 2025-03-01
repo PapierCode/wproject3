@@ -5,6 +5,16 @@
 **/
 
 @font-face {
+    font-family: "Atkinson";
+    font-style: normal;
+    font-weight: 200 800;
+	font-display: swap;
+    text-rendering: optimizeLegibility;
+    font-synthesis: none;
+    src: url("sass/font-face/atkinsonhyperlegiblenext.woff2") format("woff2-variations");
+}
+
+@font-face {
     font-family: "Raleway";
     font-style: normal;
     font-weight: 400;
