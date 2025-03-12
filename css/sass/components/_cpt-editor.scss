@@ -188,7 +188,9 @@
 
 	h2.wp-block-heading, 
 	h3.wp-block-heading  {
-		@include font( var(--editor-font-face-weight), var(--editor-font-face-line-height) );
+		font-family: var(--font-project);
+		font-weight: var(--editor-font-face-weight);
+		line-height: var(--editor-font-face-line-height);
 
 		a {
 			color: inherit;
@@ -249,8 +251,8 @@
 			padding: 0;
 		}
 	}
-	.bloc-style--v1 { background-color: $orange; }
-	.bloc-style--v2 { background-color: $blue; }
+	.bloc-style--v1 { background-color: hsl(var(--orange)); }
+	.bloc-style--v2 { background-color: hsl(var(--blue)); }
 	
 
 	/*==============================
@@ -267,19 +269,19 @@
 			top: 0;
 			right: 0;
 			padding: rem($button-space);
-			background-color: $white;
-			transition: background-color $t-button ease;
+			background-color: hsl(var(--white));
+			transition: background-color var(--t-btn) ease;
 
 			svg {
-				fill: $black;
-				transition: fill $t-button ease;
+				fill: hsl(var(--black));
+				transition: fill var(--t-btn) ease;
 			}
 		}
 		.diaporama-link:hover, 
 		.diaporama-link:focus-visible {
 			.ico {
-				background-color: $green;
-				transition: background-color $t-button ease;
+				background-color: hsl(var(--green));
+				transition: background-color var(--t-btn) ease;
 			}
 		}
 	}
@@ -320,11 +322,11 @@
 		gap: var(--editor-gallery-gap);
 		
 		.diaporama-link {
-			transition: transform $t-button ease;
+			transition: transform var(--t-btn) ease;
 	
 			&:hover, &:focus-visible {
 				transform: scale(1.05);
-				transition: transform $t-button ease;
+				transition: transform var(--t-btn) ease;
 			}
 		}
 	}
@@ -349,23 +351,23 @@
 		gap: rem($button-space);
 		align-items: center;
 		padding: rem($button-space);
-		background-color: $black;
+		background-color: hsl(var(--black));
 		color: #fff;
-		transition: all $t-button ease;
+		transition: all var(--t-btn) ease;
 		
 		svg { 
-			fill:$white;
-			transition: fill $t-button ease;
+			fill:hsl(var(--white));
+			transition: fill var(--t-btn) ease;
 		}
 		
 		&:hover {
-			background-color: $green;
-			color: $black;
-			transition: all $t-button ease;
+			background-color: hsl(var(--green));
+			color: hsl(var(--black));
+			transition: all var(--t-btn) ease;
 			
 			svg { 
-				fill:$black;
-				transition: fill $t-button ease;
+				fill:hsl(var(--black));
+				transition: fill var(--t-btn) ease;
 			}
 		}
 	}
@@ -491,10 +493,12 @@
 		display: flex;
 		flex-direction: column;
 		padding: var(--editor-space);
-		@include font( var(--editor-font-face-weight), var(--editor-quote-line-height) );
+		font-family: var(--font-project);
+		font-weight: var(--editor-font-face-weight);
+		line-height: var(--editor-quote-line-height);
 
-		border-top: rem(5) solid $yellow;
-		border-bottom: rem(5) solid $yellow;
+		border-top: rem(5) solid hsl(var(--orange));
+		border-bottom: rem(5) solid hsl(var(--orange));
 
 		p { font-size: var(--editor-quote-font-size); }
 		cite {
@@ -515,8 +519,8 @@
 	.bloc-map {
 		.map { height: rem(300); }
 		.leaflet-div-icon {
-			.circle { fill: $black; }
-			.pointer { fill: $orange; }
+			.circle { fill: hsl(var(--black)); }
+			.pointer { fill: hsl(var(--orange)); }
 		}
 	}
 	

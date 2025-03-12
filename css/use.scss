@@ -24,11 +24,12 @@
 @use "sass/components/cpt-loader";
 @use "sass/components/cpt-messages";
 @use "sass/components/cpt-pager";
-@use "sass/components/cpt-skip-nav";
 @use "sass/components/cpt-social";
 @use "sass/components/cpt-breadcrumb";
 @use "sass/components/cpt-editor";
 @use "sass/components/cpt-modal";
+@use "sass/components/cpt-a11y";
+@use "sass/components/cpt-embed";
 
 
 /*----------  Mise en page globale  ----------*/

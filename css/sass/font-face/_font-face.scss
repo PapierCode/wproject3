@@ -6,10 +6,8 @@
 
 @font-face {
     font-family: "Atkinson";
-    font-style: normal;
     font-weight: 200 800;
 	font-display: swap;
-    text-rendering: optimizeLegibility;
     font-synthesis: none;
     src: url("sass/font-face/atkinsonhyperlegiblenext.woff2") format("woff2-variations");
 }
@@ -17,39 +15,17 @@
 @font-face {
     font-family: "Raleway";
     font-style: normal;
-    font-weight: 400;
+    font-weight: 100 900;
 	font-display: swap;
-    text-rendering: optimizeLegibility;
-    src: url("sass/font-face/raleway-regular.woff2") format("woff2"), 
-        url("sass/font-face/raleway-regular.woff") format("woff");
-}
-
-@font-face {
-    font-family: "Raleway";
-    font-style: normal;
-    font-weight: 700;
-	font-display: swap;
-    text-rendering: optimizeLegibility;
-    src: url("sass/font-face/raleway-bold.woff2") format("woff2"), 
-        url("sass/font-face/raleway-bold.woff") format("woff");
+    font-synthesis: none;
+    src: url("sass/font-face/raleway.woff2") format("woff2-variations");
 }
 
 @font-face {
     font-family: "Raleway";
     font-style: italic;
-    font-weight: 400;
+    font-weight: 100 900;
 	font-display: swap;
-    text-rendering: optimizeLegibility;
-    src: url("sass/font-face/raleway-italic.woff2") format("woff2"), 
-        url("sass/font-face/raleway-italic.woff") format("woff");
-}
-
-@font-face {
-    font-family: "Raleway";
-    font-style: italic;
-    font-weight: 700;
-	font-display: swap;
-    text-rendering: optimizeLegibility;
-    src: url("sass/font-face/raleway-bolditalic.woff2") format("woff2"), 
-        url("sass/font-face/raleway-bolditalic.woff") format("woff");
+    font-synthesis: none;
+    src: url("sass/font-face/raleway-italic.woff2") format("woff2-variations");
 }

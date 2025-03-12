@@ -11,7 +11,8 @@
 
 
 label {
-	@include font(400,1.5);
+	font-family: var(--font-project);
+	font-weight: 400;
 	cursor: pointer;
 }
 
@@ -29,11 +30,11 @@ textarea {
 	width:100%;
 	padding:rem(10);
 	background-color: #fff;
-	border: $border;
+	border: var(--border-default);
 		
 	&:focus {
 		outline: none;
-		border-color: $black;
+		border-color: hsl(var(--black));
 	}
 }
 

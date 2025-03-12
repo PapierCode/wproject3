@@ -5,6 +5,38 @@
 
 :root {
 
+	/*----------  Couleurs  ----------*/
+	
+	--black-h	: 0;
+	--black-s	: 50%;
+	--black-l	: 10%;
+	--black		: var(--black-h) var(--black-s) var(--black-l);
+
+	--white-h	: 50;
+	--white-s	: 100%;
+	--white-l	: 98%;
+	--white		: var(--white-h) var(--white-s) var(--white-l);
+
+	--grey		: var(--black-h) 20% 90%;
+
+	--red		: 0 80% 50%;
+	--orange	: 20 100% 60%;
+	--blue		: 180 50% 80%;
+	--green		: 80 50% 60%;
+
+	--msg-color-default		: hsl(var(--blue));
+	--msg-color-error		: hsl(var(--red));
+	--msg-color-success		: hsl(var(--green));
+
+	/*----------  Typo  ----------*/
+	
+	--font-default 			: Atkinson, Arial, sans-serif; // 200>800
+	--font-project 			: Raleway, sans-serif; // 100>900
+	--base-font-size 		: #{rem(16)};
+	--line-height-default 	: 1.6;
+
+	--h1-font-size 			: #{rem(36)};
+
 	/*----------  Espaces  ----------*/
 	
 	--space : min( 4vw, #{rem(40)} );
@@ -14,14 +46,21 @@
 	/*----------  Grille  ----------*/
 	
 	--grid-col-count : 2;
-	--grid : repeat( var(--grid-col-count), 1fr );
+	--grid : repeat( var(--grid-col-count), 1fr );	
 
-	/*----------  Typo  ----------*/
+	/*----------  Transitions  ----------*/
 	
-	--base-font-size : #{rem(16)};
-	--h1-font-size : #{rem(36)};	
+	--t-nav		: .5s;
+	--t-card	: .4s;
+	--t-btn		: .3s;
+
+	/*----------  Autres  ----------*/
+	
+	--border-default : 1px solid hsl(var(--grey));
+
 
 	@media ( min-width : em($mq-layout-m) ) {}
+
 	
 	@media ( min-width : em($mq-layout-l) ) {
 		
@@ -41,6 +80,7 @@
 
     }
 
+
 	@media ( min-width : em($mq-layout-xl) ) {
 		
 		/*----------  Espaces  ----------*/
@@ -53,7 +93,9 @@
 
 	}
 
+
 	@media ( min-width : em($mq-layout-xxl) ) {}
+
 
 	@media ( min-width : em($mq-layout-mw) ) {}
 

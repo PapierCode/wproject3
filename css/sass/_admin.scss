@@ -23,8 +23,8 @@
 
 /*----------  Encadré  ----------*/
 
-.bloc-style--v1 { background-color: $orange; }
-.bloc-style--v2 { background-color: $blue; }
+.bloc-style--v1 { background-color: hsl(var(--orange)); }
+.bloc-style--v2 { background-color: hsl(var(--blue)); }
 
 
 /*=====  FIN Communs  =====*/
@@ -35,7 +35,8 @@
 
 .editor-post-title, 
 .wp-block-heading {
-	@include font(700,1.1);
+	font-family: var(--font-project);
+	font-weight: 400;
 
 	strong { font-weight: 700; }
 	em { font-style: inherit; }
@@ -55,7 +56,8 @@ h3.wp-block-heading { font-size: rem(20); }
 /*----------  Aperçu  ----------*/
 
 .wp-block-acf-pc-quote {
-	@include font(400);
+	font-family: var(--font-project);
+	font-weight: 400;
 
 	.acf-innerblocks-container {
 		display: flex;
@@ -72,26 +74,26 @@ h3.wp-block-heading { font-size: rem(20); }
 		position: relative;
 		z-index: 1;
 
-		&::before, &::after {
-			content:"";
-			position: absolute;
-			z-index: -1;
-			top:rem(-10);
-			width: rem(26);
-			height: rem(20);
-			background-image: svg-load('../images/icons/quote.svg',fill=$yellow);
-			opacity: .5;
-		}
-		&::before {
-			transform: scale(-4,4);
-			right:calc( 100% + #{rem(10)} );
-		}
-		&::after {
-			transform-origin: right top;
-			transform-origin: right top;
-			transform: scale(4);
-			right:rem(-10);
-		}
+		// &::before, &::after {
+		// 	content:"";
+		// 	position: absolute;
+		// 	z-index: -1;
+		// 	top:rem(-10);
+		// 	width: rem(26);
+		// 	height: rem(20);
+		// 	background-image: svg-load('../images/icons/quote.svg',fill=$yellow);
+		// 	opacity: .5;
+		// }
+		// &::before {
+		// 	transform: scale(-4,4);
+		// 	right:calc( 100% + #{rem(10)} );
+		// }
+		// &::after {
+		// 	transform-origin: right top;
+		// 	transform-origin: right top;
+		// 	transform: scale(4);
+		// 	right:rem(-10);
+		// }
 	}
 	p:nth-child(2) {font-size: rem(20); }
 }
@@ -113,10 +115,11 @@ h3.wp-block-heading { font-size: rem(20); }
 		gap:rem($button-space);
 		height: rem($button-size);
 		padding: rem(0,$button-space);
-		background-color: $black;
-		@include font(400,1);
+		background-color: hsl(var(--black));
+		font-family: var(--font-project);
+		font-weight: 400;
 		font-size: rem(18);
-		color: $white;
+		color: hsl(var(--white));
 	}
 }
 

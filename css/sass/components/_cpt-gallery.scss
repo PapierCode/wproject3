@@ -45,8 +45,8 @@
 	overflow: hidden;
 	display:flex;
 	flex-direction: column;	
-	background-color: rgba($black,.95);
-	color: $white;
+	background-color: hsl(var(--black)/.95);
+	color: hsl(var(--white));
 
 	// utiliser une animation pour l'ouverture
 	// une transition ne fonctionne pas si l'élément est ajouté par le plugin
@@ -76,7 +76,7 @@
 .gl-footer {
 	padding: var(--space);
 	text-align: center;
-	background-color: rgba($black,.5);
+	background-color: hsl(var(--black)/.5);
 }
 
 
@@ -128,7 +128,7 @@
 
 	&:disabled:hover, &:disabled:hover {
 		border:none;
-		background-color: $blue;
+		background-color: hsl(var(--blue));
 	}
 
 	// si l'on clique sur l'enfant SVG ça clique à travers et ferme la galerie...
@@ -219,7 +219,7 @@
 		left:50%;
 		top:50%;
 		transform: translate(-50%,-50%) rotate(45deg);
-		background-color: $black;
+		background-color: hsl(var(--black));
 		width: rem(100);
 		height:rem(100);
 	}

@@ -10,6 +10,11 @@
 @use "../helpers" as *;
 
 .button, .button:visited {
+
+	cursor: pointer; // reset button
+	// background-color: transparent; // reset button
+	// font-family: var(--font-project); // reset button
+	// font-size: var(--base-font-size); // reset button
 	
 	display: inline-flex;
 	align-items: center;
@@ -17,15 +22,16 @@
 	height: rem($button-size);
 	padding:rem(0,$button-space);
 
-	background-color: $black;
+	background-color: hsl(var(--black));
 
-	@include font(700);
+	font-family: var(--font-project);
+	font-weight: 600;
 	font-size:rem(16);
 	text-decoration: none;
-	color:$white;
-	text-transform: uppercase;
+	color:hsl(var(--white));
+	// text-transform: uppercase;
 
-	transition:all $t-button ease;
+	transition:all var(--t-btn) ease;
 	
 	.txt {}
 	.txt:nth-child(2) {
@@ -39,39 +45,38 @@
 	svg {
 		width: rem($button-ico-size);
 		height: rem($button-ico-size);
-		fill:$white;
-		transition:fill $t-button ease;
+		fill:hsl(var(--white));
+		transition:fill var(--t-btn) ease;
 	}
 
 	&:hover, &:focus-visible {
-		background-color: $green;
-		color:$black;
-		transition:all $t-button ease;
+		background-color: hsl(var(--green));
+		color:hsl(var(--black));
+		transition:all var(--t-btn) ease;
 
 		svg {
-			fill:$black;
-			transition:fill $t-button ease;
+			fill:hsl(var(--black));
+			transition:fill var(--t-btn) ease;
 		}
 	}	
 	
 	.active { outline:none; }
 	&:disabled {
 		background-color: transparent;
-		color: $grey;
-		border: $border;
+		color: hsl(var(--grey));
+		border: var(--border-default);
 		cursor: default;
 
 		&:hover, &:focus {
 			outline:none;
 		   	background-color: transparent;
-		   	color: $grey;
+		   	color: hsl(var(--grey));
 		}
 	}
 }
 
 .button--inline {
 	font-size:inherit;
-	font-family: $font-default;
 	text-transform: none;
 	padding:rem(0,.5*$button-space);
 	height: auto;
@@ -100,14 +105,6 @@
 	justify-self: start;
 }
 
-.button--red {
-	background-color: $red;
-	color:$black;
-}
-.button--orange {
-	background-color: $orange;
-	color:$black;
-}
 .button--arrow {
 	.ico {
 		transform: rotate(180deg);
@@ -120,7 +117,7 @@
 		align-items: center;
 		width: rem(20);
 		height: rem(20);
-		background-color: $red;
+		background-color: hsl(var(--red));
 		border-radius: 50%;
 	}
 	svg {

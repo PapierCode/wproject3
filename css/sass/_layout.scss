@@ -13,40 +13,6 @@
 @use "var-sass" as *;
 @use "mixins" as *;
 
-
-/*===================================
-=            Html & body            =
-===================================*/
-
-/*----------  html  ----------*/
-
-html {
-
-	&.h-nav-is-open {
-		overflow: hidden;
-	}
-}
-
-
-/*----------  Body  ----------*/
-
-body {
-	position: relative;
-	background-color: $white;
-	
-	font-family: $font-default;
-	font-size: var(--base-font-size);
-	line-height: 1.6;
-	color: $black;
-
-	&.h-nav-is-open { overflow: hidden; }
-}
-
-// .body-inner {}
-
-
-/*=====  FIN Html & body  =====*/
-
 /*==============================
 =            Header            =
 ==============================*/
@@ -54,7 +20,7 @@ body {
 /*----------  Header containers  ----------*/
 
 .header {
-	background-color: $orange;
+	background-color: hsl(var(--orange));
 }
 
 .header-inner {
@@ -114,8 +80,9 @@ body {
 
 h1 {
 	grid-column: 1/-1;
-	@include font(700);
-	color:$black;
+	font-family: var(--font-project);
+	font-weight: 900;
+	color:hsl(var(--black));
 	font-size: var(--h1-font-size);
 	margin:0;
 
@@ -139,7 +106,7 @@ h1 {
 	display: grid;
 	gap: var(--space-half) var(--space);
 	padding: var(--space-half) var(--space);
-	background-color: $grey;
+	background-color: hsl(var(--grey));
 	
 	&:empty { display: none; }
 	
@@ -174,7 +141,7 @@ h1 {
 
 .aside-card-title {
 	grid-column: 1/-1;
-	border:$border;
+	border:var(--border-default);
 	padding: var(--space);
 	display: grid;
 	align-items: center;
@@ -188,7 +155,8 @@ h1 {
 }
 .aside-title {
 	text-align: center;
-	@include font(700);
+	font-family: var(--font-project);
+	font-weight: 900;
 	font-size: rem(40);
 }
 
@@ -202,8 +170,8 @@ h1 {
 /*----------  Footer containers  ----------*/
 
 .footer {
-	background-color:$black;
-	color:$white;
+	background-color:hsl(var(--black));
+	color:hsl(var(--white));
 }
 
 .footer-inner {

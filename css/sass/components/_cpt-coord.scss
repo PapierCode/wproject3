@@ -37,26 +37,6 @@
 .coord-item--addr {
 	margin-top:rem(20);
 
-	button {
-		text-decoration: none;
-		color:$yellow;
-		font-size: rem(16);
-
-		&::before {
-			content:"";
-			display: inline-block;
-			width: rem(20);
-			height: rem(2);
-			vertical-align: middle;
-			margin-right: rem(5);
-			background-color: $yellow;
-		}
-
-		&:hover, &:focus {
-		   text-decoration: underline;
-		}
-	}
-
 	@media ( min-width : em($mq-layout-l) ) {
 		margin-top:rem(30);
 		
@@ -83,7 +63,7 @@
 	
 .coord-phone {
 	text-decoration: none;
-	color:$white;
+	color:hsl(var(--white));
 
 	&:hover, &:focus {
 	   text-decoration: underline;
@@ -98,11 +78,11 @@
 	width: rem(40);
 	height: rem(40);
 	margin-right: rem(10);
-	border:1px solid $white;
+	border:1px solid hsl(var(--white));
 	border-radius: 50%;
 
 	path {
-		fill:$white;
+		fill:hsl(var(--white));
 	}
 }
 .coord-item--phone {

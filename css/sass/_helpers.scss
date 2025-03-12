@@ -71,8 +71,8 @@
 	justify-content: center;
 	align-items: center;
 	padding: var(--space);
-	background-color: rgba($blue,.9);
-	color:$black;
+	background-color: hsl(var(--blue)/.95);
+	color:hsl(var(--black));
 	text-align: center;
 
 	p  {

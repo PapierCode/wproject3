@@ -12,13 +12,6 @@
 
 .breadcrumb {
 	grid-column: 1/-1;
-	@include font();
-
-	.is-fullscreen & {
-		border-bottom:$border;
-		margin-bottom: var(--space);
-		padding-bottom: calc(.5*var(--space));
-	}
 }
 
 .breadcrumb-list {
@@ -37,7 +30,7 @@
 
 	a, a:visited {
 		text-decoration: none;
-		color:$black;
+		color:hsl(var(--black));
 
 		&:hover, &:focus-visible { text-decoration: underline; }
 	}
@@ -45,25 +38,25 @@
 	// home
 	&:nth-child(1) {
 		a, a:visited {
-			background-color: $black;
-			color: $white;
+			background-color: hsl(var(--black));
+			color: hsl(var(--white));
 			padding: rem(5);
 			border-radius: 50%;
-			transition: background-color $t-button ease;
+			transition: background-color var(--t-btn) ease;
 
 			svg { 
 				fill: currentColor;
-				transition: fill $t-button ease;
+				transition: fill var(--t-btn) ease;
 				transform: translateY(-.03em);
 			}
 
 			&:hover, &:focus-visible {
-				background-color: $green;
-				transition: background-color $t-button ease;
+				background-color: hsl(var(--green));
+				transition: background-color var(--t-btn) ease;
 	
 				svg {
-					fill: $black;
-					transition: fill $t-button ease;
+					fill: hsl(var(--black));
+					transition: fill var(--t-btn) ease;
 				}
 			}
 		}
@@ -78,10 +71,6 @@
 		&:nth-last-child(2) {
 			flex-direction: row;
 			align-items: center;
-		}
-
-		&:last-child {
-			color:rgba($black,.6);
 		}
 		
 	}

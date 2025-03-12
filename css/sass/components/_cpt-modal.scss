@@ -16,11 +16,11 @@
 	border: none;
 	padding: 0;
 	background-color: transparent;
-	color: $black;
+	color: hsl(var(--black));
 	cursor: pointer;
 
 	&:focus { outline: none; }
-	&::backdrop { background-color: rgba($black,.75); }
+	&::backdrop { background-color: hsl(var(--black)/.75); }
 
 	&[open] { animation: dialogopen .3s ease forwards; }	  
 }
@@ -28,7 +28,7 @@
 	max-width: calc( #{rem($mw-txt)} + 2*var(--space) );
 	margin: calc( var(--space) + #{rem(40)} ) var(--space) var(--space);
 	padding: var(--space);
-	background-color: $white;
+	background-color: hsl(var(--white));
 	cursor: default;
     position: relative;
 	display: grid;
@@ -40,7 +40,8 @@
 	right: 0;
 }
 .modal-title {
-	@include font(700);
+	font-family: var(--font-project);
+	font-weight: 700;
 	font-size: rem(26);
 	padding-right: rem($button-size);
 }

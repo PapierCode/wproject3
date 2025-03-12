@@ -63,7 +63,7 @@
 	.social-item { flex-shrink: 0; }
 
 	&:nth-child(n+2) {
-		border-top:1px solid darken($grey,5%);
+		border-top:1px solid hsl(var(--grey));
 		padding-top: var(--space);
 	}
 

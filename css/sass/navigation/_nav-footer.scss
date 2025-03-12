@@ -14,7 +14,7 @@
 
 
 .f-nav {
-	border-top:1px solid rgba($white,.25);
+	border-top:var(--border-default);
 	padding-top:var(--space);
 
 	@media ( min-width : em($mq-footer) ) {
@@ -47,7 +47,7 @@
 
 .f-nav-link {
 	text-decoration: none;
-	color:$white;
+	color:hsl(var(--white));
 
 	&:hover, &:focus {
 		text-decoration: underline;

@@ -71,14 +71,15 @@
 	min-width: rem($button-size);
 	height: rem($button-size);
 	padding-bottom:rem(2); // fix font wpréform
-	background-color: $yellow;
-	@include font();
+	background-color: hsl(var(--black));
+	font-family: var(--font-project);
+	font-weight: 400;
 	font-size: rem(22);
-	color:$black;
+	color:hsl(var(--black));
 	transition: border-color .3s ease;
 
 	.h-tools-link:hover &, .h-tools-link:focus & {
-		border-color:$blue;
+		border-color:hsl(var(--blue));
 		transition: border-color .3s ease;
 	}
 }

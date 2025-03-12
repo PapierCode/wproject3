@@ -5,23 +5,6 @@
 **/
 
 
-/*----------  Couleurs  ----------*/
-
-$black				: #290f0f;
-$grey				: #ece5dd;
-$white 				: #f9f5ec;
-
-$red				: #D91F02;
-$orange				: #ff7800;
-$yellow				: #ffcb00;
-$blue				: #bee8ea;
-$green				: #aad262;
-
-$msg-default		: $blue;
-$msg-error			: $red;
-$msg-success		: $green;
-
-
 /*----------  Media queries  ----------*/
 
 $mw-txt          	: 690; // 6 cols au max-layout
@@ -37,22 +20,7 @@ $mq-main-footer		: 600;
 $mq-footer		    : 600;
 
 
-/*----------  Typographie  ----------*/
-
-$font-default 		: Atkinson, Arial, sans-serif;
-$font-face			: Raleway, sans-serif; // 400,700
-
-
-/*----------  Animations  ----------*/
-
-$t-toggle-nav		: .5s;
-$t-card		        : .4s;
-$t-button		    : .3s;
-
-
 /*----------  Divers  ----------*/
-
-$border				: 1px solid $grey;
 
 $button-ico-size	: 16;
 $button-space 		: 10;

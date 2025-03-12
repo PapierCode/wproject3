@@ -1,13 +1,12 @@
 /**
 *
-* Composant : liens d'évitement
+* Composant : accessibilité
 *
 **/
 
 
 @use "../var-sass" as *;
 @use "../mixins" as *;
-@use "../helpers" as *;
 
 
 .skip-nav {
@@ -31,4 +30,17 @@
 
 	}
 
+}
+
+.visually-hidden {
+	position: absolute;
+	overflow: hidden;
+	height: 1px;
+	width: 1px;
+	margin: 0;
+	padding: 0;
+	clip: rect(1px,1px,1px,1px);
+	border: 0;
+	clip-path: inset(50%);
+	white-space: nowrap;
 }

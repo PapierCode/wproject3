@@ -75,15 +75,6 @@
 =            Mixins            =
 ==============================*/
 
-/*----------  Font face  ----------*/
-
-@mixin font( $weight : 400, $line-height : 1.2, $letter-spacing : 0 ) {
-	font-family: $font-face;
-	font-weight: $weight;
-	letter-spacing: $letter-spacing + em;
-	line-height: $line-height;
-}
-
 
 /*----------  Éditeurs  ----------*/
 

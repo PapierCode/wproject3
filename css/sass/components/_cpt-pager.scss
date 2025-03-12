@@ -25,8 +25,8 @@
 
 	&.is-active {
 		background-color:transparent;
-		color:$black;
-		border:2px solid $black;
+		color:hsl(var(--black));
+		border:2px solid hsl(var(--black));
 	}
 	&.pager-dots {
 		min-width: auto;
@@ -42,5 +42,5 @@
 }
 .pager-dots {
 	background-color: transparent;
-	color:$black;
+	color:hsl(var(--black));
 }

@@ -14,10 +14,10 @@
 	display:flex;
 	line-height: 1.4;
 	align-items: center;
-	color:$black;
+	color:hsl(var(--black));
 
 	&.msg--block {
-		border: rem(2) solid $msg-default;
+		border: rem(2) solid var(--msg-color-default);
 		padding:rem(10,20);
 	}
 
@@ -38,23 +38,23 @@
 	width: rem(30);
 	height: rem(30);
 	border-radius: 50%;
-	background-color: $msg-default;
+	background-color: var(--msg-color-default);
 	margin-right:rem(20);
 
 	svg {
-		fill: $white;
+		fill: hsl(var(--white));
 	}
 
 	.msg--error &,
 	.msg--success & {
 		svg {
-			fill:$msg-default;
+			fill:var(--msg-color-default);
 		}
 	}
 
 	.msg--block & {
 		svg {
-			fill: $white;
+			fill: hsl(var(--white));
 		}
 	}
 }
@@ -62,22 +62,22 @@
 .msg--error {
 	
 	&:not(.msg--block) .msg-ico {
-		background-color: $msg-error;
+		background-color: var(--msg-color-error);
 	}
 	&.msg--block {
 		border:none;
-		background-color:$msg-error;
-		color:$black;
+		background-color:var(--msg-color-error);
+		color:hsl(var(--black));
 	}
 }
 
 .msg--success {
 
 	&:not(.msg--block) .msg-ico {
-		background-color: $msg-success;
+		background-color: var(--msg-color-success);
 	}
 	&.msg--block {
 		border:none;
-		background-color:$msg-success;
+		background-color:var(--msg-color-success);
 	}
 }
