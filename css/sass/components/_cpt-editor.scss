@@ -6,9 +6,7 @@
 *
 **/
 
-@use "../var-sass" as *;
-@use "../mixins" as *;
-@use "../helpers" as *;
+@use "../sass" as *;
 @use "cpt-buttons" as *;
 
 :root {		
@@ -192,12 +190,7 @@
 		font-weight: var(--editor-font-face-weight);
 		line-height: var(--editor-font-face-line-height);
 
-		a {
-			color: inherit;
-			border: none;
-			background: none;
-			text-decoration: none;
-		}
+		a {	color: inherit; }
 		em { font-style: var(--editor-font-face-italic); }
 		strong { font-weight: var(--editor-font-face-weight-strong); }
 	}
@@ -251,8 +244,8 @@
 			padding: 0;
 		}
 	}
-	.bloc-style--v1 { background-color: hsl(var(--orange)); }
-	.bloc-style--v2 { background-color: hsl(var(--blue)); }
+	.bloc-style--v1 { background-color: var(--grey); }
+	.bloc-style--v2 { background-color: var(--color-p); }
 	
 
 	/*==============================
@@ -268,19 +261,19 @@
 			position: absolute;
 			top: 0;
 			right: 0;
-			padding: rem($button-space);
-			background-color: hsl(var(--white));
+			padding: var(--btn-space);
+			background-color: var(--white);
 			transition: background-color var(--t-btn) ease;
 
 			svg {
-				fill: hsl(var(--black));
+				fill: var(--black);
 				transition: fill var(--t-btn) ease;
 			}
 		}
 		.diaporama-link:hover, 
 		.diaporama-link:focus-visible {
 			.ico {
-				background-color: hsl(var(--green));
+				background-color: var(--color-p);
 				transition: background-color var(--t-btn) ease;
 			}
 		}
@@ -344,29 +337,32 @@
 		}
 	}
 	.gallery-play {
+		border:none;
+		font-family: var(--font-default);
+		font-size: var(--font-size-default);
 		width: 100%;
 		height: 100%;
 		display: flex;
 		justify-content: center;
-		gap: rem($button-space);
+		gap: var(--btn-space);
 		align-items: center;
-		padding: rem($button-space);
-		background-color: hsl(var(--black));
+		padding: var(--btn-space);
+		background-color: var(--black);
 		color: #fff;
 		transition: all var(--t-btn) ease;
 		
 		svg { 
-			fill:hsl(var(--white));
+			fill:var(--white);
 			transition: fill var(--t-btn) ease;
 		}
 		
 		&:hover {
-			background-color: hsl(var(--green));
-			color: hsl(var(--black));
+			background-color: var(--color-p);
+			color: var(--black);
 			transition: all var(--t-btn) ease;
 			
 			svg { 
-				fill:hsl(var(--black));
+				fill:var(--black);
 				transition: fill var(--t-btn) ease;
 			}
 		}
@@ -497,8 +493,8 @@
 		font-weight: var(--editor-font-face-weight);
 		line-height: var(--editor-quote-line-height);
 
-		border-top: rem(5) solid hsl(var(--orange));
-		border-bottom: rem(5) solid hsl(var(--orange));
+		border-top: rem(5) solid var(--black);
+		border-bottom: rem(5) solid var(--black);
 
 		p { font-size: var(--editor-quote-font-size); }
 		cite {
@@ -519,8 +515,8 @@
 	.bloc-map {
 		.map { height: rem(300); }
 		.leaflet-div-icon {
-			.circle { fill: hsl(var(--black)); }
-			.pointer { fill: hsl(var(--orange)); }
+			.circle { fill: var(--white); }
+			.pointer { fill: var(--black); }
 		}
 	}
 	

@@ -79,5 +79,4 @@ add_action( 'admin_enqueue_scripts', 'pc_enqueue_admin_project_dependencies' );
 include 'include/admin/admin.php';
 
 include 'include/medias.php';
-include 'include/form-contact.php';
 include 'include/init.php';

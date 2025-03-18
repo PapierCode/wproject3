@@ -4,80 +4,71 @@
 *
 **/
 
-
-@use "../var-sass" as *;
-@use "../mixins" as *;
-@use "../helpers" as *;
+@use "../sass" as *;
 
 
 .msg {
 	display:flex;
-	line-height: 1.4;
-	align-items: center;
-	color:hsl(var(--black));
+	gap: var(--btn-space);
+	margin: var(--space) 0;
+	line-height: calc(.85*var(--line-height-default));
 
-	&.msg--block {
-		border: rem(2) solid var(--msg-color-default);
-		padding:rem(10,20);
-	}
+	&.msg--block { padding:var(--space-half) var(--space); }
 
-	.button {
-		height:rem($button-ico-size + $button-space)
-	}
+	// TODO .button { height:rem($button-ico-size + $button-space); }
+}
 
-	@media ( min-width : em($mq-layout-m) ) {
-		margin: rem(30,0,30,0);
-	}
+@keyframes anim-alert {
+	0% { transform: scale(1) rotate(0); }
+	10% { transform: scale(1.1) rotate(-10deg); }
+	30% { transform: scale(1.1) rotate(10deg); }
+	50% { transform: scale(1.1) rotate(-10deg); }
+	60% { transform: scale(1) rotate(0); }
 }
 
 .msg-ico {
-	flex:0 0 auto;
+	flex: 0 0 auto;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	width: rem(30);
 	height: rem(30);
 	border-radius: 50%;
-	background-color: var(--msg-color-default);
-	margin-right:rem(20);
+	animation: anim-alert 1s infinite;
 
-	svg {
-		fill: hsl(var(--white));
-	}
-
-	.msg--error &,
-	.msg--success & {
-		svg {
-			fill:var(--msg-color-default);
-		}
-	}
-
-	.msg--block & {
-		svg {
-			fill: hsl(var(--white));
-		}
-	}
+	.msg--block & { background-color: var(--white); }
+	svg { fill: var(--black); }
 }
 
+.msg-txt { align-self: center; }
+
+.msg--default {
+	color:var(--black);
+	
+	&:not(.msg--block) .msg-ico { background-color: var(--color-msg-default); }
+	&.msg--block {
+		background-color: var(--color-msg-default);
+		color:var(--black);
+	}
+}
 .msg--error {
+	color:var(--black);
 	
 	&:not(.msg--block) .msg-ico {
-		background-color: var(--msg-color-error);
+		background-color: var(--color-msg-error);
+		svg { fill: var(--black); }
 	}
 	&.msg--block {
-		border:none;
-		background-color:var(--msg-color-error);
-		color:hsl(var(--black));
+		background-color: var(--color-msg-error);
+		color:var(--black);
 	}
 }
-
 .msg--success {
+	color:var(--black);
 
-	&:not(.msg--block) .msg-ico {
-		background-color: var(--msg-color-success);
-	}
+	&:not(.msg--block) .msg-ico { background-color: var(--color-msg-success); }
 	&.msg--block {
-		border:none;
-		background-color:var(--msg-color-success);
+		background-color: var(--color-msg-success);
+		color: var(--black);
 	}
 }

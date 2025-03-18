@@ -4,10 +4,7 @@
 *
 **/
 
-
-@use "../var-sass" as *;
-@use "../mixins" as *;
-@use "../helpers" as *;
+@use "../sass" as *;
 
 
 .coord {}
@@ -28,9 +25,7 @@
 .coord-item--logo {
 	
 	@media ( min-width : em($mq-layout-m) ) {
-		img {
-			width:rem(120);
-		}
+		img { width:rem(120); }
 	}
 }
 
@@ -38,36 +33,28 @@
 	margin-top:rem(20);
 
 	@media ( min-width : em($mq-layout-l) ) {
-		margin-top:rem(30);
+		margin-top:rem(30);		
 		
 		br:nth-of-type(1) { display:none; }
 	}
 
 }
+
 .coord-item--phone {
 	margin-top:rem(10);
-	.coord-sep {
-		display: none;
-	}
+	align-items: center;
 
-	@media ( min-width : em($mq-layout-m) ) {
-	
-		br {
-			display:none;
-		}
-		.coord-sep {
-			display: inline;
-		}
+	.coord-sep { display: none; }
+
+	@media ( min-width : em($mq-layout-m) ) {	
+		br { display:none; }
+		.coord-sep { display: inline; }
 	}
 }
 	
-.coord-phone {
-	text-decoration: none;
-	color:hsl(var(--white));
-
-	&:hover, &:focus {
-	   text-decoration: underline;
-	}
+.coord-phone, .coord-phone:visited {
+	color:var(--white);
+	@include link-default(false);
 }
 
 .coord-ico {
@@ -78,15 +65,11 @@
 	width: rem(40);
 	height: rem(40);
 	margin-right: rem(10);
-	border:1px solid hsl(var(--white));
+	border:1px solid var(--white);
 	border-radius: 50%;
 
-	path {
-		fill:hsl(var(--white));
-	}
+	path { fill:var(--white); }
 }
-.coord-item--phone {
-	align-items: center;
-}
+
 
 .coord-txt {}

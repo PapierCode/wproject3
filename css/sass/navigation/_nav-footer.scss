@@ -7,10 +7,7 @@
 *
 **/
 
-
-@use "../var-sass" as *;
-@use "../mixins" as *;
-@use "../helpers" as *;
+@use "../sass" as *;
 
 
 .f-nav {
@@ -33,7 +30,7 @@
 .f-nav-list {
 	display: flex;
 	flex-direction: column;
-	gap: rem($button-space);
+	gap: var(--btn-space);
 }
 
 .f-nav-item {}
@@ -45,13 +42,9 @@
 =            Liens            =
 =============================*/
 
-.f-nav-link {
-	text-decoration: none;
-	color:hsl(var(--white));
-
-	&:hover, &:focus {
-		text-decoration: underline;
-	}
+.f-nav-link, .f-nav-link:visited {
+	color:var(--white);
+	@include link-default(false);
 }
 
 .f-nav-link-inner {}

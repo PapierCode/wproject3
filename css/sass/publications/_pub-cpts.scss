@@ -6,10 +6,7 @@
 *
 **/
 
-
-@use "../var-sass" as *;
-@use "../mixins" as *;
-@use "../helpers" as *;
+@use "../sass" as *;
 @use "../components/cpt-buttons" as *;
 
 /*==================================
@@ -19,7 +16,7 @@
 .news-filter-list {
     display: flex;
     flex-wrap: wrap;
-    gap: rem($button-space);
+    gap: var(--btn-space);
 }
 
 
@@ -35,6 +32,11 @@
     @media ( min-width : em($mq-footer) ) {
         &:not(:first-child) { grid-row: 2/3; }
     }
+}
+
+.link-past-events,
+.link-upcoming-events {
+    justify-self: start;
 }
 
 

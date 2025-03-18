@@ -1,5 +1,4 @@
-@use "var-sass" as *;
-@use "mixins" as *;
+@use "sass" as *;
 
 *,
 *::before,
@@ -12,13 +11,13 @@
 body {
 	position: relative;
 
-	background-color: hsl(var(--white));	
+	background-color: var(--white);	
 
 	font-family: var(--font-default);
-	font-size: var(--base-font-size);
+	font-size: var(--font-size-default);
 	line-height: var(--line-height-default);
 	font-weight: 400;
-	color: hsl(var(--black));
+	color: var(--black);
 
     &.h-nav-is-open { overflow: hidden; }
 }
@@ -39,16 +38,13 @@ img {
 svg { display: block; }
 
 a:not([class]), a:not([class]):visited {	
-	color:hsl(var(--black));
-	text-decoration: underline;
-	transition:text-decoration-thickness 0.3s ease;
-
-	&:hover, &:focus {
-		text-decoration-thickness: 2px;
-		transition:text-decoration-thickness 0.3s ease;
-	}
+	color:var(--black);
+	@include link-default();
 }
 
-fieldset {
-	border: none;
+button {
+	cursor: pointer;
+	text-align: left;
 }
+
+fieldset { border: none; }

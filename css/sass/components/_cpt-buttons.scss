@@ -4,73 +4,64 @@
 *
 **/
 
-
-@use "../var-sass" as *;
-@use "../mixins" as *;
-@use "../helpers" as *;
+@use "../sass" as *;
 
 .button, .button:visited {
 
-	cursor: pointer; // reset button
 	// background-color: transparent; // reset button
+	border-radius: 0; // reset button
 	// font-family: var(--font-project); // reset button
-	// font-size: var(--base-font-size); // reset button
+	// font-size: var(--font-size-default); // reset button
 	
 	display: inline-flex;
 	align-items: center;
+	gap: var(--btn-space);
 
-	height: rem($button-size);
-	padding:rem(0,$button-space);
+	min-height: var(--btn-size);
+	padding:calc(.5*var(--btn-space)) var(--btn-space);
 
-	background-color: hsl(var(--black));
+	background-color: var(--black);
+	border: var(--btn-border-size) solid var(--black);
 
-	font-family: var(--font-project);
+	font-family: var(--font-default);
 	font-weight: 600;
-	font-size:rem(16);
+	font-size:var(--font-size-default);
+	line-height: calc(var(--line-height-default) - .5);
 	text-decoration: none;
-	color:hsl(var(--white));
-	// text-transform: uppercase;
+	color:var(--white);
 
 	transition:all var(--t-btn) ease;
 	
-	.txt {}
-	.txt:nth-child(2) {
-		margin-left: rem($button-space);
-	}
-	.txt:nth-last-child(2) {
-		margin-right: rem($button-space);
-	}
-
+	.txt { transform: translateY(0.055em); }
 	.ico {}
+
 	svg {
-		width: rem($button-ico-size);
-		height: rem($button-ico-size);
-		fill:hsl(var(--white));
+		width: var(--btn-ico-size);
+		height: var(--btn-ico-size);
+		fill: currentColor;
 		transition:fill var(--t-btn) ease;
 	}
 
 	&:hover, &:focus-visible {
-		background-color: hsl(var(--green));
-		color:hsl(var(--black));
+		text-decoration: none;
+		background-color: transparent;
+		color:var(--black);
 		transition:all var(--t-btn) ease;
 
-		svg {
-			fill:hsl(var(--black));
-			transition:fill var(--t-btn) ease;
-		}
+		svg { transition:fill var(--t-btn) ease; }
 	}	
 	
-	.active { outline:none; }
+	&:active { text-decoration: none; }
 	&:disabled {
 		background-color: transparent;
-		color: hsl(var(--grey));
+		color: var(--grey);
 		border: var(--border-default);
 		cursor: default;
 
 		&:hover, &:focus {
 			outline:none;
 		   	background-color: transparent;
-		   	color: hsl(var(--grey));
+		   	color: var(--grey);
 		}
 	}
 }
@@ -78,7 +69,7 @@
 .button--inline {
 	font-size:inherit;
 	text-transform: none;
-	padding:rem(0,.5*$button-space);
+	padding: 0 calc(.5*var(--btn-space));
 	height: auto;
 
 	svg {
@@ -97,8 +88,8 @@
 
 	@media ( min-width : em($mq-layout-l) ) {
 		font-size: rem(24);
-		padding:rem(0,2*$button-space);
-		height: rem(1.2*$button-size);
+		padding: 0 calc(2*var(--btn-space));
+		min-height: calc(1.2*var(--btn-space));
 	}
 }
 .button--previous {
@@ -117,7 +108,7 @@
 		align-items: center;
 		width: rem(20);
 		height: rem(20);
-		background-color: hsl(var(--red));
+		background-color: var(--color-msg-error);
 		border-radius: 50%;
 	}
 	svg {

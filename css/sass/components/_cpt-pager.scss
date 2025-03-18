@@ -4,29 +4,28 @@
 *
 **/
 
-
-@use "../var-sass" as *;
-@use "../mixins" as *;
-@use "../helpers" as *;
+@use "../sass" as *;
 @use "../components/cpt-buttons" as *;
 
 
 .pager-list {
 	display: flex;
-	gap: rem($button-space);
+	gap: var(--btn-space);
 }
 .pager-item {}
-.pager-link {
-	@extend .button;	
-	font-weight: 400;
-	min-width: rem($button-size);
+.pager-link, .pager-link:visited {
+	@extend .button;
+	line-height: 1;	
+	font-weight: 600;
+	min-width: var(--btn-size);
 	padding:0;
 	justify-content: center;
 
 	&.is-active {
-		background-color:transparent;
-		color:hsl(var(--black));
-		border:2px solid hsl(var(--black));
+		cursor: default;
+		background-color:var(--white);
+		border: none;
+		color:var(--black);
 	}
 	&.pager-dots {
 		min-width: auto;
@@ -42,5 +41,6 @@
 }
 .pager-dots {
 	background-color: transparent;
-	color:hsl(var(--black));
+	border:none;
+	color:var(--black);
 }

@@ -4,10 +4,7 @@
 *
 **/
 
-
-@use "../var-sass" as *;
-@use "../mixins" as *;
-@use "../helpers" as *;
+@use "../sass" as *;
 
 
 .modal {
@@ -16,11 +13,11 @@
 	border: none;
 	padding: 0;
 	background-color: transparent;
-	color: hsl(var(--black));
+	color: var(--black);
 	cursor: pointer;
 
 	&:focus { outline: none; }
-	&::backdrop { background-color: hsl(var(--black)/.75); }
+	&::backdrop { background-color: oklch( from var(--black) l c h / .9 ); }
 
 	&[open] { animation: dialogopen .3s ease forwards; }	  
 }
@@ -28,7 +25,7 @@
 	max-width: calc( #{rem($mw-txt)} + 2*var(--space) );
 	margin: calc( var(--space) + #{rem(40)} ) var(--space) var(--space);
 	padding: var(--space);
-	background-color: hsl(var(--white));
+	background-color: var(--white);
 	cursor: default;
     position: relative;
 	display: grid;
@@ -43,7 +40,7 @@
 	font-family: var(--font-project);
 	font-weight: 700;
 	font-size: rem(26);
-	padding-right: rem($button-size);
+	padding-right: var(--btn-size);
 }
 @keyframes dialogopen {
 	0% { 

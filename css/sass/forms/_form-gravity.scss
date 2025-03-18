@@ -4,9 +4,8 @@
 *
 **/
 
-@use "../var-sass" as *;
-@use "../mixins" as *;
-@use "../helpers" as *;
+@use "../sass" as *;
+@use "../components/cpt-a11y" as *;
 
 
 $form-gap : 10;
@@ -27,10 +26,10 @@ $field-space : 10;
 }
 .gf_progressbar {
     margin-top: rem($field-space);
-    background-color: hsl(var(--grey));
+    background-color: var(--grey);
 }
 .gf_progressbar_percentage {
-    background-color: hsl(var(--green));
+    background-color: var(--color-p);
     text-align: center;
 
     span { padding: 0 rem($field-space); }
@@ -58,14 +57,14 @@ $field-space : 10;
 .gf_step_number {
     width: rem(40);
     aspect-ratio: 1;
-    background-color: hsl(var(--grey));
+    background-color: var(--grey);
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
 
     .gf_step_active & {
-        background-color: hsl(var(--green));
+        background-color: var(--color-p);
     }
 }
 
@@ -81,19 +80,19 @@ $field-space : 10;
         font-weight: 400;
         line-height: 1.2;
         font-size: rem(20);
-        color: hsl(var(--red));
+        color: var(--color-msg-error);
         align-self: center;
     }
     .ico {
         width: rem(34);
         aspect-ratio: 1;
-        background-color: hsl(var(--red));
+        background-color: var(--color-msg-error);
         border-radius: 50%;
         display: flex;
         justify-content: center;
         align-items: center;
 
-        svg { fill: hsl(var(--white)); }
+        svg { fill: var(--white); }
     }
     .ico ~ * {
         grid-column: 2/3;
@@ -112,7 +111,7 @@ $field-space : 10;
         font-family: var(--font-project);
         font-weight: 400;
         line-height: 1.2;
-		color: hsl(var(--black));
+		color: var(--black);
         margin-bottom: 0;
         strong { font-weight: 700; }
     }
@@ -152,7 +151,7 @@ $field-space : 10;
             width: rem(20);
             height: rem(20);
             border-radius: 50%;
-            background-color: hsl(var(--red));
+            background-color: var(--color-msg-error);
             background-image: svg-load("../../wpreform3/images/icons/msg-s.svg");
             background-repeat: no-repeat;
             background-position: center;
@@ -163,7 +162,7 @@ $field-space : 10;
     cursor: pointer;
 }
 .gfield_required {
-    color: hsl(var(--red));
+    color: var(--color-msg-error);
     font-weight: 400;
     font-size: rem(16);
 }
@@ -189,7 +188,7 @@ $field-space : 10;
             
         &:focus {
             outline: none;
-            border-color: hsl(var(--black));
+            border-color: var(--black);
         }
     }
 
@@ -213,7 +212,7 @@ $field-space : 10;
 }
 
 .gfield_validation_message {
-    color: hsl(var(--red));
+    color: var(--color-msg-error);
     font-weight: 700;
 }
 
@@ -242,7 +241,7 @@ $field-space : 10;
     border-right: var(--border-default);
     transition: background-color var(--t-btn) ease;
 
-    svg { fill: hsl(var(--black)); }
+    svg { fill: var(--black); }
 
     &::after {
         content: "";
@@ -251,7 +250,7 @@ $field-space : 10;
     }
 
     &:hover, &:focus-visible {
-        background-color: hsl(var(--green));
+        background-color: var(--color-p);
         transition: background-color var(--t-btn) ease;
     }
 }
@@ -297,11 +296,11 @@ $field-space : 10;
         transform: translate(-50%,-50%);
         width: rem(16);
         height: rem(3);
-        background-color: hsl(var(--black));
+        background-color: var(--black);
     }
 
     &:hover, &:focus-visible {
-        background-color: hsl(var(--green));
+        background-color: var(--color-p);
         transition: background-color var(--t-btn) ease;
     }
 }

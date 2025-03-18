@@ -8,10 +8,7 @@
 *
 **/
 
-
-@use "../var-sass" as *;
-@use "../mixins" as *;
-@use "../helpers" as *;
+@use "../sass" as *;
 @use "cpt-buttons" as *;
 
 
@@ -21,11 +18,11 @@
 
 .social-list {
 	display:flex;
-	gap: rem($button-space);
+	gap: var(--btn-space);
 }
 .social-item {}
 
-.social-link {
+.social-link, .social-link:visited {
 	@extend .button;
 	border-radius: 50%;
 	text-transform: none;
@@ -58,12 +55,12 @@
 	display: flex;
 	align-items: center;
 	justify-content: flex-end;
-	gap:rem($button-space);
+	gap: var(--btn-space);
 	
 	.social-item { flex-shrink: 0; }
 
 	&:nth-child(n+2) {
-		border-top:1px solid hsl(var(--grey));
+		border-top:1px solid var(--grey);
 		padding-top: var(--space);
 	}
 

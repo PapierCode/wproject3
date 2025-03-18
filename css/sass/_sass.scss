@@ -1,13 +1,29 @@
 /**
 *
-* Fonctions & Mixins
+* Sass variables, fonctions et mixins
 *
 **/
 
-
 @use "sass:math";
-@use "var-sass" as *;
 
+/*=================================
+=            Variables            =
+=================================*/
+
+$mw-txt          	: 690; // 6 cols au max-layout
+$mw-layout			: 1500;
+
+$mq-layout-m		: 400;  
+$mq-layout-l		: 700;
+$mq-layout-xl		: 900;
+$mq-layout-xxl		: 1200;
+$mq-layout-mw		: $mw-layout;
+
+$mq-main-footer		: 600;
+$mq-footer		    : 600;
+
+
+/*=====  FIN Variables  =====*/
 
 /*=================================
 =            Fonctions            =
@@ -19,24 +35,17 @@
 
 	// $a
 	@if $a != null and $b == null and $c == null and $d == null {
-
 		@return math.div($a,$base)+'em';
 
 	// $a et $b
 	} @else if $a != null and $b != null and $c == null and $d == null {
-
 		@return math.div($a,$base)+'em' math.div($b,$base)+'em';
 
 	// $a, $b, $c et $d
 	} @else if $a != null and $b != null and $c != null and $d != null {
-
 		@return math.div($a,$base)+'em' math.div($b,$base)+'em' math.div($c,$base)+'em' math.div($d,$base)+'em';
 
-	} @else {
-
-		@return "!";
-
-	}
+	} @else { @return "!"; }
 
 }
 
@@ -47,24 +56,17 @@
 
 	// $a
 	@if $a != null and $b == null and $c == null and $d == null {
-
 		@return math.div($a,$base)+rem;
 
 	// $a et $b
 	} @else if $a != null and $b != null and $c == null and $d == null {
-
 		@return math.div($a,$base)+rem math.div($b,$base)+rem;
 
 	// $a, $b, $c et $d
 	} @else if $a != null and $b != null and $c != null and $d != null {
-
 		@return math.div($a,$base)+rem math.div($b,$base)+rem math.div($c,$base)+rem math.div($d,$base)+rem;
 
-	} @else {
-
-		@return "!";
-
-	}
+	} @else { @return "!"; }
 
 }
 
@@ -75,10 +77,29 @@
 =            Mixins            =
 ==============================*/
 
+@mixin link-default( $default:true ) {	
+	@if $default == true {
+		text-decoration: underline;
+		text-decoration-thickness: var(--text-deco-default);
+	} @else { 
+		text-decoration-color: transparent;
+		text-decoration-thickness: var(--text-deco-hover);
+	}
+	
+	transition: all 0.3s ease;
 
-/*----------  Éditeurs  ----------*/
+	&:hover, &:focus {
+		text-decoration: underline;
+		text-decoration-thickness: var(--text-deco-hover);
+		transition: all 0.3s ease;
+	}
+}
+
+
+/*----------  Éditeur  ----------*/
 
 @mixin editor_default() {
+	
 	sup, sub {
 		font-size: rem(12);
 		margin-left: .1em;
@@ -98,6 +119,7 @@
 		list-style: decimal;
 		padding-left: rem(30);
 	}
+
 }
 
 

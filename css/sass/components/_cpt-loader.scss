@@ -4,10 +4,7 @@
 *
 **/
 
-
-@use "../var-sass" as *;
-@use "../mixins" as *;
-@use "../helpers" as *;
+@use "../sass" as *;
 
 
 .loader {
@@ -17,7 +14,7 @@
 	width: rem(20);
 	height: rem(20);
 	border-radius: 100%;
-	background-color: hsl(var(--white));
+	background-color: var(--white);
 	animation: loader-animation 1.4s infinite ease-in-out both;
 
 	&:nth-child(n+2) {

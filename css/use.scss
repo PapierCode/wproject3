@@ -4,7 +4,7 @@
 *
 **/
 
-@use "sass/var-css";
+@use "sass/variables";
 
 /*----------  Polices de caractères  ----------*/
 
@@ -47,7 +47,6 @@
 /*----------  Publications  ----------*/
 
 @use "sass/publications/pub-commons";
-@use "sass/publications/pub-page";
 @use "sass/publications/pub-cpts";
 @use "sass/publications/pub-home";
 @use "sass/publications/pub-search-results";
@@ -55,7 +54,7 @@
 
 /*----------  Formulaires  ----------*/
 
-// @use "sass/forms/form-contact";
-@use "sass/forms/form-gravity";
+@use "sass/forms/form-contact";
+// @use "sass/forms/form-gravity";
 // @use "sass/forms/form-search";
 @use "sass/forms/form-page-password";

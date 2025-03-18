@@ -4,10 +4,7 @@
 *
 **/
 
-
-@use "../var-sass" as *;
-@use "../mixins" as *;
-@use "../helpers" as *;
+@use "../sass" as *;
 
 
 label {
@@ -34,7 +31,7 @@ textarea {
 		
 	&:focus {
 		outline: none;
-		border-color: hsl(var(--black));
+		border-color: var(--black);
 	}
 }
 

@@ -4,10 +4,7 @@
 *
 **/
 
-
-@use "../var-sass" as *;
-@use "../mixins" as *;
-@use "../helpers" as *;
+@use "../sass" as *;
 @use "../components/cpt-buttons" as *;
 
 
@@ -40,7 +37,7 @@ textarea {
 		
 	&:focus {
 		outline: none;
-		border-color: hsl(var(--black));
+		border-color: var(--black);
 	}
 }
 
@@ -69,7 +66,7 @@ textarea {
 		display: flex;
 	}
 	.form-item--error & {
-		color:hsl(var(--red));
+		color:var(--color-msg-error);
 	}
 
 	@media ( min-width : em($mq-layout-l) ) {
@@ -78,7 +75,7 @@ textarea {
 }
 
 .form-label-required {
-	color:hsl(var(--red));
+	color:var(--color-msg-error);
 }
 
 .form-item-desc {

@@ -9,9 +9,7 @@
 *
 **/
 
-
-@use "var-sass" as *;
-@use "mixins" as *;
+@use "sass" as *;
 
 /*==============================
 =            Header            =
@@ -20,7 +18,7 @@
 /*----------  Header containers  ----------*/
 
 .header {
-	background-color: hsl(var(--orange));
+	background-color: var(--color-p);
 }
 
 .header-inner {
@@ -82,11 +80,11 @@ h1 {
 	grid-column: 1/-1;
 	font-family: var(--font-project);
 	font-weight: 900;
-	color:hsl(var(--black));
+	color:var(--black);
 	font-size: var(--h1-font-size);
 	margin:0;
 
-	.page &, .single & {
+	.page &, .single &, .search & {
 		grid-column: var(--editor-col-start) / var(--editor-col-end);
 	}
 }
@@ -106,7 +104,7 @@ h1 {
 	display: grid;
 	gap: var(--space-half) var(--space);
 	padding: var(--space-half) var(--space);
-	background-color: hsl(var(--grey));
+	background-color: var(--grey);
 	
 	&:empty { display: none; }
 	
@@ -170,14 +168,14 @@ h1 {
 /*----------  Footer containers  ----------*/
 
 .footer {
-	background-color:hsl(var(--black));
-	color:hsl(var(--white));
+	background-color:var(--black);
+	color:var(--white);
 }
 
 .footer-inner {
 	display: grid;
 	gap:calc(2*var(--space));
-	padding: calc(2*var(--space)) var(--space-screen) var(--space);
+	padding: var(--space) var(--space-screen);
 	max-width: rem($mw-layout);
 	margin: 0 auto;
 

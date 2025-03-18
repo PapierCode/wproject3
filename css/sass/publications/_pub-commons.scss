@@ -9,28 +9,12 @@
 *
 **/
 
-
-@use "../var-sass" as *;
-@use "../mixins" as *;
-@use "../helpers" as *;
+@use "../sass" as *;
 
 
 /*===============================
 =            Communs            =
 ===============================*/
-
-/*----------  Lien par défaut  ----------*/
-
-a:not([class]), a:not([class]):visited {	
-	color:hsl(var(--black));
-	text-decoration: underline;
-	transition:text-decoration-thickness 0.3s ease;
-
-	&:hover, &:focus-visible {
-		text-decoration-thickness: 2px;
-		transition:text-decoration-thickness 0.3s ease;
-	}
-}
 
 /*----------  Date  ----------*/
 
@@ -80,7 +64,7 @@ a:not([class]), a:not([class]):visited {
 .filters {
 	display: flex;
 	flex-wrap: wrap;
-	gap:rem($button-space);
+	gap: var(--btn-space);
 }
 
 
@@ -92,7 +76,6 @@ a:not([class]), a:not([class]):visited {
 
 .card-list {
 	grid-column: 1/-1;
-	@extend .reset-list;
 	display:grid;
 	grid-template-columns: subgrid;
 	gap: var(--space);
@@ -122,33 +105,12 @@ a:not([class]), a:not([class]):visited {
 	border:var(--border-default);
 	transition:all var(--t-card) ease;
 
-	&::before {
-		content:"";
-		position: absolute;
-		z-index: -1	;
-		top:0;
-		right:0;
-		bottom:0;
-		left:0;
-		transform: scale(.5);
-		transition:all var(--t-card) ease;
-	}
-	* {
-		transition:all var(--t-card) ease;
-	}
-
 	&:hover, &:focus-within {
-	   
-		&::before {
-			transform:scale(1);
-			background-color: hsl(var(--green));
-			transition:all var(--t-card) ease;
-		}
-		* { transition:all var(--t-card) ease; }
 		.card-desc-ico {
-			svg { fill:hsl(var(--green)); }
+			* { transition: all var(--t-card) ease; }
+			.ico { background-color: var(--color-p); }
+			svg { fill: var(--black); }
 		}
-		.card-terms { border-top-color: hsl(var(--green)); }
 	}
 }
 
@@ -169,8 +131,8 @@ a:not([class]), a:not([class]):visited {
 .date--card { margin-top: .5em; }
 
 .card-link {
-	color:hsl(var(--black));
-	text-decoration: none;
+	color:var(--black);
+	@include link-default(false);
 
 	&::after {
 		content:"";
@@ -180,9 +142,6 @@ a:not([class]), a:not([class]):visited {
 		right:0;
 		bottom:0;
 		left:0;
-	}
-	&:focus {
-		outline:none
 	}
 
 	@media ( min-width : em($mq-layout-l) ) {
@@ -200,14 +159,14 @@ a:not([class]), a:not([class]):visited {
 	.ico {
 		display: inline-block;
 		vertical-align: middle;
-		background-color: hsl(var(--black));
-		padding: rem(.5*$button-space);
+		background-color: var(--black);
+		padding: rem(5);
 		border-radius: 50%;
 
 		svg {
-			width: rem($button-ico-size);
-			height: rem($button-ico-size);
-			fill:hsl(var(--white));
+			width: rem(12);
+			height: rem(12);
+			fill:var(--white);
 			transform: rotate(180deg) translateX(-1px);
 		}
 	}
@@ -218,22 +177,20 @@ a:not([class]), a:not([class]):visited {
 	margin-top:auto;
 	display: inline-flex;
 	align-items: center;
-	background-color: hsl(var(--black));
+	background-color: var(--black);
 	padding:rem(5,10);
 }
 .card-read-more-ico {
 	margin-right: rem(5);
 
-	svg {
-		fill:hsl(var(--white));
-	}
+	svg { fill:var(--white); }
 }
 .card-read-more-txt {
 	font-size:rem(16);
 	text-transform: uppercase;
 	font-family: var(--font-project);
 	font-weight: 700;
-	color:hsl(var(--white));
+	color:var(--white);
 }
 
 .card-terms {
@@ -249,13 +206,8 @@ a:not([class]), a:not([class]):visited {
 		margin-right: .5rem;
 	}
 	a, a:visited {
-		color:hsl(var(--black));
-		text-decoration: none;
-		outline: none;
-
-		&:hover, &:focus {
-		   text-decoration: underline;
-		}
+		color:var(--black);
+		@include link-default(false);
 	}
 }
 
@@ -268,8 +220,9 @@ a:not([class]), a:not([class]):visited {
 	font-weight: 700;
 	text-transform: uppercase;
 	font-size: rem(16);
-	background-color: hsl(var(--orange));
-	padding:rem(.5*$button-space,2*$button-space);
+	background-color: var(--black);
+	color: var(--white);
+	padding: calc(.5*var(--btn-space)) calc(2*var(--btn-space));
 
 	@media ( min-width : em($mq-layout-l) ) {
 		top:var(--space);
@@ -310,12 +263,8 @@ a:not([class]), a:not([class]):visited {
 		margin-right: .5rem;
 	}
 	a, a:visited {
-		color:hsl(var(--black));
-		text-decoration: none;
-	
-		&:hover, &:focus {
-		   text-decoration: underline;
-		}
+		color:var(--black);
+		@include link-default(false)
 	}
 
 	@media ( min-width : em($mq-layout-l) ) {

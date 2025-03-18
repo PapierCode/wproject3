@@ -1,0 +1,105 @@
+
+@use "sass" as *;
+
+
+:root {
+
+	/*----------  Couleurs  ----------*/
+
+	--color-p 				: oklch( .8 .3 90 );
+	--color-p-d-1 			: oklch( from var(--color-p) .2 c h );
+
+	--color-s 				: oklch( .8 .2 70 );
+	--color-s-d-1 			: oklch( from var(--color-s) calc(l - .15) c h );
+	--color-s-d-2 			: oklch( from var(--color-s) calc(l - .3) c h );
+	--color-s-d-3 			: oklch( from var(--color-s) calc(l - .45) c h );
+	--color-s-d-4 			: oklch( from var(--color-s) calc(l - .55) c h );
+
+	--white					: oklch( from var(--color-p) 1 0.015 h );
+	--grey					: oklch( from var(--color-p) .95 0.015 h );
+	--black					: var(--color-p-d-1);
+
+	--color-msg-default		: oklch( .8 .075 200 );
+	--color-msg-error		: oklch( .8 .3 30 );
+	--color-msg-success		: oklch( .8 .2 110 );
+
+	/*----------  Typo  ----------*/
+	
+	--font-default 			: Atkinson, sans-serif; // 200>800
+	--font-project 			: Raleway, sans-serif; // 100>900
+	--font-size-default 	: #{rem(16)};
+	--line-height-default 	: 1.6;
+
+	--h1-font-size 			: #{rem(36)};
+
+	/*----------  Espaces  ----------*/
+	
+	--space 				: min( 4vw, #{rem(40)} );
+	--space-screen 			: var(--space); // distance horizontale contenu/écran
+	--space-half 			: var(--space); // réduit à partir de layout-l
+
+	/*----------  Grille  ----------*/
+	
+	--grid-col-count 		: 2;
+	--grid 					: repeat( var(--grid-col-count), 1fr );	
+
+	/*----------  Transitions  ----------*/
+	
+	--t-nav					: .5s;
+	--t-card				: .4s;
+	--t-btn					: .3s;
+
+	/*----------  Autres  ----------*/
+
+	--text-deco-default		: 1px;
+	--text-deco-hover		: 2px;
+	
+	--border-default		: 1px solid var(--grey);
+	
+	--btn-border-size		: var(--text-deco-hover);
+	--btn-ico-size			: #{rem(16)};
+	--btn-space 			: #{rem(8)};
+	--btn-size 				: calc( var(--btn-ico-size) + 2 * var(--btn-space) + 2 * var(--btn-border-size) );
+
+
+	@media ( min-width : em($mq-layout-m) ) {}
+
+	
+	@media ( min-width : em($mq-layout-l) ) {
+		
+		/*----------  Espaces  ----------*/
+				
+		--space-screen 			: calc( 2*var(--space) );
+		--space-half 			: calc( .5*var(--space) );
+
+		/*----------  Grille  ----------*/
+		
+		--grid-col-count 		: 6;
+
+		/*----------  Typo  ----------*/
+		
+		--font-size-default		: #{rem(18)};
+		--h1-font-size			: #{rem(44)};
+
+    }
+
+
+	@media ( min-width : em($mq-layout-xl) ) {
+		
+		/*----------  Espaces  ----------*/
+				
+		--space-screen 			: var(--space);
+
+		/*----------  Grille  ----------*/
+		
+		--grid-col-count 		: 12;
+
+	}
+
+
+	@media ( min-width : em($mq-layout-xxl) ) {}
+
+
+	@media ( min-width : em($mq-layout-mw) ) {}
+
+}

@@ -11,10 +11,7 @@
 *
 **/
 
-
-@use "../var-sass" as *;
-@use "../mixins" as *;
-@use "../helpers" as *;
+@use "../sass" as *;
 @use "../components/cpt-buttons" as *;
 
 
@@ -45,8 +42,8 @@
 	overflow: hidden;
 	display:flex;
 	flex-direction: column;	
-	background-color: hsl(var(--black)/.95);
-	color: hsl(var(--white));
+	background-color: oklch( from var(--black) l c h / .95 );
+	color: var(--white);
 
 	// utiliser une animation pour l'ouverture
 	// une transition ne fonctionne pas si l'élément est ajouté par le plugin
@@ -76,7 +73,7 @@
 .gl-footer {
 	padding: var(--space);
 	text-align: center;
-	background-color: hsl(var(--black)/.5);
+	background-color: oklch( from var(--black) l c h/.5);
 }
 
 
@@ -109,7 +106,7 @@
 	}
 
 	@media ( min-width : em($mq-layout-l) ) {
-		padding: 0 calc( #{rem($button-size)} + 2*var(--space) );
+		padding: 0 calc( var(--btn-size) + 2*var(--space) );
 	}
 }
 
@@ -128,7 +125,7 @@
 
 	&:disabled:hover, &:disabled:hover {
 		border:none;
-		background-color: hsl(var(--blue));
+		background-color: var(--color-p);
 	}
 
 	// si l'on clique sur l'enfant SVG ça clique à travers et ferme la galerie...
@@ -163,7 +160,7 @@
 }
 .gl-btn-nav--next {
 	transform:rotate(180deg);
-	margin:0 rem($button-space);
+	margin: 0 var(--btn-space);
 
 	@media ( min-width : em($mq-layout-l) ) {
 		margin:0;
@@ -219,7 +216,7 @@
 		left:50%;
 		top:50%;
 		transform: translate(-50%,-50%) rotate(45deg);
-		background-color: hsl(var(--black));
+		background-color: var(--black);
 		width: rem(100);
 		height:rem(100);
 	}

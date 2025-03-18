@@ -4,10 +4,7 @@
 *
 **/
 
-
-@use "../var-sass" as *;
-@use "../mixins" as *;
-@use "../helpers" as *;
+@use "../sass" as *;
 
 
 .breadcrumb {
@@ -26,40 +23,6 @@
 		position: absolute;
 		left:-100vw;
 		visibility: hidden;
-	}
-
-	a, a:visited {
-		text-decoration: none;
-		color:hsl(var(--black));
-
-		&:hover, &:focus-visible { text-decoration: underline; }
-	}
-
-	// home
-	&:nth-child(1) {
-		a, a:visited {
-			background-color: hsl(var(--black));
-			color: hsl(var(--white));
-			padding: rem(5);
-			border-radius: 50%;
-			transition: background-color var(--t-btn) ease;
-
-			svg { 
-				fill: currentColor;
-				transition: fill var(--t-btn) ease;
-				transform: translateY(-.03em);
-			}
-
-			&:hover, &:focus-visible {
-				background-color: hsl(var(--green));
-				transition: background-color var(--t-btn) ease;
-	
-				svg {
-					fill: hsl(var(--black));
-					transition: fill var(--t-btn) ease;
-				}
-			}
-		}
 	}
 
 	@media ( min-width : em($mq-layout-l) ) {
@@ -84,6 +47,34 @@
 
 		.breadcrumb-item:first-child & {
 			display: none;
+		}
+	}
+}
+.breadcrumb-link, .breadcrumb-link:visited {
+	text-decoration: none;
+	
+	// home
+	.breadcrumb-item:nth-child(1) & {
+		background-color: var(--black);
+		color: var(--white);
+		padding: rem(5);
+		border-radius: 50%;
+		transition: background-color var(--t-btn) ease;
+
+		svg { 
+			fill: currentColor;
+			transition: fill var(--t-btn) ease;
+			transform: translateY(-.03em);
+		}
+
+		&:hover, &:focus-visible {
+			background-color: var(--color-p);
+			transition: background-color var(--t-btn) ease;
+
+			svg {
+				fill: var(--black);
+				transition: fill var(--t-btn) ease;
+			}
 		}
 	}
 }

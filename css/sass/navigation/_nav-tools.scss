@@ -4,10 +4,7 @@
 *
 **/
 
-
-@use "../var-sass" as *;
-@use "../mixins" as *;
-@use "../helpers" as *;
+@use "../sass" as *;
 @use "../components/cpt-buttons" as *;
 
 
@@ -64,25 +61,25 @@
 	}
 }
 
-.h-tools-cart-counter {
-	display: inline-flex;
-	justify-content: center;
-	align-items: center;
-	min-width: rem($button-size);
-	height: rem($button-size);
-	padding-bottom:rem(2); // fix font wpréform
-	background-color: hsl(var(--black));
-	font-family: var(--font-project);
-	font-weight: 400;
-	font-size: rem(22);
-	color:hsl(var(--black));
-	transition: border-color .3s ease;
+// .h-tools-cart-counter {
+// 	display: inline-flex;
+// 	justify-content: center;
+// 	align-items: center;
+// 	min-width: var(--btn-size);
+// 	height: var(--btn-size);
+// 	padding-bottom:rem(2); // fix font wpréform
+// 	background-color: var(--black);
+// 	font-family: var(--font-project);
+// 	font-weight: 400;
+// 	font-size: rem(22);
+// 	color:var(--black);
+// 	transition: border-color .3s ease;
 
-	.h-tools-link:hover &, .h-tools-link:focus & {
-		border-color:hsl(var(--blue));
-		transition: border-color .3s ease;
-	}
-}
+// 	.h-tools-link:hover &, .h-tools-link:focus & {
+// 		border-color:var(--color-p);
+// 		transition: border-color .3s ease;
+// 	}
+// }
 
 
 /*=====  FIN Liens / Boutons  =====*/

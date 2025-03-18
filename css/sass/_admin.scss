@@ -12,8 +12,7 @@
 *
 **/
 
-@use "var-sass" as *;
-@use "mixins" as *;
+@use "sass" as *;
 
 
 
@@ -23,8 +22,8 @@
 
 /*----------  Encadré  ----------*/
 
-.bloc-style--v1 { background-color: hsl(var(--orange)); }
-.bloc-style--v2 { background-color: hsl(var(--blue)); }
+.bloc-style--v1 { background-color: var(--grey); }
+.bloc-style--v2 { background-color: var(--color-p); }
 
 
 /*=====  FIN Communs  =====*/
@@ -112,14 +111,14 @@ h3.wp-block-heading { font-size: rem(20); }
 		border-radius: 0;
 		display:flex;
 		align-items: center;
-		gap:rem($button-space);
-		height: rem($button-size);
-		padding: rem(0,$button-space);
-		background-color: hsl(var(--black));
+		gap: var(--btn-space);
+		min-height: var(--btn-size);
+		padding: 0 var(--btn-space);
+		background-color: var(--black);
 		font-family: var(--font-project);
 		font-weight: 400;
 		font-size: rem(18);
-		color: hsl(var(--white));
+		color: var(--white);
 	}
 }
 
