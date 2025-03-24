@@ -10,8 +10,14 @@
 .coord {}
 
 .coord-list {
-	margin:0;
 	font-style: normal;
+	display: grid;
+	grid-template-columns: repeat(calc(var(--coord-cols) - 1),auto) 1fr;
+	gap: var(--btn-space);
+
+	@media ( min-width : em($mq-layout-xl) ) {
+		grid-template-columns: repeat(calc(var(--coord-cols) + 1),auto) 1fr;
+	}
 }
 
 .coord-item {
@@ -23,6 +29,8 @@
 }
 
 .coord-item--logo {
+	grid-column: 1/-1;
+	margin-bottom: calc(var(--space-half) - var(--btn-space));
 	
 	@media ( min-width : em($mq-layout-m) ) {
 		img { width:rem(120); }
@@ -30,46 +38,16 @@
 }
 
 .coord-item--addr {
-	margin-top:rem(20);
+	grid-column: 1/-1;
 
-	@media ( min-width : em($mq-layout-l) ) {
-		margin-top:rem(30);		
-		
-		br:nth-of-type(1) { display:none; }
-	}
-
-}
-
-.coord-item--phone {
-	margin-top:rem(10);
-	align-items: center;
-
-	.coord-sep { display: none; }
-
-	@media ( min-width : em($mq-layout-m) ) {	
+	@media ( min-width : em($mq-layout-xl) ) {		
 		br { display:none; }
-		.coord-sep { display: inline; }
 	}
 }
-	
-.coord-phone, .coord-phone:visited {
-	color:var(--white);
-	@include link-default(false);
+.coord-item--phone {
+	grid-column: 1/-1;
+
+	@media ( min-width : em($mq-layout-xl) ) {		
+		grid-column: auto;
+	}
 }
-
-.coord-ico {
-	flex-shrink: 0;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	width: rem(40);
-	height: rem(40);
-	margin-right: rem(10);
-	border:1px solid var(--white);
-	border-radius: 50%;
-
-	path { fill:var(--white); }
-}
-
-
-.coord-txt {}

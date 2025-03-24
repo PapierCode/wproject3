@@ -6,6 +6,24 @@
 
 @use "../sass" as *;
 
+.h-btn-toggle-search {
+	display: none;
+
+	.txt {
+		position: absolute;
+		left: -666em;
+		white-space: nowrap;
+	}
+
+	@media ( min-width : em($mq-layout-l) ) {
+		.txt { position: static; }
+	}
+	@media ( min-width : em($mq-layout-xxl) ) {
+		.txt { position: absolute; }
+	}
+}
+
+#header-form-search-box { display:none; }
 
 .form-search {
 	display: flex;

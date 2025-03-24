@@ -40,7 +40,6 @@
 /*----------  Navigation  ----------*/
 
 @use "sass/navigation/nav-header";
-@use "sass/navigation/nav-tools";
 @use "sass/navigation/nav-footer";
 
 
@@ -56,5 +55,5 @@
 
 @use "sass/forms/form-contact";
 // @use "sass/forms/form-gravity";
-// @use "sass/forms/form-search";
+@use "sass/forms/form-search";
 @use "sass/forms/form-page-password";

@@ -7,34 +7,39 @@
 @use "../sass" as *;
 
 .button, .button:visited {
-
-	// background-color: transparent; // reset button
-	border-radius: 0; // reset button
-	// font-family: var(--font-project); // reset button
-	// font-size: var(--font-size-default); // reset button
 	
 	display: inline-flex;
 	align-items: center;
 	gap: var(--btn-space);
 
 	min-height: var(--btn-size);
-	padding:calc(.5*var(--btn-space)) var(--btn-space);
+	padding: calc(.5*var(--btn-space)) var(--btn-space);
 
 	background-color: var(--black);
 	border: var(--btn-border-size) solid var(--black);
+	border-radius: 0; // reset button
 
 	font-family: var(--font-default);
 	font-weight: 600;
-	font-size:var(--font-size-default);
+	font-size: var(--font-size-default);
 	line-height: calc(var(--line-height-default) - .5);
 	text-decoration: none;
 	color:var(--white);
 
+	&:has(.ico--close) {
+		overflow: hidden;
+		position: relative;
+	}
+
 	transition:all var(--t-btn) ease;
 	
 	.txt { transform: translateY(0.055em); }
-	.ico {}
-
+	.ico { transition: transform var(--t-btn) ease; }
+	.ico--close {
+		position: absolute;
+		transform: scale(0);
+		transition: transform var(--t-btn) ease;
+	}
 	svg {
 		width: var(--btn-ico-size);
 		height: var(--btn-ico-size);
@@ -51,19 +56,30 @@
 		svg { transition:fill var(--t-btn) ease; }
 	}	
 	
-	&:active { text-decoration: none; }
-	&:disabled {
-		background-color: transparent;
-		color: var(--grey);
-		border: var(--border-default);
-		cursor: default;
-
-		&:hover, &:focus {
-			outline:none;
-		   	background-color: transparent;
-		   	color: var(--grey);
+	&[aria-expanded="true"] {		
+		.ico {
+			transition: transform var(--t-btn) ease;
+			transform: scale(0);
+		}
+		.ico--close {
+			transform: scale(1);
+			transition: transform var(--t-btn) ease;
 		}
 	}
+	
+	&:active { text-decoration: none; }
+	// &:disabled {
+	// 	background-color: transparent;
+	// 	color: var(--grey);
+	// 	border: var(--border-default);
+	// 	cursor: default;
+
+	// 	&:hover, &:focus {
+	// 		outline:none;
+	// 	   	background-color: transparent;
+	// 	   	color: var(--grey);
+	// 	}
+	// }
 }
 
 .button--inline {
@@ -75,6 +91,16 @@
 	svg {
 		width: rem(10);
 		height: rem(10);
+	}
+}
+
+.button--white, .button--white:visited {
+	background-color: var(--white);
+	border-color: var(--white);
+	color: var(--black);
+
+	&:hover, &:focus-visible {
+		color: var(--white);
 	}
 }
 

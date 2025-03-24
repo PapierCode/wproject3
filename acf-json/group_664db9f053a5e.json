@@ -16,8 +16,8 @@
                 "class": "",
                 "id": ""
             },
-            "open": 1,
-            "multi_expand": 1,
+            "open": 0,
+            "multi_expand": 0,
             "endpoint": 0
         },
         {
@@ -175,13 +175,13 @@
                 "class": "",
                 "id": ""
             },
-            "open": 1,
-            "multi_expand": 1,
+            "open": 0,
+            "multi_expand": 0,
             "endpoint": 0
         },
         {
             "key": "field_66753ef76f747",
-            "label": "Réseaux sociaux",
+            "label": "Liste",
             "name": "coord_social",
             "aria-label": "",
             "type": "repeater",
@@ -270,5 +270,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1721982893
+    "modified": 1742663260
 }

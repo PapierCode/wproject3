@@ -11,15 +11,9 @@
 
 
 .f-nav {
-	border-top:var(--border-default);
-	padding-top:var(--space);
 
 	@media ( min-width : em($mq-footer) ) {
 		grid-column: span 1;
-		border:none;
-		margin: 0;
-		padding: 0;
-		text-align: right;
 	}
 }
 
@@ -31,6 +25,10 @@
 	display: flex;
 	flex-direction: column;
 	gap: var(--btn-space);
+
+	@media ( min-width : em($mq-footer) ) {
+		align-items: flex-end;
+	}
 }
 
 .f-nav-item {}
@@ -44,6 +42,8 @@
 
 .f-nav-link, .f-nav-link:visited {
 	color:var(--white);
+	line-height: calc( var(--line-height-default) - .25 );
+	display: block;
 	@include link-default(false);
 }
 

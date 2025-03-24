@@ -23,7 +23,6 @@
 	
     position: relative;
 	z-index: 999;
-	order: 3;
 	justify-self: end;
 	align-self: start;
 
@@ -34,7 +33,6 @@
 	}
 
 	@media ( min-width : em($mq-layout-l) ) {
-		grid-column: span 2 / -1;
 
 		.txt {
 			position: static;
@@ -43,6 +41,8 @@
 			transition: all var(--t-nav) ease;
 		}	
 		.h-nav-is-open & {
+			gap: 0;
+
 			.txt {
 				max-width: 0;
 				margin:0;
@@ -89,7 +89,7 @@
 		&::after { transform: translateY(0) rotate(45deg); }
 	}
 
-	.h-nav-btn:hover &, .h-nav-btn:focus & {
+	.h-nav-btn:hover &, .h-nav-btn:focus-visible & {
 
 		&::before, &::after {
 			background-color: var(--black);
@@ -106,7 +106,7 @@
 		}
 	}
 
-	.h-nav-is-open .h-nav-btn:hover &, .h-nav-is-open .h-nav-btn:focus & {
+	.h-nav-is-open .h-nav-btn:hover &, .h-nav-is-open .h-nav-btn:focus-visible & {
 
 		&::before {
 			transform: translateY(0) rotate(-45deg);
@@ -127,35 +127,35 @@
 		&::after { transform: translateX(rem(100)); }
 	}
 
-	.h-nav-is-open .h-nav-btn:hover &, .h-nav-is-open .h-nav-btn:focus &,
-	.h-nav-btn:hover &, .h-nav-btn:focus & {
+	.h-nav-is-open .h-nav-btn:hover &, .h-nav-is-open .h-nav-btn:focus-visible &,
+	.h-nav-btn:hover &, .h-nav-btn:focus-visible & {
 		&::after { transform: translateX(rem(100)); }
 	}
 }
 
-.h-p-nav-sub-back {
-	position: absolute;
-	z-index: 999;
-	top:var(--space);
-	transform: translateY( calc(-2*var(--space) - var(--btn-size) ) );
-	transition: transform var(--t-nav) ease;
+// .h-p-nav-sub-back {
+// 	position: absolute;
+// 	z-index: 999;
+// 	top:var(--space);
+// 	transform: translateY( calc(-2*var(--space) - var(--btn-size) ) );
+// 	transition: transform var(--t-nav) ease;
 
-	.h-nav:has(.is-open) & {
-		transform: translateY(0);
-		transition: transform var(--t-nav) ease;
-	}
+// 	.h-nav:has(.is-open) & {
+// 		transform: translateY(0);
+// 		transition: transform var(--t-nav) ease;
+// 	}
 
-	@media ( min-width : em($mq-layout-xxl) ) {
-		display: none;
-	}
-}
+// 	@media ( min-width : em($mq-layout-xxl) ) {
+// 		display: none;
+// 	}
+// }
 
 
 /*=====  FIN Bouton ouvrir/fermer  =====*/
 
-/*=================================
-=            Container            =
-=================================*/
+/*==================================
+=            Containers            =
+==================================*/
 
 .h-nav {
 	position: fixed;
@@ -184,7 +184,6 @@
 		transition: none;
 		background-color: transparent;
 
-		grid-column: span 9;
 		justify-self: end;
 		align-self: end;
 
@@ -205,6 +204,10 @@
 	transform: translateX(100%);
 	transition: transform var(--t-nav) ease;
 	overflow: hidden;
+
+	display: flex;
+	flex-direction: column;
+	gap: var(--btn-space);
 
 	.h-nav-is-open & {
 		transform: translateX(0);
@@ -235,8 +238,10 @@
 	}
 }
 
+.h-s-nav { display: none; }
 
-/*=====  FIN Container  =====*/
+
+/*=====  FIN Containers  =====*/
 
 /*=============================
 =            Liste            =
@@ -245,104 +250,22 @@
 /*----------  Commun  ----------*/
 
 .h-nav-list {
+	display: flex;
+	flex-direction: column;
+	gap: var(--btn-space);
 
 	@media ( min-width : em($mq-layout-xxl) ) {
-		display: flex;
-		flex-wrap: wrap;
-	}
-}
-
-.h-nav-item {
-	margin-top: var(--btn-space);
-}
-
-
-/*----------  Level 1  ----------*/
-
-.h-p-nav-list--l1 {
-	height: 100%;
-	position: relative;
-	transition: transform var(--t-nav) ease;
-
-	&:has(.is-open) {
-		transform:translateX(-100%);
-		transition: transform var(--t-nav) ease;
-	}
-
-	@media ( min-width : em($mq-layout-xxl) ) {
-		position: static;
-		padding:0;
 		flex-direction: row;
-		align-items: center;
-		
-		&:has(.is-open) {
-			transform:none;
-			transition: none;
-		}
 	}
 }
 
-.h-p-nav-item--l1 {
+.h-nav-item {}
 
-	&:first-child {
-		margin-top:0;
-	}
+.h-s-nav-list {
 
 	@media ( min-width : em($mq-layout-xxl) ) {
-		margin-top:0;
-		position: relative;
-
-		&:nth-child(n+2) {
-			margin-left: var(--btn-space);
-		}		
+		.h-nav & { display: none; }
 	}
-}
-
-
-/*----------  Level 2  ----------*/
-
-.h-p-nav-box--l2 {
-	position: absolute;
-	z-index: 666;
-	inset: 0;
-	overflow-y: auto;
-	transform: translateX(200%);
-	transition: all var(--t-nav) ease;
-
-	.is-open & {
-		transform: translateX(100%);
-		transition: all var(--t-nav) ease;
-	}
-
-	@media ( min-width : em($mq-layout-xxl) ) {
-		visibility: hidden; // modifier en js ??
-		inset: 100% auto auto 0;
-		z-index: 0;
-		transform: translateY(var(--space));
-		opacity: 0;
-		transition: all var(--t-nav) ease;
-
-		.is-open & {
-			z-index: 666;
-			transform: translateY(0);
-			opacity: 1;
-			transition: all var(--t-nav) ease;
-		}
-	}
-
-}
-
-.h-p-nav-list--l2 {
-
-	@media ( min-width : em($mq-layout-xxl) ) {
-		flex-direction: column;
-		flex-wrap: nowrap;
-		margin-left:0;
-	}
-}
-
-.h-p-nav-item--l2 {
-	position: relative;
 }
 
 
