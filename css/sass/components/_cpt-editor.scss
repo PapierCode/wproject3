@@ -124,8 +124,8 @@
 	.bloc-frame-inner > * {
 		&:not(.wp-block-heading):not(:first-child) { margin-top: calc( var(--editor-margin-top-default-coef) * var(--editor-space) ); }
 	}
-	h2.wp-block-heading { margin-top: calc( var(--editor-margin-top-h2-coef) * var(--editor-space) ); }
-	h3.wp-block-heading { margin-top: var(--editor-space); }
+	> h2.wp-block-heading { margin-top: calc( var(--editor-margin-top-h2-coef) * var(--editor-space) ); }
+	> h3.wp-block-heading { margin-top: var(--editor-space); }
 
 	// autres blocs
 	blockquote, > [class*="bloc-"]:not(.bloc-spacer) { margin-top: var(--editor-space); }
@@ -139,10 +139,10 @@
 	}
 
 	// contenu colonne & encadré
-	.bloc-column, 
-	.bloc-frame-inner {
-		.bloc-image { margin: var(--editor-space) 0; }
-	}
+	// .bloc-column, 
+	// .bloc-frame-inner {
+	// 	.bloc-image { margin: var(--editor-space) 0; }
+	// }
 
 	// espace
 	.bloc-spacer {

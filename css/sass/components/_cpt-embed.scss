@@ -23,13 +23,29 @@
 
 .iframe-accept {
 	position: absolute;
-	inset: 0;
+	inset: auto 0 0;
 	display:flex;
-	flex-direction: column;
+	// flex-direction: column;
 	justify-content: center;
+	gap: var(--space-half);
 	align-items: center;
-	padding:var(--space);
-	background-color: oklch( from var(--color-p) calc(l + .15) c h / .95 );
-	color:var(--white);
-	text-align: center;
+	padding: var(--space-half) var(--space);
+	background-color: oklch( from var(--color-p) l c h / .95 );
+	line-height: 1.4;
+
+	.iframe-accept-cgu-link, .iframe-accept-cgu-link:visited {
+		color: var(--black);
+		@include link-default();
+	}
+	.button .txt {
+		position: absolute;
+		left:-100vw;
+	}
+
+	@media ( min-width : em(360) ) {
+		flex-direction: column;
+		text-align: center;
+
+		.button .txt { position: static; }
+	}
 }

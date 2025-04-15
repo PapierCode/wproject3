@@ -57,6 +57,9 @@ h3.wp-block-heading { font-size: rem(20); }
 .wp-block-acf-pc-quote {
 	font-family: var(--font-project);
 	font-weight: 400;
+	padding: 2rem;
+	border-top: rem(5) solid var(--color-p);
+	border-bottom: rem(5) solid var(--color-p);
 
 	.acf-innerblocks-container {
 		display: flex;
@@ -66,35 +69,12 @@ h3.wp-block-heading { font-size: rem(20); }
 	p { margin: 0; }
 	strong { font-weight: 700; }
 	em { font-style: inherit; }
-	// a {}
 
 	p:nth-child(1) {
-		font-size: rem(24);	
-		position: relative;
-		z-index: 1;
-
-		// &::before, &::after {
-		// 	content:"";
-		// 	position: absolute;
-		// 	z-index: -1;
-		// 	top:rem(-10);
-		// 	width: rem(26);
-		// 	height: rem(20);
-		// 	background-image: svg-load('../images/icons/quote.svg',fill=$yellow);
-		// 	opacity: .5;
-		// }
-		// &::before {
-		// 	transform: scale(-4,4);
-		// 	right:calc( 100% + #{rem(10)} );
-		// }
-		// &::after {
-		// 	transform-origin: right top;
-		// 	transform-origin: right top;
-		// 	transform: scale(4);
-		// 	right:rem(-10);
-		// }
+		font-size: rem(24);
+		font-style: italic;
 	}
-	p:nth-child(2) {font-size: rem(20); }
+	p:nth-child(2) { font-size: rem(20); }
 }
 
 
