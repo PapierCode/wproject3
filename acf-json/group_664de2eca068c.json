@@ -1,13 +1,34 @@
 {
     "key": "group_664de2eca068c",
-    "title": "Accueil",
+    "title": "Contenu",
     "fields": [
         {
-            "key": "field_66a4b9fec826b",
-            "label": "Image à la une",
-            "name": "_thumbnail_id",
+            "key": "field_6800fb9a831cd",
+            "label": "Introduction",
+            "name": "home_intro",
             "aria-label": "",
-            "type": "image",
+            "type": "textarea",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": 300,
+            "allow_in_bindings": 0,
+            "rows": 3,
+            "placeholder": "",
+            "new_lines": ""
+        },
+        {
+            "key": "field_6800fbcd831ce",
+            "label": "Raccourcis",
+            "name": "home_shortcuts",
+            "aria-label": "",
+            "type": "repeater",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -16,16 +37,45 @@
                 "class": "",
                 "id": ""
             },
-            "return_format": "array",
-            "library": "all",
-            "min_width": "",
-            "min_height": "",
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": "jpg,jpeg,png,webp",
-            "preview_size": "thumbnail_s"
+            "layout": "row",
+            "pagination": 0,
+            "min": 2,
+            "max": 4,
+            "collapsed": "",
+            "button_label": "Ajouter une page",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_6800fbfc831cf",
+                    "label": "Page",
+                    "name": "page",
+                    "aria-label": "",
+                    "type": "post_object",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "post_type": [
+                        "page"
+                    ],
+                    "post_status": [
+                        "publish"
+                    ],
+                    "taxonomy": "",
+                    "return_format": "object",
+                    "multiple": 0,
+                    "allow_null": 0,
+                    "allow_in_bindings": 0,
+                    "bidirectional": 0,
+                    "ui": 1,
+                    "bidirectional_target": [],
+                    "parent_repeater": "field_6800fbcd831ce"
+                }
+            ]
         }
     ],
     "location": [
@@ -43,11 +93,23 @@
     "label_placement": "left",
     "instruction_placement": "field",
     "hide_on_screen": [
+        "permalink",
+        "the_content",
+        "excerpt",
+        "discussion",
+        "comments",
+        "revisions",
         "slug",
-        "page_attributes"
+        "author",
+        "format",
+        "page_attributes",
+        "featured_image",
+        "categories",
+        "tags",
+        "send-trackbacks"
     ],
     "active": true,
-    "description": "",
+    "description": "Accueil",
     "show_in_rest": 0,
-    "modified": 1733248960
+    "modified": 1745482311
 }
