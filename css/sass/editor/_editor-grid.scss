@@ -1,0 +1,118 @@
+/**
+*
+* Éditeur : variables
+*
+**/
+
+@use "../sass" as *;
+
+:root {		
+
+	--editor-space : var(--space);
+
+	// grille horizontale
+	--editor-col-start : 1;
+	--editor-col-end : -1;
+
+	// espaces & grille verticale
+	--editor-margin-top-default-coef : .5;
+	--editor-margin-top-h2-coef : 1.5;
+
+	// galerie
+	--editor-gallery-gap : calc(var(--editor-margin-top-default-coef) * var(--editor-space));
+
+
+	@media ( min-width : em($mq-layout-xl) ) {
+
+		--editor-col-start : 3;
+		--editor-col-end : -3;
+		--editor-wide-col-start : 1;
+		--editor-wide-col-end : -1;
+		
+	}
+
+	@media ( min-width : em($mq-layout-xxl) ) {
+		
+		--editor-col-start : 4;
+		--editor-col-end : -4;
+		--editor-wide-col-start : 2;
+		--editor-wide-col-end : -2;
+
+	}
+
+}
+
+.editor {
+
+    grid-column: 1/-1;
+    display: grid;
+    grid-template-columns: subgrid;
+
+
+    /*----------  Grille horizontale  ----------*/
+    
+    > * { grid-column: var(--editor-col-start) / var(--editor-col-end); }
+    
+    @media ( min-width : em($mq-layout-xl) ) {
+        .bloc-align-h--wide { grid-column: var(--editor-wide-col-start) / var(--editor-wide-col-end); }
+        .bloc-align-h--left { grid-column-end: var(--editor-wide-col-end); }
+        .bloc-align-h--right { grid-column-start: var(--editor-wide-col-start); }	
+    }
+
+    > h2 {
+        @media ( min-width : em($mq-layout-xl) ) {
+            grid-column-start: calc( var(--editor-col-start) - 1 );
+            grid-column-end: calc( var(--editor-col-end) + 1 );
+        }
+    }
+
+    
+    /*----------  Grille vertical  ----------*/	
+
+    // blocs partagés
+    > p, 
+    > ul, 
+    > ol, 
+    > .bloc-buttons, 
+    .bloc-column > *, 
+    .bloc-frame-inner > * { margin-top: calc( var(--editor-margin-top-default-coef) * var(--editor-space) ); }
+
+    > h2 { margin-top: calc( var(--editor-margin-top-h2-coef) * var(--editor-space) ); }
+    > h3 { margin-top: var(--editor-space); }
+
+    // autres blocs
+    blockquote, > [class*="bloc-"]:not(.bloc-spacer) { margin-top: var(--editor-space); }
+
+    // 2 colonnes sans fond (parent ou enfant) et sans image en première position
+    .bloc-columns:not([class*="bloc-style"]):not(:has([class*="bloc-style"])):not(:has(.bloc-image:first-child)) {
+        // si un paragraphe/titre en première position
+        &:has(p:first-child) { margin-top: calc( var(--editor-margin-top-default-coef) * var(--editor-space) ); }
+        &:has(h2:first-child) { margin-top: calc( var(--editor-margin-top-h2-coef) * var(--editor-space) ); }
+        &:has(h3:first-child) { margin-top: var(--editor-space); } // utile ? (= defaut)
+    }
+
+    // premier
+    :first-child,
+    .bloc-spacer + [class*="bloc-"],
+    .bloc-spacer + * {
+        margin-top: 0;
+    }
+
+
+    /*----------  Texte ou sous-bloc, alignement horizontal  ----------*/
+    
+    .has-text-align-center { text-align: center; }
+    .has-text-align-right { text-align: right; }
+
+    .bloc-inner-align-h--center { justify-content: center; }
+    .bloc-inner-align-h--left { justify-content: flex-start; }
+    .bloc-inner-align-h--right { justify-content: flex-end; }
+
+
+    /*----------  Sous-bloc, alignement vertical  ----------*/
+        
+    .bloc-inner-align-v--top > * { align-self: start; }
+    .bloc-inner-align-v--center > * { align-self: center; }
+    .bloc-inner-align-v--bottom > * { align-self: end; }
+
+}

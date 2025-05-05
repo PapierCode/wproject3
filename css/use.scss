@@ -26,7 +26,6 @@
 @use "sass/components/cpt-pager";
 @use "sass/components/cpt-social";
 @use "sass/components/cpt-breadcrumb";
-@use "sass/components/cpt-editor";
 @use "sass/components/cpt-modal";
 @use "sass/components/cpt-a11y";
 @use "sass/components/cpt-embed";
@@ -49,6 +48,15 @@
 @use "sass/publications/pub-cpts";
 @use "sass/publications/pub-home";
 @use "sass/publications/pub-search-results";
+
+
+
+/*----------  Éditeur  ----------*/
+
+@use "sass/editor/editor-commons";
+@use "sass/editor/editor-grid";
+@use "sass/editor/editor-typo";
+@use "sass/editor/editor-blocks";
 
 
 /*----------  Formulaires  ----------*/

@@ -1,0 +1,34 @@
+/**
+*
+* Éditeur : communs
+*
+**/
+
+@use "../sass" as *;
+
+.editor {
+
+
+    /*======================================
+    =            Éléments vides            =
+    ======================================*/
+    
+    p, 
+    h2, 
+    h3, 
+    ul, 
+    ol, 
+    li, 
+    a, 
+    figure, 
+    figcaption, 
+    blockquote, 
+    cite, 
+    div:not(.bloc-spacer) {
+        &:empty { display: none; }
+    }	
+    
+    
+    /*=====  FIN Éléments vides  =====*/
+
+} /* FIN .editor */

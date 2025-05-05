@@ -1,0 +1,120 @@
+/**
+*
+* Éditeur : typographie
+*
+**/
+
+@use "../sass" as *;
+
+:root {
+
+	// texte courant
+	--editor-font-weight : 400;
+	--editor-font-weight-strong : 700;
+
+	// font face
+	--editor-font-face-weight : 400;
+	--editor-font-face-weight-strong : 700;
+	--editor-font-face-line-height : 1.3;
+	--editor-font-face-italic : italic; // ou inherit
+
+	// titres
+	--editor-h2-font-size : #{rem(30)};
+	--editor-h3-font-size : #{rem(24)};
+
+	// citation
+	--editor-quote-line-height : 1.4;
+	--editor-quote-font-size : #{rem(22)};
+
+	@media ( min-width : em($mq-layout-l) ) {
+
+		// titres
+		--editor-h2-font-size : #{rem(34)};
+		--editor-h3-font-size : #{rem(28)};
+
+		// citation
+		--editor-quote-font-size : #{rem(26)};
+
+	}
+
+}
+
+.editor {
+
+    ul.wp-block-list {
+		list-style: disc;
+		padding-left: .9em;
+	}
+	ol.wp-block-list {
+		list-style: decimal;
+		padding-left: 1.6em;
+	}
+
+	h2.wp-block-heading,
+	h3.wp-block-heading  {
+		font-family: var(--font-project);
+		font-weight: var(--editor-font-face-weight);
+		line-height: var(--editor-font-face-line-height);
+
+		a {	color: inherit; }
+		em { font-style: var(--editor-font-face-italic); }
+		strong { font-weight: var(--editor-font-face-weight-strong); }
+	}
+	h2.wp-block-heading { font-size: var(--editor-h2-font-size); }
+	h3.wp-block-heading { font-size: var(--editor-h3-font-size); }
+
+	> p, 
+	> ul li, 
+	> ol li, 
+	.bloc-column > p, 
+	.bloc-column > ul li, 
+	.bloc-column > ol li, 
+	.bloc-frame-inner > p, 
+	.bloc-frame-inner > ul li,
+	.bloc-frame-inner > ol li {
+		strong { font-weight: 700; }
+		em { font-style: italic; }
+	}
+			
+	sup, 
+	sub {
+		font-size: small;
+		margin-left: .2em;
+	}
+	sup { vertical-align: top; }
+	sub { vertical-align: bottom; }    
+
+}
+
+.bloc-buttons { 
+	strong { font-weight: var(--editor-font-face-weight-strong); }
+	em { font-style: var(--editor-font-face-italic); }
+}
+
+.bloc-quote {
+	font-family: var(--font-project);
+	font-weight: var(--editor-font-face-weight);
+	line-height: var(--editor-quote-line-height);
+
+	p { font-size: var(--editor-quote-font-size); }
+	cite { font-style: normal; }
+	strong { font-weight: var(--editor-font-face-weight-strong); }
+	em { font-style: var(--editor-font-face-italic); }
+}
+
+.bloc-image {
+	figcaption {
+		font-size: medium;
+		font-style: italic;
+	}
+}
+
+.bloc-gallery {
+    .gallery-play {
+        font-family: var(--font-default);
+        font-size: var(--font-size-default);
+        color: var(--white);
+
+        &:hover, &:focus-visible { color: var(--black); }
+    }
+}
