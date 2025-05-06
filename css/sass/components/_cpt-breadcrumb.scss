@@ -50,8 +50,9 @@
 		}
 	}
 }
-.breadcrumb-link, .breadcrumb-link:visited {
-	text-decoration: none;
+.breadcrumb-link, .breadcrumb-link:visited {	
+	@include link-default(false);
+	color: var(--black);
 	
 	// home
 	.breadcrumb-item:nth-child(1) & {

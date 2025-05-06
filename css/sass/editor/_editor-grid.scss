@@ -69,7 +69,6 @@
     
     /*----------  Grille vertical  ----------*/	
 
-    // blocs partagés
     > p, 
     > ul, 
     > ol, 
@@ -80,7 +79,6 @@
     > h2 { margin-top: calc( var(--editor-margin-top-h2-coef) * var(--editor-space) ); }
     > h3 { margin-top: var(--editor-space); }
 
-    // autres blocs
     blockquote, > [class*="bloc-"]:not(.bloc-spacer) { margin-top: var(--editor-space); }
 
     // 2 colonnes sans fond (parent ou enfant) et sans image en première position
@@ -91,10 +89,10 @@
         &:has(h3:first-child) { margin-top: var(--editor-space); } // utile ? (= defaut)
     }
 
-    // premier
-    :first-child,
-    .bloc-spacer + [class*="bloc-"],
-    .bloc-spacer + * {
+    // premier & précédé d'un bloc espace
+    :first-child,    
+    .bloc-spacer + *,
+    .bloc-spacer + [class*="bloc-"] {
         margin-top: 0;
     }
 

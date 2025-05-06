@@ -16,15 +16,15 @@
 	--editor-font-face-weight : 400;
 	--editor-font-face-weight-strong : 700;
 	--editor-font-face-line-height : 1.3;
-	--editor-font-face-italic : italic; // ou inherit
+	--editor-font-face-italic : italic; // ou inherit si pas de variante italique
 
 	// titres
 	--editor-h2-font-size : #{rem(30)};
 	--editor-h3-font-size : #{rem(24)};
 
 	// citation
-	--editor-quote-line-height : 1.4;
 	--editor-quote-font-size : #{rem(22)};
+	--editor-quote-line-height : 1.4;
 
 	@media ( min-width : em($mq-layout-l) ) {
 
@@ -64,15 +64,10 @@
 	h3.wp-block-heading { font-size: var(--editor-h3-font-size); }
 
 	> p, 
-	> ul li, 
-	> ol li, 
-	.bloc-column > p, 
-	.bloc-column > ul li, 
-	.bloc-column > ol li, 
-	.bloc-frame-inner > p, 
-	.bloc-frame-inner > ul li,
-	.bloc-frame-inner > ol li {
-		strong { font-weight: 700; }
+	> ul li, > ol li, 
+	.bloc-column p, .bloc-frame-inner p,
+	.bloc-column li, .bloc-frame-inner li {
+		strong { font-weight: var(--editor-font-weight-strong); }
 		em { font-style: italic; }
 	}
 			
@@ -86,10 +81,16 @@
 
 }
 
+
+/*----------  Boutons  ----------*/
+
 .bloc-buttons { 
 	strong { font-weight: var(--editor-font-face-weight-strong); }
 	em { font-style: var(--editor-font-face-italic); }
 }
+
+
+/*----------  Citation  ----------*/
 
 .bloc-quote {
 	font-family: var(--font-project);
@@ -102,12 +103,18 @@
 	em { font-style: var(--editor-font-face-italic); }
 }
 
+
+/*----------  Image  ----------*/
+
 .bloc-image {
 	figcaption {
 		font-size: medium;
 		font-style: italic;
 	}
 }
+
+
+/*----------  Galerie  ----------*/
 
 .bloc-gallery {
     .gallery-play {

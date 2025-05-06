@@ -130,8 +130,6 @@ h1 {
 	max-width: rem($mw-layout);
 	margin: 0 auto;
 
-	&:empty { display: none; }
-
 	@media ( min-width : em($mq-layout-xxl) ) {
 		.button { align-self: end; }	
 	}

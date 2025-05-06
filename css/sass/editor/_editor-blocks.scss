@@ -123,9 +123,7 @@
 	}
 }
 
-.bloc-column {
-	&:has(.bloc-image--cover:only-child) { align-self: auto; }
-}
+.bloc-column:has(.bloc-image--cover:only-child) { align-self: auto; }
 
 
 /*=====  FIN Colonnes  =====*/
@@ -142,8 +140,7 @@
 
 		> * { grid-column: 1/-1; }
 		&.bloc-align-h--wide > * {	grid-column: 3/-3; }
-		&.bloc-align-h--left > *, 
-		&.bloc-align-h--right > * { grid-column: 2/-2; }
+		&.bloc-align-h--left > *, &.bloc-align-h--right > * { grid-column: 2/-2; }
 	}
 }	
 
@@ -159,8 +156,8 @@
 	flex-direction: column;
 	padding: var(--editor-space);
 
-	border-top: rem(5) solid var(--black);
-	border-bottom: rem(5) solid var(--black);
+	border-top: rem(5) solid var(--color-p);
+	border-bottom: rem(5) solid var(--color-p);
 
 	cite { margin-top:.5em; }
 }

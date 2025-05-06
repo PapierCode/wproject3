@@ -22,6 +22,18 @@ body {
     &.h-nav-is-open { overflow: hidden; }
 }
 
+p, 
+h1, h2, h3, h4
+ul, ol, li, dl, dt, dd,
+a, button, 
+figure, figcaption, 
+blockquote, cite, 
+address,
+main, section, footer, aside, 
+div:not(.bloc-spacer) {
+	&:empty { display: none; }
+}	
+
 ul, ol {    
 	list-style:none;
 	margin: 0;
