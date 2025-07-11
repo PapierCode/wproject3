@@ -87,6 +87,7 @@ $mq-footer		    : 600;
 	}
 	
 	transition: all 0.3s ease;
+	text-underline-offset: .1em;
 
 	&:hover, &:focus {
 		text-decoration: underline;
