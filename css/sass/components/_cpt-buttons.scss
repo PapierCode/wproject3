@@ -26,12 +26,12 @@
 	text-decoration: none;
 	color:var(--white);
 
+	transition:all var(--t-btn) ease;
+
 	&:has(.ico--close) {
 		overflow: hidden;
 		position: relative;
 	}
-
-	transition:all var(--t-btn) ease;
 	
 	.txt { transform: translateY(0.055em); }
 	.ico { transition: transform var(--t-btn) ease; }

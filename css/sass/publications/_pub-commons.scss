@@ -116,12 +116,13 @@
 
 .card-figure {
 	overflow: hidden;
+	margin-bottom: var(--space);
 
 	img { width: 100%; }
 }
 
 .card-title {
-	margin: var(--space) 0 0;
+	margin: 0;
 	font-family: var(--font-project);
 	font-weight: 700;
 	line-height: 1.3;

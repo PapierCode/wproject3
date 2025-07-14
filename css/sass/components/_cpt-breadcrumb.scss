@@ -51,8 +51,8 @@
 	}
 }
 .breadcrumb-link, .breadcrumb-link:visited {	
-	@include link-default(false);
 	color: var(--black);
+	@include link-default(false);
 	
 	// home
 	.breadcrumb-item:nth-child(1) & {

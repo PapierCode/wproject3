@@ -59,7 +59,7 @@
 	display: grid;
 	grid-template-columns: var(--grid);
 	gap:var(--space);
-	padding: var(--space-screen);
+	padding: var(--space) var(--space-screen);
 	max-width: rem($mw-layout);
 	margin: 0 auto;
 }
@@ -79,9 +79,10 @@
 h1 {
 	grid-column: 1/-1;
 	font-family: var(--font-project);
-	font-weight: 900;
+	font-weight: var(--h1-font-weight);
 	color:var(--black);
 	font-size: var(--h1-font-size);
+	line-height: var(--h1-line-height);
 	margin:0;
 
 	.page &, .single &, .search & {
