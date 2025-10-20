@@ -26,12 +26,12 @@
 		border: var(--border-default);
 			
 		&:focus {
-			outline: none;
+			// outline: none;
 			border-color: var(--black);
 		}
 	}
 	& + & {
-		margin-top:var(--space);
+		margin-top: var(--space);
 	}
 
 	@media ( min-width : em($mq-layout-l) ) {
