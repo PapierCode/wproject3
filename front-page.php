@@ -86,7 +86,18 @@ pc_display_main_start();
             }
             if ( $metas['home_frame_img'] ) {
                 $frame_img = $metas['home_frame_img'];
-                echo '<img src="'.$frame_img['sizes']['card-l'].'" alt="'.$frame_img['alt'].'" width="'.$frame_img['sizes']['card-l-width'].'" height="'.$frame_img['sizes']['card-l-height'].'" loading="lazy" class="home-section-img home-section-img--frame">';
+                $frame_img_attrs= array(
+                    'src' => $frame_img['sizes']['card-l'],
+                    'alt' => $frame_img['alt'],
+                    'width' => $frame_img['sizes']['card-l-width'],
+                    'height' => $frame_img['sizes']['card-l-height'],
+                    'loading' => 'lazy',
+                    'class' => 'home-section-img home-section-img--frame',
+                    'srcset' => $frame_img['sizes']['card-s'].' 400w, '.$frame_img['sizes']['card-m'].' 500w, '.$frame_img['sizes']['card-l'].' 700w',
+                    'sizes' => '(max-width:400px) 400px, (min-width:401px) and (max-width:899px) 700px, (min-width:900px) 500px',
+                    'aria-hidden' => 'true'
+                );
+                echo '<img '.pc_get_attrs_to_string($frame_img_attrs).'>';
             }
         echo '</section>';
 

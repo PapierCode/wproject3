@@ -130,28 +130,44 @@ h1 {
 	gap:var(--space);
 	max-width: rem($mw-layout);
 	margin: 0 auto;
-
-	@media ( min-width : em($mq-layout-xxl) ) {
-		.button { align-self: end; }	
-	}
 }
 
 .aside-card-title {
 	grid-column: 1/-1;
 	border:var(--border-default);
 	padding: var(--space);
-	display: grid;
+	display: flex;
+	flex-direction: column;
 	align-items: center;
-	justify-items: center;
 	gap:var(--space);
+	text-align: center;
+	line-height: calc(var(--line-height-default) - .3);
 
+	@media ( min-width : em($mq-layout-xl) ) {
+		text-align: left;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: flex-end;
+
+		> .button {
+			flex-shrink: 0;
+		}
+	}
 	@media ( min-width : em($mq-layout-xxl) ) {
-		gap:0;
+		flex-direction: column;
+		align-items: center;
 		grid-column: span 4;
+
+		& + .card-list {
+			grid-column: span 8;
+
+			.card-list-item {
+				width: calc( (100% - var(--space)) / 2 );
+			}
+		}
 	}
 }
 .aside-title {
-	text-align: center;
 	font-family: var(--font-project);
 	font-weight: 900;
 	font-size: rem(40);

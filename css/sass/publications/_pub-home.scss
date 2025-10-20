@@ -95,9 +95,6 @@
 		grid-template-rows: auto auto 1fr;
 		row-gap: var(--space-half);
 		grid-auto-flow: dense;
-		
-		> *:not(img) {
-		}
 	}
 }
 .home-section-title--frame {
@@ -127,6 +124,7 @@
 	}
 }
 .home-section-img--frame {
+	width: 100%;
 
 	@media ( min-width : em($mq-layout-xl) ) {
 		grid-column: 1/7;

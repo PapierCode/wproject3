@@ -53,7 +53,7 @@ add_action( 'admin_enqueue_scripts', 'pc_enqueue_admin_project_dependencies' );
 
 	function pc_enqueue_admin_project_dependencies() {
 
-		$path = '/css/project-admin.css';
+		$path = '/css/admin.css';
 		wp_enqueue_style( 
 			'wproject',
 			get_stylesheet_directory_uri().$path,

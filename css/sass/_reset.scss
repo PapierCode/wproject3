@@ -38,7 +38,10 @@ ul, ol {
 	list-style:none;
 	margin: 0;
 	padding: 0;
-	li { list-style-image:none; }
+
+	li { 
+		list-style-image:none;
+	}
 }
 
 img {
@@ -47,7 +50,9 @@ img {
 	height: auto;
 }
 
-svg { display: block; }
+svg { 
+	display: block;
+}
 
 a:not([class]), a:not([class]):visited {	
 	color:var(--black);
@@ -59,4 +64,9 @@ button {
 	text-align: left;
 }
 
-fieldset { border: none; }
+fieldset { 
+	border: none;
+}
+label { 
+	cursor: pointer;
+}

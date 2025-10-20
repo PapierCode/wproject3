@@ -1,0 +1,50 @@
+/**
+*
+* FAQ
+*
+*
+**/
+
+@use "../sass" as *;
+
+.question {
+
+	& + & {
+		margin-top: var(--space-half);
+	}
+}
+.question-title {
+	font-weight: 600;
+	line-height: calc(var(--line-height-default) - .3);
+	cursor: pointer;
+	border: 2px solid var(--grey);
+	padding: var(--space-half) var(--space);
+    display: flex;
+    gap: var(--space-half);
+    transition: all var(--t-card) ease;
+
+	&::marker {
+		content: "";
+	}
+    svg {
+        width: rem(10);
+        aspect-ratio: 1;
+        transform: rotate(-180deg);
+        transition: transform var(--t-card);
+    }
+
+	&:hover, &:focus-visible {
+		border-color: var(--black);
+        transition: all var(--t-card) ease;
+	}
+
+    .question:open & {
+        svg {
+            transform: rotate(-90deg);
+            transition: transform var(--t-card) ease;
+        }
+    }
+}
+.question-answer {
+	padding: var(--space-half) var(--space);
+}

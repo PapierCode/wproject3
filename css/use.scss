@@ -29,6 +29,8 @@
 @use "sass/components/cpt-modal";
 @use "sass/components/cpt-a11y";
 @use "sass/components/cpt-embed";
+@use "sass/components/cpt-card";
+@use "sass/components/cpt-faq";
 
 
 /*----------  Mise en page globale  ----------*/
@@ -60,7 +62,6 @@
 
 /*----------  Formulaires  ----------*/
 
-@use "sass/forms/form-contact";
+@use "sass/forms/form-default";
 // @use "sass/forms/form-gravity";
 @use "sass/forms/form-search";
-@use "sass/forms/form-page-password";
