@@ -49,9 +49,9 @@ var postCssPlugins = [
 
 /*----------  Fonctions  ----------*/
 	
-function cssScreen() {
+function cssFront() {
     
-    return src( ['css/use.scss'] )
+    return src( ['css/use-front.scss'] )
         .pipe(sass({ silenceDeprecations: ['legacy-js-api'], precision: 3 }))
         .pipe(postcss( postCssPlugins ))
 		.pipe(rename( 'front.css' ))
@@ -62,7 +62,7 @@ function cssScreen() {
 function cssAdmin() {
     
     return src( ['css/use-admin.scss'] )
-        .pipe(sass({ silenceDeprecations: ['legacy-js-api'], precision: 3 }))
+        .pipe(sass({ precision: 3 }))
         .pipe(postcss( postCssPlugins ))
 		.pipe(rename( 'admin.css' ))
         .pipe(dest( 'css/' ));
@@ -118,9 +118,8 @@ exports.watch = function() {
 		open: false
     });
 
-	watch( 'css/sass/**/*.scss', series( cssScreen, cssAdmin, browserSyncReload ) )
-	watch( 'css/sass_front/**/*.scss', series( cssScreen, browserSyncReload ) )
-	watch( 'css/sass_admin/**/*.scss', series( cssAdmin, browserSyncReload ) )
+	watch( ['css/sass/**/*.scss','!css/sass/_admin.scss'], series( cssFront, browserSyncReload ) )
+	watch( 'css/sass/_admin.scss', series( cssAdmin, browserSyncReload ) )
 	watch( '**/**.php', series( browserSyncReload ) )
 	watch( ['scripts/**/*.js','!scripts/pc-project.min.js'], series( jsHint, js, browserSyncReload ) )
 
