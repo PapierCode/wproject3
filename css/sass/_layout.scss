@@ -11,6 +11,7 @@
 
 @use "sass" as *;
 
+
 /*==============================
 =            Header            =
 ==============================*/
@@ -40,10 +41,6 @@
 	display: block;
 	max-width: rem(100);
 	margin-right: auto;
-
-	@media ( min-width : em($mq-layout-l) ) {
-		max-width: none;
-	}
 }
 
 
@@ -105,7 +102,7 @@ h1 {
 	display: grid;
 	gap: var(--space-half) var(--space);
 	padding: var(--space-half) var(--space);
-	background-color: var(--grey);
+	background-color: var(--color-p);
 	
 	&:empty { display: none; }
 	

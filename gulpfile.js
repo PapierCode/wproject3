@@ -52,7 +52,7 @@ var postCssPlugins = [
 function cssFront() {
     
     return src( ['css/use-front.scss'] )
-        .pipe(sass({ silenceDeprecations: ['legacy-js-api'], precision: 3 }))
+        .pipe(sass({ precision: 3 }).on('error', sass.logError))
         .pipe(postcss( postCssPlugins ))
 		.pipe(rename( 'front.css' ))
         .pipe(dest( 'css/' ));
@@ -62,7 +62,7 @@ function cssFront() {
 function cssAdmin() {
     
     return src( ['css/use-admin.scss'] )
-        .pipe(sass({ precision: 3 }))
+        .pipe(sass({ precision: 3 }).on('error', sass.logError))
         .pipe(postcss( postCssPlugins ))
 		.pipe(rename( 'admin.css' ))
         .pipe(dest( 'css/' ));

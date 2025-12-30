@@ -13,278 +13,108 @@
 @use "../sass" as *;
 @use "../components/cpt-buttons" as *;
 
+.h-nav {
+	justify-self: end;
 
-/*============================================
-=            Bouton ouvrir/fermer            =
-============================================*/
+	@media ( min-width : em($mq-layout-xxl) ) {
+		align-self: end;
+	}
+}
 
 .h-nav-btn {
-	@extend .button;
-	
-    position: relative;
-	z-index: 999;
-	justify-self: end;
-	align-self: start;
+	color: var(--white);
 
-	.txt {
-		position: absolute;
-		left: -666em;
-		white-space: nowrap;
+	path {
+		stroke: currentColor;
+		stroke-width: 2px;
 	}
 
-	@media ( min-width : em($mq-layout-l) ) {
-
-		.txt {
-			position: static;
-			overflow: hidden;
-			max-width: rem(100);
-			transition: all var(--t-nav) ease;
-		}	
-		.h-nav-is-open & {
-			gap: 0;
-
-			.txt {
-				max-width: 0;
-				margin:0;
-				transition: all var(--t-nav) ease;
-			}
-		}
-	}
-	@media ( min-width : em($mq-layout-xxl) ) {
-		display:none;
-	}
-}
-
-.h-nav-btn-ico {	
-
-	$line-w : 16;
-	$line-h : 2;
-	$arrow-translate : 7;
-
-	width: rem($line-w);
-	height: rem($line-w);
-	position: relative;
-
-	overflow: hidden;
-	&::before, &::after {
-		content: "";
-		width: rem($line-w);
-		height: rem($line-h);
-		position: absolute;
-		z-index: 1;
-		top:50%;
-		left:50%;
-		margin: rem(-.5*$line-h,0,0,-.5*$line-w);
-		background-color: var(--white);
-		transform-origin:center center 0;
-		transition:all var(--t-nav) ease;
-	}
-	&::before { transform:translateY(rem(-$arrow-translate)); }
-	&::after { transform:translateY(rem($arrow-translate)); }
-
-	.h-nav-is-open & {
-
-		&::before, &::after { transition:all var(--t-nav) ease; }
-		&::before { transform: translateY(0) rotate(-45deg); }
-		&::after { transform: translateY(0) rotate(45deg); }
-	}
-
-	.h-nav-btn:hover &, .h-nav-btn:focus-visible & {
-
-		&::before, &::after {
-			background-color: var(--black);
-			transition:all var(--t-nav) ease;
-			width: rem(.75*$line-w);
-		}
-		&::before {
-			transform: translate(rem(.5*$arrow-translate),0) rotate(45deg);
-			transform-origin: left top;
-		}
-		&::after {
-			transform: translate(rem(.5*$arrow-translate),0) rotate(-45deg);
-			transform-origin: left bottom;
-		}
-	}
-
-	.h-nav-is-open .h-nav-btn:hover &, .h-nav-is-open .h-nav-btn:focus-visible & {
-
-		&::before {
-			transform: translateY(0) rotate(-45deg);
-			transform-origin: right top;
-		}
-		&::after {
-			transform: translateY(0) rotate(45deg);
-			transform-origin: right bottom;
-		}
-	}
-}
-.h-nav-btn-ico--inner {
-	display: block;
-	&::before { display:none; }
-	&::after { transform:none; }
-	
-	.h-nav-is-open & {
-		&::after { transform: translateX(rem(100)); }
-	}
-
-	.h-nav-is-open .h-nav-btn:hover &, .h-nav-is-open .h-nav-btn:focus-visible &,
-	.h-nav-btn:hover &, .h-nav-btn:focus-visible & {
-		&::after { transform: translateX(rem(100)); }
-	}
-}
-
-// .h-p-nav-sub-back {
-// 	position: absolute;
-// 	z-index: 999;
-// 	top:var(--space);
-// 	transform: translateY( calc(-2*var(--space) - var(--btn-size) ) );
-// 	transition: transform var(--t-nav) ease;
-
-// 	.h-nav:has(.is-open) & {
-// 		transform: translateY(0);
-// 		transition: transform var(--t-nav) ease;
-// 	}
-
-// 	@media ( min-width : em($mq-layout-xxl) ) {
-// 		display: none;
-// 	}
-// }
-
-
-/*=====  FIN Bouton ouvrir/fermer  =====*/
-
-/*==================================
-=            Containers            =
-==================================*/
-
-.h-nav {
-	position: fixed;
-	z-index: 888;
-	top: 0;
-	left: 100%;
-	bottom: 0;
-	width: 100%;
-	display: flex;
-	justify-content: flex-end;
-	overflow: hidden;
-	transition:left 0s ease var(--t-nav), background-color var(--t-nav) ease;
-
-	.h-nav-is-open & {
-		left:0;
-		background-color: oklch( from var(--black) l c h / .9 );
-		cursor: pointer;
-		transition:background-color var(--t-nav) ease;
+	&:hover, &:focus-visible {
+		color: var(--black);
 	}
 
 	@media ( min-width : em($mq-layout-xxl) ) {
-		position: static;
-		overflow: visible;
-		display: block;
-		width: auto;
-		transition: none;
-		background-color: transparent;
-
-		justify-self: end;
-		align-self: end;
-
-		.h-nav-is-open & {
-			width: auto;
-			background-color: transparent;
-			cursor: default;
-			transition:none;
-		}
+		display: none;
 	}
 }
 
-.h-nav-inner {
-	width: 100vw;
-	height: 100%;
-	padding: calc( var(--btn-size) + 2*var(--space) ) var(--space) var(--space);
+.h-nav-modal {
+	max-height: none;
+	max-width: none;
+	margin: 0 0 0 auto;
+	cursor: pointer;
+
+	--t-modal : .4s;
+	--t-backdrop : .6s;
+	
+	transition: translate var(--t-modal) ease, overlay var(--t-modal) allow-discrete, display var(--t-modal) allow-discrete;
+
+	translate: 100% 0;
+
+	&::backdrop {
+		transition: display var(--t-backdrop) allow-discrete, overlay var(--t-backdrop) allow-discrete, background-color var(--t-backdrop);
+		background-color: oklch(from var(--black) l c h / 0);
+		backdrop-filter: blur(2px);
+	}
+
+	&:open {
+		translate: 0 0;
+	}
+	&:open::backdrop {
+    	background-color: oklch(from var(--black) l c h / .9);
+	}
+}
+
+.h-nav-modal-inner {
+	padding: calc(var(--space) + var(--btn-size)) var(--space) var(--space);
+	width: 80dvw;
+	height: 100dvh;
 	background-color: var(--color-p);
-	transform: translateX(100%);
-	transition: transform var(--t-nav) ease;
-	overflow: hidden;
+	cursor: default;
 
-	display: flex;
-	flex-direction: column;
-	gap: var(--btn-space);
-
-	.h-nav-is-open & {
-		transform: translateX(0);
-		cursor: default;
-		transition: transform var(--t-nav) ease;
-	}
-	
-	@media ( min-width : em($mq-layout-m) ) {
-		width:80vw;
-	}
 	@media ( min-width : em($mq-layout-l) ) {
-		width:60vw;
-	}
-	@media ( min-width : em($mq-layout-xxl) ) {
-		background-color: transparent;
-		width: auto;
-		padding: 0;
-		transform: none;
-		transition: none;
-		overflow: visible;
-		display: flex;
-		gap: var(--btn-space);
-
-		.h-nav-is-open & {
-			transform: none;
-			transition: none;
-		}
+		width: 50dvw;
 	}
 }
 
-.h-s-nav { display: none; }
+@starting-style {
+  .h-nav-modal[open] {
+    translate: 100% 0;
 
-
-/*=====  FIN Containers  =====*/
-
-/*=============================
-=            Liste            =
-=============================*/
-
-/*----------  Commun  ----------*/
+    &::backdrop {
+      background-color: oklch(from var(--black) l c h / 0);
+    }
+  }
+}
 
 .h-nav-list {
-	display: flex;
-	flex-direction: column;
-	gap: var(--btn-space);
+
+	.h-nav > & {
+		display: none;
+	}
+	.h-nav-modal & {
+		display: flex;
+		flex-direction: column;
+		gap: var(--btn-space);
+	}
 
 	@media ( min-width : em($mq-layout-xxl) ) {
-		flex-direction: row;
+		.h-nav > & {
+			display: flex;
+			gap: var(--btn-space);
+		}
 	}
 }
-
-.h-nav-item {}
-
-.h-s-nav-list {
-
-	@media ( min-width : em($mq-layout-xxl) ) {
-		.h-nav & { display: none; }
-	}
-}
-
-
-/*=====  FIN Liste  =====*/
-
-/*============================
-=            Lien            =
-============================*/
-
-.h-nav-link, .h-nav-link:visited {
+.h-nav-link {
 	@extend .button;
 
-	.is-active > &, .is-ancestor-active > & {
+	&[aria-current] {
 		background-color: var(--white);
 		border-color: var(--white);
 		color: var(--black);
 	}
-	&:hover, &:focus {}
+	&[aria-current]:hover, &[aria-current]:focus-visible {
+		background-color: transparent;
+		border-color: currentColor;
+	}
 }
-
-
-/*=====  FIN Lien  =====*/

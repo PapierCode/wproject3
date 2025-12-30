@@ -33,7 +33,7 @@
 	margin-bottom: calc(var(--space-half) - var(--btn-space));
 	
 	@media ( min-width : em($mq-layout-m) ) {
-		img { width:rem(120); }
+		img { width:rem(100); }
 	}
 }
 

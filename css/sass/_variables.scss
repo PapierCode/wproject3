@@ -9,12 +9,6 @@
 	--color-p 				: oklch( .8 .3 90 );
 	--color-p-d-1 			: oklch( from var(--color-p) .2 c h );
 
-	--color-s 				: oklch( .8 .2 70 );
-	--color-s-d-1 			: oklch( from var(--color-s) calc(l - .15) c h );
-	--color-s-d-2 			: oklch( from var(--color-s) calc(l - .3) c h );
-	--color-s-d-3 			: oklch( from var(--color-s) calc(l - .45) c h );
-	--color-s-d-4 			: oklch( from var(--color-s) calc(l - .55) c h );
-
 	--white					: oklch( from var(--color-p) 1 0.015 h );
 	--grey					: oklch( from var(--color-p) .95 0.015 h );
 	--black					: var(--color-p-d-1);
